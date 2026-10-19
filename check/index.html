@@ -22,7 +22,13 @@
 .p-check__name { font-size: 17px; font-weight: 500; color: var(--color-primary); text-underline-offset: 4px; }
 .p-check__st { flex: none; font-size: var(--fs-note); color: var(--color-gray); }
 .p-check__desc { margin-top: 4px; font-size: var(--fs-note); color: var(--color-ink-sub); }
-.p-check__subs { list-style: none; margin: 10px 0 0; padding: 0 0 0 16px; border-left: 2px solid var(--color-line); }
+.p-check__more { margin-top: 8px; }
+.p-check__more summary { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; font-size: var(--fs-note); color: var(--color-ink-sub); cursor: pointer; list-style: none; }
+.p-check__more summary::-webkit-details-marker { display: none; }
+.p-check__more summary::before { content: ""; width: 7px; height: 7px; border-right: 1.5px solid var(--color-primary); border-bottom: 1.5px solid var(--color-primary); transform: rotate(-45deg); transition: transform .2s ease; }
+.p-check__more[open] summary::before { transform: rotate(45deg); }
+.p-check__more summary:hover { color: var(--color-primary); }
+.p-check__subs { list-style: none; margin: 6px 0 0; padding: 0 0 0 16px; border-left: 2px solid var(--color-line); }
 .p-check__subs li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; padding: 5px 0; font-size: var(--fs-small); }
 .p-check__subs a { color: var(--color-ink); text-underline-offset: 3px; }
 .p-check__subs a:hover, .p-check__name:hover { color: var(--color-primary-dk); }
@@ -65,10 +71,10 @@
   <h2>作成済みのページ</h2>
   <ul class="p-check__list"><li class="p-check__item">
         <div class="p-check__row"><a class="p-check__name" href="../index.html">トップ</a><span class="p-check__st">静的HTML済</span></div>
-        <ul class="p-check__subs"><li><a href="../index.html?op=first">オープニングを初回として再生</a><code>/?op=first</code></li><li><a href="../index.html?op=repeat">再訪として再生（ロゴだけ）</a><code>/?op=repeat</code></li><li><a href="../index.html?season=winter&amp;op=repeat">いまの季節を冬にする</a><code>/?season=winter&amp;op=repeat</code></li></ul>
+        <details class="p-check__more"><summary>確認用のURL（3件）</summary><ul class="p-check__subs"><li><a href="../index.html?op=first">オープニングを初回として再生</a><code>/?op=first</code></li><li><a href="../index.html?op=repeat">再訪として再生（ロゴだけ）</a><code>/?op=repeat</code></li><li><a href="../index.html?season=winter&amp;op=repeat">いまの季節を冬にする</a><code>/?season=winter&amp;op=repeat</code></li></ul></details>
       </li><li class="p-check__item">
         <div class="p-check__row"><a class="p-check__name" href="../plan/index.html">観光タクシー旅プラン（一覧・検索結果）</a><span class="p-check__st">静的HTML済</span></div>
-        <ul class="p-check__subs"><li><a href="../plan/index.html?axis=katana">テーマ「刀」で絞り込み（ページ下に特集）</a><code>/plan/?axis=katana</code></li><li><a href="../plan/index.html?mood=onsen">気分「温泉」（ページ下に特集）</a><code>/plan/?mood=onsen</code></li><li><a href="../plan/index.html?season=autumn">季節「秋」（ページ下に特集）</a><code>/plan/?season=autumn</code></li><li><a href="../plan/index.html?mood=zekkei,onsen&amp;time=4">条件を2つ（特集は出ない）</a><code>/plan/?mood=zekkei,onsen&amp;time=4</code></li><li><a href="../plan/index.html?date=2027-01-15">ご利用日 1月15日（冬季運休を除く）</a><code>/plan/?date=2027-01-15</code></li><li><a href="../plan/index.html?from=皆生温泉&amp;to=大山寺">出発 皆生温泉・到着 大山寺</a><code>/plan/?from=皆生温泉&amp;to=大山寺</code></li><li><a href="../plan/index.html?mood=rain&amp;axis=katana&amp;time=5">該当なし</a><code>/plan/?mood=rain&amp;axis=katana&amp;time=5</code></li><li><a href="../plan/index.html?filter=season">「季節」の選択肢を開いた状態</a><code>/plan/?filter=season</code></li><li><a href="../plan/index.html?sort=price#page-2">料金の安い順・2ページ目</a><code>/plan/?sort=price#page-2</code></li></ul>
+        <details class="p-check__more"><summary>確認用のURL（9件）</summary><ul class="p-check__subs"><li><a href="../plan/index.html?axis=katana">テーマ「刀」で絞り込み（ページ下に特集）</a><code>/plan/?axis=katana</code></li><li><a href="../plan/index.html?mood=onsen">気分「温泉」（ページ下に特集）</a><code>/plan/?mood=onsen</code></li><li><a href="../plan/index.html?season=autumn">季節「秋」（ページ下に特集）</a><code>/plan/?season=autumn</code></li><li><a href="../plan/index.html?mood=zekkei,onsen&amp;time=4">条件を2つ（特集は出ない）</a><code>/plan/?mood=zekkei,onsen&amp;time=4</code></li><li><a href="../plan/index.html?date=2027-01-15">ご利用日 1月15日（冬季運休を除く）</a><code>/plan/?date=2027-01-15</code></li><li><a href="../plan/index.html?from=皆生温泉&amp;to=大山寺">出発 皆生温泉・到着 大山寺</a><code>/plan/?from=皆生温泉&amp;to=大山寺</code></li><li><a href="../plan/index.html?mood=rain&amp;axis=katana&amp;time=5">該当なし</a><code>/plan/?mood=rain&amp;axis=katana&amp;time=5</code></li><li><a href="../plan/index.html?filter=season">「季節」の選択肢を開いた状態</a><code>/plan/?filter=season</code></li><li><a href="../plan/index.html?sort=price#page-2">料金の安い順・2ページ目</a><code>/plan/?sort=price#page-2</code></li></ul></details>
       </li><li class="p-check__item">
         <div class="p-check__row"><a class="p-check__name" href="../styleguide.html">部品カタログ（スタイルガイド）</a><span class="p-check__st">静的HTML済</span></div>
         
