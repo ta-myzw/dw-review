@@ -1,0 +1,103 @@
+/* =========================================================
+   DAISEN WONDER — Design Tokens
+   色・文字・余白・角丸・影・動きの基準値。
+   値を変えるときはここだけを変更する（各CSSは変数を参照）。
+   ========================================================= */
+:root {
+  /* ---------- Color ---------- */
+  --color-ink:        #0F1525;   /* 見出し・本文 */
+  --color-ink-sub:    #244A52;   /* 本文（補助）・ナビ */
+  --color-gray:       #5A6A72;   /* 注釈・補足（白背景で 5:1 以上） */
+  --color-primary:    #386A76;   /* ブランドのティール（リンク・ボタン・ラベル） */
+  --color-primary-dk: #244A52;   /* ホバー・押下 */
+  --color-paper:      #F7F7F7;   /* 基本の背景・暗い面の上の文字 */
+  --color-white:      #FFFFFF;
+  --color-sage:       #EFF2EC;   /* 色付きセクションの背景 */
+  --color-sage-dk:    #E4EBE2;   /* 色付き面のホバー */
+  --color-mist:       #F1F4F2;   /* 白面の上のホバー */
+  --color-ph:         #E0E5F5;   /* 画像読み込み前の下地 */
+  --color-cream:      #F6F3EA;   /* 写真帯のコピー */
+
+  /* 状態の色（下層：注意書き・フォーム） */
+  --color-caution-bg:   #FFF9EA;  /* ご注意の囲み */
+  --color-caution-line: #E3CF94;
+  --color-error:        #A8322B;  /* 入力エラー（白・紙色の上で 6:1 以上） */
+  --color-error-bg:     #FBEFEE;
+  --color-required:     #A8322B;  /* 「必須」 */
+
+  --color-line:       rgba(56, 106, 118, .14);  /* 罫線 */
+  --color-line-soft:  rgba(56, 106, 118, .12);
+  --color-line-faint: rgba(56, 106, 118, .07);
+  --color-on-dark-line: rgba(247, 247, 247, .22);
+
+  /* 写真の上に敷く暗い面（文字の背後は .6 前後を確保） */
+  --scrim-navy:  15, 22, 50;     /* rgb の値（rgba(var(--scrim-navy), .6) のように使う） */
+  --scrim-deep:  11, 16, 32;
+  --scrim-teal:  36, 74, 82;
+
+  /* ---------- Typography ---------- */
+  --font-serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-sans:  "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+
+  /* 見出し（3段階＋例外） */
+  --fs-display: clamp(38px, 4.6vw, 64px);   /* h1：トップの大キャッチ */
+  --fs-h2:      34px;                       /* セクション見出し */
+  --fs-h3-lg:   28px;                       /* 例外：テーマ行・特集 */
+  --fs-h3:      22px;                       /* カード名 */
+  --fs-h3-sm:   20px;                       /* 記事タイトル */
+  --fs-page:    clamp(30px, 3.2vw, 44px);   /* h1：下層ページのタイトル */
+  --fs-h4:      18px;                       /* 本文中の小見出し */
+  --fs-catch:   clamp(26px, 2.9vw, 42px);   /* 写真帯のコピー */
+
+  /* 本文・補助（60代対応：本文16〜17px、補足14px、タグ13px が下限） */
+  --fs-lead:    18px;
+  --fs-body:    17px;
+  --fs-base:    16px;
+  --fs-small:   15px;
+  --fs-note:    14px;
+  --fs-tag:     13px;
+  --fs-kicker:  12px;   /* 英字ラベル（飾り。読ませる文字には使わない） */
+  --fs-micro:   11px;   /* 英字の飾りのみ */
+
+  --ls-kicker:  .4em;
+  --ls-heading: .05em;
+  --ls-body:    .04em;
+
+  /* ---------- Layout ---------- */
+  --container-max: 1600px;   /* ワイドディスプレイでの本文幅の上限 */
+  --gutter: 5vw;             /* 左右の余白（PC） */
+  --header-h: 83px;
+  --measure: 680px;          /* 読み物の本文幅（1行 35〜40字） */
+  --side-w: 340px;           /* 予約ボックス・絞り込みなど横に置く列 */
+
+  --space-section: 130px;    /* セクションの上下余白 */
+  --space-section-sm: 120px;
+
+  /* ---------- Shape ---------- */
+  --radius-xs: 5px;
+  --radius-sm: 6px;          /* 写真 */
+  --radius-md: 10px;         /* カード */
+  --radius-lg: 14px;         /* 帯・パネル */
+  --radius-pill: 999px;
+
+  --shadow-lift: 0 18px 44px -18px rgba(15, 22, 50, .42);
+  --shadow-panel: 0 24px 48px -24px rgba(15, 22, 50, .28);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(.22, .61, .36, 1);
+  --ease-flip: cubic-bezier(.5, .05, .2, 1);
+  --dur-fast: .25s;
+  --dur-base: .4s;
+  --dur-slow: .55s;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --gutter: 20px;
+    --header-h: 57px;
+    --fs-h2: 25px;
+    --fs-h4: 17px;
+    --space-section: 90px;
+    --space-section-sm: 80px;
+  }
+}

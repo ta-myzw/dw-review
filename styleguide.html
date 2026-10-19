@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大山ワンダー デザインシステム（部品カタログ）</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/styleguide.css">
+<script src="assets/js/ui.js" defer></script>
+</head>
+<body class="p-sg">
+<!-- assets/images/icons.svg（アイコン集） -->
+<svg xmlns="http://www.w3.org/2000/svg" class="u-sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-car" viewBox="0 0 24 24"><path fill="currentColor" d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11h1a1 1 0 0 1 1 1v5h-2v1.5a1 1 0 0 1-2 0V17H7v1.5a1 1 0 0 1-2 0V17H3v-5a1 1 0 0 1 1-1h1zm2.1 0h9.8l-1.1-3.4a.6.6 0 0 0-.6-.4H8.8a.6.6 0 0 0-.6.4L7.1 11zM6.5 15a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4zm11 0a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.14 0-3.51.01-4.75.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.21 8.49 3.2 8.86 3.2 12s.01 3.51.07 4.75c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.51 4.01 15.14 4 12 4Zm0 3.06A4.94 4.94 0 1 1 12 17a4.94 4.94 0 0 1 0-9.88Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-.66a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3Z"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M21.58 7.19c-.23-.86-.9-1.53-1.76-1.76C18.25 5 12 5 12 5s-6.25 0-7.82.43c-.86.23-1.53.9-1.76 1.76C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.9 1.53 1.76 1.76C5.75 19 12 19 12 19s6.25 0 7.82-.43c.86-.23 1.53-.9 1.76-1.76C22 15.25 22 12 22 12s0-3.25-.42-4.81ZM10 15.5v-7l6 3.5-6 3.5Z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="7" y="5.5" width="3.4" height="13" rx="1" fill="currentColor"/><rect x="13.6" y="5.5" width="3.4" height="13" rx="1" fill="currentColor"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.4V12l3.2 2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-6.6-6.1-6.6-11.2a6.6 6.6 0 0 1 13.2 0C18.6 14.9 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.3"/></g></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M8.2 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.8"/></g></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.8" y="5.4" width="16.4" height="14.8" rx="2"/><path d="M3.8 10h16.4M8.2 3.4v3.6M15.8 3.4v3.6"/></g></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20c.8-3.6 3.6-5.6 7.2-5.6s6.4 2 7.2 5.6"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6.6 3.6h3l1.5 4.2-2 1.4a11 11 0 0 0 5.7 5.7l1.4-2 4.2 1.5v3a1.8 1.8 0 0 1-2 1.8C10.6 18.6 5.4 13.4 4.8 5.6a1.8 1.8 0 0 1 1.8-2z"/></symbol>
+  <symbol id="i-caution" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3.6 21 19.4H3z"/><path d="M12 9.6v4.6"/></g><circle cx="12" cy="16.9" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.4"/></g><circle cx="12" cy="7.9" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></g></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.5h5.5V10M19.5 4.5 11 13"/><path d="M17 14v4.5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1H10"/></g></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></g></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M17.6 3.5h3l-6.6 7.6 7.8 9.4h-6.1l-4.8-5.9-5.5 5.9H2.4l7.1-8.1L2 3.5h6.2l4.3 5.4 5.1-5.4zm-1 15.3h1.7L7.5 5.1H5.7z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M13.4 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3a21 21 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.2H7.7v3h2.6V21z"/></symbol>
+  <symbol id="i-line" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3.6c-5 0-9 3.3-9 7.3 0 3.6 3.1 6.6 7.4 7.2.3.1.7.2.8.5.1.2.1.6 0 .9l-.1.8c0 .2-.2.9.8.5s5.4-3.2 7.4-5.5c1.4-1.5 2-3 2-4.4 0-4-4-7.3-9.3-7.3zm-3.6 9.5H6.6a.5.5 0 0 1-.5-.5V9a.5.5 0 0 1 1 0v3.1h1.3a.5.5 0 0 1 0 1zm1.8-.5a.5.5 0 0 1-1 0V9a.5.5 0 0 1 1 0zm4.3 0a.5.5 0 0 1-.9.3l-1.8-2.5v2.2a.5.5 0 0 1-1 0V9a.5.5 0 0 1 .9-.3l1.8 2.5V9a.5.5 0 0 1 1 0zm2.9-2.3a.5.5 0 0 1 0 1h-1.3v.8h1.3a.5.5 0 0 1 0 1h-1.8a.5.5 0 0 1-.5-.5V9a.5.5 0 0 1 .5-.5h1.8a.5.5 0 0 1 0 1h-1.3v.8z"/></symbol>
+</svg>
+<a class="c-skip-link" href="#main">本文へスキップ</a>
+<header class="p-sg-top">
+  <a class="p-sg-top__brand" href="index.html"><img src="assets/images/logo-yoko.svg" alt="大山ワンダー"><span lang="en">DESIGN SYSTEM</span></a>
+  <p class="p-sg-top__meta">トップ v20 をもとに定義｜2026.10.19</p>
+</header>
+
+<div class="p-sg-layout">
+<nav class="p-sg-nav" aria-label="カタログの目次">
+  <p lang="en">BASICS</p>
+  <a href="#principles">考え方</a>
+  <a href="#color">色</a>
+  <a href="#type">文字</a>
+  <a href="#space">余白・幅・角丸</a>
+  <a href="#breakpoints">画面幅</a>
+  <a href="#icons">アイコン</a>
+  <p lang="en">PARTS</p>
+  <a href="#buttons">ボタン・リンク</a>
+  <a href="#labels">ラベル・タグ</a>
+  <a href="#headings">見出しの型</a>
+  <a href="#cards-top">カード（トップ）</a>
+  <a href="#cards-sub">カード（下層）</a>
+  <p lang="en">PAGES</p>
+  <a href="#prose">読み物の本文</a>
+  <a href="#table">表・項目</a>
+  <a href="#boxes">囲み・開閉・タブ</a>
+  <a href="#filter">絞り込み・ページ送り</a>
+  <a href="#plan">プラン詳細の部品</a>
+  <a href="#form">フォーム</a>
+  <p lang="en">RULES</p>
+  <a href="#motion">動き</a>
+  <a href="#a11y">アクセシビリティ</a>
+  <a href="#writing">文言・表記</a>
+</nav>
+
+<main class="p-sg-main" id="main">
+  <div class="p-sg-intro">
+    <h1>大山ワンダー デザインシステム</h1>
+    <p>トップページ（v20）で決めた色・文字・余白と部品に、下層WFの18テンプレートで必要になる部品を加えた一覧です。見本はすべて本番と同じCSS（<code>tokens.css</code> <code>base.css</code> <code>components.css</code>）で表示しています。下層ページはこの部品を組み合わせて作り、新しい部品が必要になったらここに追加してから使います。</p>
+  </div>
+
+  <!-- ===================== 考え方 ===================== -->
+  <section class="p-sg-sec" id="principles" aria-labelledby="h-principles">
+    <h2 id="h-principles">考え方<small lang="en">PRINCIPLES</small></h2>
+    <table class="p-sg-rules">
+      <thead><tr><th scope="col">原則</th><th scope="col">具体的には</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1. 写真が主役、文字は静かに</th><td>色はティール1色とニュートラルだけ。飾りの線や影は最小限にし、写真と余白で見せる。強調は太字より「明朝の大きさ」で。</td></tr>
+        <tr><th scope="row">2. 60代でも読める</th><td>本文16〜17px、補足14px、タグ13pxが下限。英字ラベル（11〜12px）は飾りなので、意味は必ず和文でも書く。文字と背景のコントラストは4.5:1以上。</td></tr>
+        <tr><th scope="row">3. めぐる（つながりで回遊）</th><td>どのページも「次に行ける場所」で終える。プラン → 物語 → エリア → 人 を、つながりの軸（水・森・神話・刀・発酵・海）で横につなぐ。</td></tr>
+        <tr><th scope="row">4. 迷わせない</th><td>主要な操作は1画面に1つ（塗りのボタン）。リンクは行き先の名前で書く（「こちら」は使わない）。カードは全体を1つのリンクにする。</td></tr>
+        <tr><th scope="row">5. 部品は使い回す</th><td>ページ固有の見た目（<code>p-</code>）を増やさず、まず <code>c-</code> 部品で組む。値はトークン（CSS変数）だけを使い、色コードを直接書かない。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== 色 ===================== -->
+  <section class="p-sg-sec" id="color" aria-labelledby="h-color">
+    <h2 id="h-color">色<small lang="en">COLOR</small></h2>
+    <p>ブランドの色は「大山の森と日野川の水」をあらわすティール <code>#386A76</code> の1色です。面の色はセージ系の淡い緑で、純白は入力欄とカードの面だけに使います。</p>
+    <div class="p-sg-item"><h3>ブランド・文字</h3><div class="p-sg-swatches"><div class="p-sg-swatch"><i style="background:var(--color-primary)"></i><div><b>ティール</b><code>--color-primary</code> #386A76<br>リンク・ボタン・ラベル<br>紙色の上の文字 5.6:1</div></div><div class="p-sg-swatch"><i style="background:var(--color-primary-dk)"></i><div><b>ティール（濃）</b><code>--color-primary-dk</code> #244A52<br>ホバー・押下<br>紙色の上の文字 9.0:1</div></div><div class="p-sg-swatch"><i style="background:var(--color-ink)"></i><div><b>墨</b><code>--color-ink</code> #0F1525<br>見出し・本文<br>紙色の上の文字 17.0:1</div></div><div class="p-sg-swatch"><i style="background:var(--color-ink-sub)"></i><div><b>墨（補助）</b><code>--color-ink-sub</code> #244A52<br>説明文・ナビ<br>紙色の上の文字 9.0:1</div></div><div class="p-sg-swatch"><i style="background:var(--color-gray)"></i><div><b>グレー</b><code>--color-gray</code> #5A6A72<br>注釈・補足（文字の最も薄い色）<br>紙色の上の文字 5.2:1</div></div></div></div>
+    <div class="p-sg-item"><h3>面（背景）</h3><div class="p-sg-swatches"><div class="p-sg-swatch"><i style="background:var(--color-paper)"></i><div><b>紙</b><code>--color-paper</code> #F7F7F7<br>基本の背景・暗い面の上の文字</div></div><div class="p-sg-swatch"><i style="background:var(--color-white)"></i><div><b>白</b><code>--color-white</code> #FFFFFF<br>カード・入力欄の面</div></div><div class="p-sg-swatch"><i style="background:var(--color-sage)"></i><div><b>セージ</b><code>--color-sage</code> #EFF2EC<br>色付きセクション・目次・囲み</div></div><div class="p-sg-swatch"><i style="background:var(--color-sage-dk)"></i><div><b>セージ（濃）</b><code>--color-sage-dk</code> #E4EBE2<br>色付き面のホバー</div></div><div class="p-sg-swatch"><i style="background:var(--color-mist)"></i><div><b>ミスト</b><code>--color-mist</code> #F1F4F2<br>白い面の上のホバー</div></div><div class="p-sg-swatch"><i style="background:var(--color-ph)"></i><div><b>読み込み前</b><code>--color-ph</code> #E0E5F5<br>画像が出るまでの下地</div></div><div class="p-sg-swatch"><i style="background:var(--color-cream)"></i><div><b>クリーム</b><code>--color-cream</code> #F6F3EA<br>写真帯のコピー</div></div></div></div>
+    <div class="p-sg-item"><h3>状態（下層：注意書き・フォーム）</h3><div class="p-sg-swatches"><div class="p-sg-swatch"><i style="background:var(--color-error)"></i><div><b>エラー・必須</b><code>--color-error</code> #A8322B<br>入力エラー・「必須」・運休<br>紙色の上の文字 6.2:1</div></div><div class="p-sg-swatch"><i style="background:var(--color-error-bg)"></i><div><b>エラーの面</b><code>--color-error-bg</code> #FBEFEE<br>誤りのある入力欄</div></div><div class="p-sg-swatch"><i style="background:var(--color-caution-bg)"></i><div><b>注意の面</b><code>--color-caution-bg</code> #FFF9EA<br>ご予約の前に・特典</div></div><div class="p-sg-swatch"><i style="background:var(--color-caution-line)"></i><div><b>注意の線</b><code>--color-caution-line</code> #E3CF94<br>注意の囲みの枠</div></div></div></div>
+    <div class="p-sg-item">
+      <h3>写真の上の文字</h3>
+      <p>写真の上に文字を置くときは、文字の背後に紺の幕（<code>rgba(var(--scrim-navy), .6)</code> 前後）を敷いてコントラストを確保します。写真を差し替えても読めるように、幕は写真に頼らず必ず入れます。</p>
+      <div class="p-sg-demo p-sg-demo--photo" style="min-height:200px;display:flex;align-items:flex-end">
+        <img src="assets/images/band-a.jpeg" alt="">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,22,50,.72),rgba(15,22,50,.1) 70%)"></div>
+        <p style="position:relative;font-family:var(--font-serif);font-size:26px;letter-spacing:.06em">山の記憶を、​旅する。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 文字 ===================== -->
+  <section class="p-sg-sec" id="type" aria-labelledby="h-type">
+    <h2 id="h-type">文字<small lang="en">TYPOGRAPHY</small></h2>
+    <p>見出しは明朝（Shippori Mincho）、本文と操作はゴシック（Zen Kaku Gothic New）。見出しの階層は h1 → h2 → h3 の順に飛ばさず使い、大きさは下の段階からだけ選びます。</p>
+    <table class="p-sg-type">
+      <tbody>
+        <tr><th><code>--fs-display</code><br>38〜64px／明朝</th><td><span style="font-family:var(--font-serif);font-size:var(--fs-display);line-height:1.35;letter-spacing:.06em">山から海へ。</span><br><small class="p-sg-label">h1：トップの大キャッチだけ</small></td></tr>
+        <tr><th><code>--fs-page</code><br>30〜44px／明朝</th><td><span style="font-family:var(--font-serif);font-size:var(--fs-page);letter-spacing:var(--ls-heading)">刀をめぐる旅</span><br><small class="p-sg-label">h1：下層ページのタイトル</small></td></tr>
+        <tr><th><code>--fs-h2</code><br>34px（SP 25px）／明朝</th><td><span style="font-family:var(--font-serif);font-size:var(--fs-h2);letter-spacing:var(--ls-heading)">すべての旅へ</span><br><small class="p-sg-label">h2：セクション見出し</small></td></tr>
+        <tr><th><code>--fs-h3-lg</code><br>28px／明朝</th><td><span style="font-family:var(--font-serif);font-size:var(--fs-h3-lg);letter-spacing:.06em">水をめぐる旅</span><br><small class="p-sg-label">h3（例外）：テーマの行・本文の章見出し</small></td></tr>
+        <tr><th><code>--fs-h3</code><br>22px／明朝</th><td><span style="font-family:var(--font-serif);font-size:var(--fs-h3);letter-spacing:.05em">鉄の物語</span><br><small class="p-sg-label">h3：カード名</small></td></tr>
+        <tr><th><code>--fs-h3-sm</code><br>20px／明朝</th><td><span style="font-family:var(--font-serif);font-size:var(--fs-h3-sm)">なぜ大山の水はおいしいのか</span><br><small class="p-sg-label">h3：記事タイトル・SPのカード名</small></td></tr>
+        <tr><th><code>--fs-h4</code><br>18px／ゴシック太字</th><td><span style="font-size:var(--fs-h4);font-weight:700;color:var(--color-ink-sub)">たたら製鉄の工程</span><br><small class="p-sg-label">h4：本文中の小見出し</small></td></tr>
+        <tr><th><code>--fs-lead</code> 18px<br><code>--fs-body</code> 17px</th><td><span style="font-size:var(--fs-body);line-height:2">1300年前から、大山の雪は森にしみこみ、日野川となって海へ注いできました。</span><br><small class="p-sg-label">リード文・読み物の本文（行間 1.9〜2）</small></td></tr>
+        <tr><th><code>--fs-base</code> 16px<br><code>--fs-small</code> 15px</th><td><span style="font-size:var(--fs-base)">カードの説明、操作のラベル、表の中身。</span><br><small class="p-sg-label">標準の文字（SPの本文もこの大きさ）</small></td></tr>
+        <tr><th><code>--fs-note</code> 14px<br><code>--fs-tag</code> 13px</th><td><span style="font-size:var(--fs-note);color:var(--color-gray)">※ 価格に入場料・飲食代は含みません。</span><br><small class="p-sg-label">注釈・タグの下限（これより小さい日本語は使わない）</small></td></tr>
+        <tr><th><code>--fs-kicker</code> 12px<br><code>--fs-micro</code> 11px</th><td><span class="c-kicker" style="margin:0" lang="en">DISCOVER</span><br><small class="p-sg-label">英字ラベル（飾り）専用。日本語には使わない</small></td></tr>
+      </tbody>
+    </table>
+    <div class="p-sg-item">
+      <h3>改行のルール</h3>
+      <ul>
+        <li>見出し・キャッチ・カード名は、文節の区切りにゼロ幅スペース（<code>&amp;#8203;</code>）を入れ、変な位置で改行しないようにする（<code>word-break: keep-all</code>）。WPでは見出し用のフィールドに自動で入れる処理を用意する。</li>
+        <li>管理画面から入力される長い文章（本文・説明・注意書き・表）は通常の改行にする（部品側で設定済み）。</li>
+        <li>字間：見出し <code>.05em</code>、本文 <code>.04em</code>、英字ラベル <code>.4em</code>。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 余白 ===================== -->
+  <section class="p-sg-sec" id="space" aria-labelledby="h-space">
+    <h2 id="h-space">余白・幅・角丸・影<small lang="en">SPACE &amp; SHAPE</small></h2>
+    <div class="p-sg-item">
+      <h3>幅と余白</h3>
+      <div class="p-sg-bars">
+        <div><span><code>--container-max</code> 1600px</span><i style="width:100%"></i></div>
+        <div><span><code>--measure</code> 680px（読み物）</span><i style="width:42.5%"></i></div>
+        <div><span><code>--side-w</code> 340px（横の列）</span><i style="width:21.25%"></i></div>
+        <div><span><code>--gutter</code> 5vw（SP 20px）</span><i style="width:6%"></i></div>
+        <div><span><code>--space-section</code> 130px（SP 90）</span><i style="width:8.1%"></i></div>
+        <div><span><code>--space-section-sm</code> 120px（SP 80）</span><i style="width:7.5%"></i></div>
+      </div>
+      <p>本文の幅は <code>.l-container</code>（左右 <code>--gutter</code>、最大1600px）。読み物の本文だけは <code>--measure</code> で1行35〜40字に抑えます。部品の中の余白は 4・6・8・10・12・14・16・18・20・22・24・28・32・40・48・56px から選びます。</p>
+    </div>
+    <div class="p-sg-item">
+      <h3>角丸と影</h3>
+      <div class="p-sg-radii">
+        <div><i style="border-radius:var(--radius-xs)"></i><code>--radius-xs</code> 5px<br>小さな写真</div>
+        <div><i style="border-radius:var(--radius-sm)"></i><code>--radius-sm</code> 6px<br>写真・入力欄</div>
+        <div><i style="border-radius:var(--radius-md)"></i><code>--radius-md</code> 10px<br>カード・囲み</div>
+        <div><i style="border-radius:var(--radius-lg)"></i><code>--radius-lg</code> 14px<br>帯・パネル</div>
+        <div><i style="border-radius:40px"></i><code>--radius-pill</code><br>ボタン・チップ</div>
+        <div><i style="border-radius:var(--radius-md);background:var(--color-white);box-shadow:var(--shadow-lift);border:0"></i><code>--shadow-lift</code><br>写真のホバー</div>
+        <div><i style="border-radius:var(--radius-md);background:var(--color-white);box-shadow:var(--shadow-panel);border:0"></i><code>--shadow-panel</code><br>メニュー・予約ボックス</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 画面幅 ===================== -->
+  <section class="p-sg-sec" id="breakpoints" aria-labelledby="h-bp">
+    <h2 id="h-bp">画面幅<small lang="en">BREAKPOINTS</small></h2>
+    <table class="p-sg-rules">
+      <thead><tr><th scope="col">幅</th><th scope="col">主な変化</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">〜360px</th><td>小さいスマホ。ヘッダーのボタンのアイコンを省略、操作部を詰める</td></tr>
+        <tr><th scope="row">〜768px</th><td>スマホ。左右の余白20px、見出し25px、カードは1列（スポットは2列）か横スクロール。表は縦積み、予約は画面下の固定バー、絞り込みは下からのシート</td></tr>
+        <tr><th scope="row">〜1024px</th><td>タブレット。横に置く列（予約ボックス・絞り込み）を本文の下に回す。検索バーを2列に</td></tr>
+        <tr><th scope="row">〜1180px</th><td>ヘッダーをハンバーガーメニューに切り替え</td></tr>
+        <tr><th scope="row">1680px〜</th><td>ワイド。本文幅は1600pxで止め、ヘッダーも本文の左端にそろえる</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== アイコン ===================== -->
+  <section class="p-sg-sec" id="icons" aria-labelledby="h-icons">
+    <h2 id="h-icons">アイコン<small lang="en">ICONS</small></h2>
+    <p>アイコンは <code>assets/images/icons.svg</code> に集めています。使うときは <code>&lt;svg aria-hidden="true"&gt;&lt;use href="#i-car"/&gt;&lt;/svg&gt;</code>。色は文字の色（currentColor）に従います。線は1.8px・角は丸で統一。アイコンだけのボタンには必ず <code>aria-label</code> を付けます。</p>
+    <div class="p-sg-icons"><div><svg aria-hidden="true"><use href="#i-car"/></svg><code>i-car</code><small style="font-size:12px;color:var(--color-gray)">タクシー</small></div><div><svg aria-hidden="true"><use href="#i-instagram"/></svg><code>i-instagram</code><small style="font-size:12px;color:var(--color-gray)">Instagram</small></div><div><svg aria-hidden="true"><use href="#i-youtube"/></svg><code>i-youtube</code><small style="font-size:12px;color:var(--color-gray)">YouTube</small></div><div><svg aria-hidden="true"><use href="#i-pause"/></svg><code>i-pause</code><small style="font-size:12px;color:var(--color-gray)">一時停止</small></div><div><svg aria-hidden="true"><use href="#i-play"/></svg><code>i-play</code><small style="font-size:12px;color:var(--color-gray)">再生</small></div><div><svg aria-hidden="true"><use href="#i-clock"/></svg><code>i-clock</code><small style="font-size:12px;color:var(--color-gray)">所要時間</small></div><div><svg aria-hidden="true"><use href="#i-pin"/></svg><code>i-pin</code><small style="font-size:12px;color:var(--color-gray)">場所</small></div><div><svg aria-hidden="true"><use href="#i-route"/></svg><code>i-route</code><small style="font-size:12px;color:var(--color-gray)">発着・ルート</small></div><div><svg aria-hidden="true"><use href="#i-calendar"/></svg><code>i-calendar</code><small style="font-size:12px;color:var(--color-gray)">日付</small></div><div><svg aria-hidden="true"><use href="#i-user"/></svg><code>i-user</code><small style="font-size:12px;color:var(--color-gray)">人数</small></div><div><svg aria-hidden="true"><use href="#i-phone"/></svg><code>i-phone</code><small style="font-size:12px;color:var(--color-gray)">電話</small></div><div><svg aria-hidden="true"><use href="#i-caution"/></svg><code>i-caution</code><small style="font-size:12px;color:var(--color-gray)">注意</small></div><div><svg aria-hidden="true"><use href="#i-info"/></svg><code>i-info</code><small style="font-size:12px;color:var(--color-gray)">お知らせ・補足</small></div><div><svg aria-hidden="true"><use href="#i-filter"/></svg><code>i-filter</code><small style="font-size:12px;color:var(--color-gray)">絞り込み</small></div><div><svg aria-hidden="true"><use href="#i-close"/></svg><code>i-close</code><small style="font-size:12px;color:var(--color-gray)">閉じる</small></div><div><svg aria-hidden="true"><use href="#i-external"/></svg><code>i-external</code><small style="font-size:12px;color:var(--color-gray)">外部サイト</small></div><div><svg aria-hidden="true"><use href="#i-link"/></svg><code>i-link</code><small style="font-size:12px;color:var(--color-gray)">リンクをコピー</small></div><div><svg aria-hidden="true"><use href="#i-x"/></svg><code>i-x</code><small style="font-size:12px;color:var(--color-gray)">X</small></div><div><svg aria-hidden="true"><use href="#i-facebook"/></svg><code>i-facebook</code><small style="font-size:12px;color:var(--color-gray)">Facebook</small></div><div><svg aria-hidden="true"><use href="#i-line"/></svg><code>i-line</code><small style="font-size:12px;color:var(--color-gray)">LINE</small></div></div>
+    <div class="p-sg-item"><h3>矢印</h3><p>「→」は文字（明朝）で書き、<code>.c-arrow</code> で包みます。ホバーで右へ6px動きます。読み上げないよう <code>aria-hidden="true"</code>。</p></div>
+  </section>
+
+  <!-- ===================== ボタン ===================== -->
+  <section class="p-sg-sec" id="buttons" aria-labelledby="h-buttons">
+    <h2 id="h-buttons">ボタン・リンク<small lang="en">BUTTONS</small></h2>
+    <div class="p-sg-item">
+      <h3>ボタン <code>.c-btn</code></h3>
+      <p>輪郭のピルが基本。<code>--fill</code>（塗り）は「予約する」「送信する」など、その画面でいちばん大事な操作に1つだけ使います。</p>
+      <div class="p-sg-demo">
+        <div class="p-sg-row">
+          <a class="c-btn" href="#buttons"><span>探してみる</span><span class="c-arrow" aria-hidden="true">→</span></a>
+          <a class="c-btn c-btn--fill" href="#buttons"><span>このプランで予約する</span><span class="c-arrow" aria-hidden="true">→</span></a>
+          <a class="c-btn c-btn--sm" href="#buttons"><span>小さいボタン</span><span class="c-arrow" aria-hidden="true">→</span></a>
+          <button class="c-btn" type="button" disabled><span>押せない状態</span></button>
+        </div>
+        <div class="p-sg-row" style="max-width:360px"><a class="c-btn c-btn--fill c-btn--block" href="#buttons"><span>幅いっぱい（--block）</span><span class="c-arrow" aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="p-sg-demo p-sg-demo--photo">
+        <img src="assets/images/band-forest.jpeg" alt="">
+        <span class="p-sg-label">写真の上：<code>.c-btn--light</code></span>
+        <a class="c-btn c-btn--light" href="#buttons"><span>探してみる</span><span class="c-arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>ヘッダーの「プランを探す」 <code>.c-cta-pill</code>／ティールの面の上 <code>.c-btn-on-teal</code></h3>
+      <div class="p-sg-demo p-sg-demo--white"><a class="c-cta-pill" href="#buttons"><svg class="c-cta-pill__icon" aria-hidden="true"><use href="#i-car"/></svg>プランを探す<span class="c-arrow" aria-hidden="true">→</span></a></div>
+      <div class="p-sg-demo p-sg-demo--dark">
+        <div class="p-sg-row" style="max-width:480px">
+          <a class="c-btn-on-teal c-btn-on-teal--fill" href="#buttons">プランを探す<span class="c-arrow" aria-hidden="true">→</span></a>
+          <a class="c-btn-on-teal" href="#buttons">ご予約の流れ<span class="c-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>テキストリンク <code>.c-link-more</code>／本文中のリンク</h3>
+      <p>一覧への「すべての〜」「続きを読む」は <code>.c-link-more</code>。本文中のリンクは下線付きのティール（<code>.c-prose a</code>）。</p>
+      <div class="p-sg-demo">
+        <div class="p-sg-row">
+          <a class="c-link-more" href="#buttons">続きを読む<span class="c-arrow" aria-hidden="true">→</span></a>
+          <a class="c-link-more c-link-more--primary" href="#buttons">すべての物語<span class="c-arrow" aria-hidden="true">→</span></a>
+          <a class="c-link-more c-link-more--primary c-link-more--lg" href="#buttons">すべての旅<span class="c-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="c-prose" style="margin-top:20px"><p>伯耆国の刀工・安綱については<a href="#buttons">鉄の物語</a>で詳しく紹介しています。</p></div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>丸いボタン <code>.c-social</code>／<code>.c-icon-btn</code>／共有 <code>.c-share</code></h3>
+      <div class="p-sg-demo">
+        <div class="p-sg-row">
+          <a class="c-social" href="#buttons" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a class="c-social" href="#buttons" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+          <div class="c-share"><span class="c-share__label">この記事をシェア</span>
+            <a class="c-social" href="#buttons" aria-label="Xでシェア"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
+            <a class="c-social" href="#buttons" aria-label="Facebookでシェア"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a>
+            <a class="c-social" href="#buttons" aria-label="LINEで送る"><svg aria-hidden="true"><use href="#i-line"/></svg></a>
+            <button class="c-social" type="button" aria-label="リンクをコピー" style="background:none;cursor:pointer"><svg aria-hidden="true"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="p-sg-demo p-sg-demo--photo">
+        <img src="assets/images/band-b.jpeg" alt="">
+        <span class="p-sg-label">動画の一時停止（押すと aria-pressed が切り替わる）</span>
+        <button class="c-icon-btn" type="button" aria-label="動画を一時停止" aria-pressed="false" onclick="this.setAttribute('aria-pressed',this.getAttribute('aria-pressed')==='true'?'false':'true')"><svg class="is-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="is-play" aria-hidden="true"><use href="#i-play"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ラベル・タグ ===================== -->
+  <section class="p-sg-sec" id="labels" aria-labelledby="h-labels">
+    <h2 id="h-labels">ラベル・タグ<small lang="en">LABELS</small></h2>
+    <table class="p-sg-rules">
+      <thead><tr><th scope="col">部品</th><th scope="col">見本</th><th scope="col">使いどころ</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><code>.c-kicker</code></th><td><p class="c-kicker" style="margin:0" lang="en">STORIES</p></td><td>セクションの英字ラベル。必ず和文の見出しと組にする</td></tr>
+        <tr><th scope="row"><code>.c-axis</code></th><td><span class="c-axis">水</span> <span class="c-axis">森</span> <span class="c-axis">神話</span> <span class="c-axis">刀</span> <span class="c-axis">発酵</span> <span class="c-axis">海</span> <a class="c-axis c-axis--lg" href="#labels">刀</a></td><td>つながりの軸（共通の分類）。リンクにすると軸で絞り込んだ一覧へ</td></tr>
+        <tr><th scope="row"><code>.c-tag</code></th><td><span class="c-tag">半日</span> <span class="c-tag">5スポット</span></td><td>所要時間・件数などの属性（押せない）</td></tr>
+        <tr><th scope="row"><code>.c-badge</code></th><td><span class="c-badge c-badge--code">A-2</span> <span class="c-badge c-badge--new">NEW</span> <span class="c-badge c-badge--perk">特典付き</span> <span class="c-badge c-badge--closed">冬季運休</span> <span class="c-badge">5時間</span></td><td>プランのコード・新着・特典・運休。写真の左上かタイトルの上</td></tr>
+        <tr><th scope="row"><code>.c-plan-count</code></th><td><span class="c-plan-count"><svg aria-hidden="true"><use href="#i-car"/></svg>タクシープラン 5件</span></td><td>そのテーマ・季節で使えるプランの数</td></tr>
+        <tr><th scope="row"><code>.c-plan-pill</code></th><td><span style="position:relative;display:inline-block;width:220px;height:56px;border-radius:8px;background:var(--color-primary)"><span class="c-plan-pill"><svg aria-hidden="true"><use href="#i-car"/></svg>タクシープラン 10件</span></span></td><td>写真の上に置くときの件数</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== 見出しの型 ===================== -->
+  <section class="p-sg-sec" id="headings" aria-labelledby="h-headings">
+    <h2 id="h-headings">見出しの型<small lang="en">HEADINGS</small></h2>
+    <div class="p-sg-item">
+      <h3>セクション見出し <code>.c-sec-head</code>（A案）</h3>
+      <p>英字ラベル＋和文見出し（h2）＋説明＋右に「すべての〜」。左寄せが基本で、中央寄せはコピーを見せる場面だけ。</p>
+      <div class="p-sg-demo">
+        <div class="c-sec-head" style="margin:0">
+          <div>
+            <p class="c-kicker" lang="en">STORIES</p>
+            <h2 class="c-sec-head__title">つながりの​物語</h2>
+            <p class="c-sec-head__lead">山から海へ、​5つの​物語で​この土地を​知る。</p>
+          </div>
+          <a class="c-link-more c-link-more--primary" href="#headings">すべての​物語<span class="c-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>パンくず <code>.c-breadcrumb</code>＋ページ見出し（写真なし） <code>.c-page-head</code></h3>
+      <p>一覧・フォーム・固定ページで使う。パンくずは <code>nav aria-label="パンくずリスト"</code>、いまのページに <code>aria-current="page"</code>。SPは1行で横にスクロール。タイトルは本番では <code>h1</code>（この見本では見出しの順序を崩さないため <code>p</code>）。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <nav class="c-breadcrumb" aria-label="パンくずリスト（見本）"><ol><li><a href="#headings">トップ</a></li><li><a href="#headings">すべての旅</a></li><li><span aria-current="page">観光タクシー旅プラン</span></li></ol></nav>
+        <div class="c-page-head" style="border-bottom:0;padding-bottom:0">
+          <p class="c-page-head__kicker" lang="en">PLAN</p>
+          <p class="c-page-head__title">観光タクシー​旅プラン</p>
+          <p class="c-page-head__lead">大山山麓ぐる〜んと観光タクシー旅。通常料金の約4割引き、乗車特典付きで、3・4・5時間の23コースからえらべます。</p>
+          <div class="c-page-head__meta"><span class="c-tag">運行期間 2026/4/25〜2027/3/31</span><span class="c-tag">12,000円〜</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>ページ見出し（写真あり） <code>.c-page-hero</code></h3>
+      <p>物語・地域の人・エリアの詳細と、ジャーナルの特集記事で使う（気分・季節・テーマは専用ページを作らずプランの検索結果にするので、そこでは使わない）。写真の下側に紺の幕を敷き、文字は左下。写真のクレジットは右下（<code>.c-credit</code>）。</p>
+      <div class="p-sg-demo p-sg-demo--flush">
+        <div class="c-page-hero">
+          <img src="assets/images/pick-katana.jpeg" alt="">
+          <div class="c-page-hero__body l-container">
+            <p class="c-page-hero__kicker" lang="en">THEME 04</p>
+            <p class="c-page-hero__title">刀を​めぐる旅</p>
+            <p class="c-page-hero__lead">なぜこの土地で、天下五剣のひとつが生まれたのか。たたら、砂鉄、日野川をたどります。</p>
+          </div>
+          <a class="c-credit" href="#headings"><svg aria-hidden="true"><use href="#i-info"/></svg>写真：<u>撮影者名</u></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== カード（トップ） ===================== -->
+  <section class="p-sg-sec" id="cards-top" aria-labelledby="h-cards-top">
+    <h2 id="h-cards-top">カード（トップ）<small lang="en">CARDS</small></h2>
+    <p>トップで使っているカードは下層の一覧でもそのまま使います。カードは全体が1つのリンク（<code>&lt;a&gt;</code>）で、中に別のリンクを入れません。写真は <code>alt=""</code>（名前が文字で書いてあるため）。</p>
+    <div class="p-sg-item">
+      <h3>気分カード <code>.c-mood-card</code>／季節カード <code>.c-season-card</code></h3>
+      <div class="p-sg-demo">
+        <div class="p-sg-cols" style="--c:3">
+          <a class="c-mood-card c-lift" href="#cards-top" style="aspect-ratio:4/5">
+            <img class="u-cover" src="assets/images/disc-zekkei.webp" alt="" loading="lazy">
+            <span class="c-plan-pill"><svg aria-hidden="true"><use href="#i-car"/></svg>タクシープラン 10件</span>
+            <div class="c-mood-card__cap"><div class="c-mood-card__title"><h3>絶景</h3><span class="c-arrow" aria-hidden="true">→</span></div><p class="c-mood-card__sub">南壁、​棚田、​日本海を​望む展望台</p></div>
+          </a>
+          <a class="c-season-card" href="#cards-top">
+            <div class="c-season-card__ph c-lift" style="height:240px"><span class="c-season-card__now">いまの季節</span><img class="u-cover" src="assets/images/season-autumn.webp" alt="" loading="lazy"></div>
+            <div class="c-season-card__head"><div class="c-season-card__name"><h3>秋</h3><span lang="en">AUTUMN</span></div><span class="c-arrow" aria-hidden="true">→</span></div>
+            <div class="c-season-card__meta"><p class="c-season-card__sub">ブナの​紅葉と​新米</p><span class="c-plan-count"><svg aria-hidden="true"><use href="#i-car"/></svg>タクシープラン 6件</span></div>
+          </a>
+          <a class="c-person-card" href="#cards-top">
+            <div class="c-person-card__ph c-lift" style="aspect-ratio:4/3"><img class="u-cover" src="assets/images/people-brewer.webp" alt="" loading="lazy"></div>
+            <h3 class="c-person-card__name">酒蔵<span class="c-arrow" aria-hidden="true">→</span></h3>
+            <p class="c-person-card__sub">蔵人</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>物語カード <code>.c-story-card</code>／テーマの行 <code>.c-theme-row</code></h3>
+      <div class="p-sg-demo">
+        <div class="p-sg-cols" style="--c:3">
+          <a class="c-story-card" href="#cards-top">
+            <div class="c-story-card__ph c-lift" style="height:200px"><img class="u-cover" src="assets/images/story-iron.webp" alt="" loading="lazy"></div>
+            <div class="c-story-card__axis"><span class="c-axis">刀</span></div>
+            <h3 class="c-story-card__title">鉄の物語</h3>
+            <p class="c-story-card__sub">砂鉄と​炎が​刀を​生んだ。</p>
+            <span class="c-link-more c-link-more--lg" aria-hidden="true">続きを​読む<span class="c-arrow">→</span></span>
+          </a>
+        </div>
+        <a class="c-theme-row" href="#cards-top" style="margin-top:32px">
+          <span class="c-theme-row__no" aria-hidden="true">01</span>
+          <div class="c-theme-row__ph c-lift"><img class="u-cover" src="assets/images/route-water.webp" alt="" loading="lazy"></div>
+          <div class="c-theme-row__body">
+            <h3 class="c-theme-row__title">水を​めぐる旅</h3>
+            <p class="c-theme-row__sub">雪解けから、​一杯の​酒まで。</p>
+            <div class="c-theme-row__tags"><span class="c-plan-count"><svg aria-hidden="true"><use href="#i-car"/></svg>タクシープラン 4件</span><span class="c-tag">半日</span><span class="c-tag">5スポット</span></div>
+          </div>
+          <span class="c-arrow c-theme-row__ar" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>市町村 <code>.c-area-chip</code>／記事の行 <code>.c-article-row</code>／イベントの行 <code>.c-event-row</code></h3>
+      <div class="p-sg-demo p-sg-demo--white">
+        <div class="p-sg-cols" style="--c:3">
+          <a class="c-area-chip" href="#cards-top"><span class="c-area-chip__name"><span>米子市</span><span class="c-arrow" aria-hidden="true">→</span></span><span class="c-area-chip__sub">城下町と、​海に​湧く​温泉</span></a>
+          <a class="c-area-chip" href="#cards-top"><span class="c-area-chip__name"><span>日野町</span><span class="c-arrow" aria-hidden="true">→</span></span><span class="c-area-chip__sub">たたらで​栄えた​川の町</span></a>
+        </div>
+        <div style="margin-top:28px">
+          <a class="c-article-row" href="#cards-top">
+            <div class="c-article-row__ph c-lift"><img class="u-cover" src="assets/images/journal-1.webp" alt="" loading="lazy"></div>
+            <div class="c-article-row__body"><p class="c-article-row__meta">コラム<span class="c-axis">水</span></p><h3 class="c-article-row__title">なぜ​大山の​水は​おいしいのか</h3></div>
+            <span class="c-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div style="margin-top:20px;max-width:560px">
+          <a class="c-event-row" href="#cards-top">
+            <time class="c-event-row__date" datetime="2026-11-03"><small aria-hidden="true" lang="en">NOV</small><b aria-hidden="true">03</b><span class="u-visually-hidden">11月3日</span></time>
+            <span class="c-event-row__sep" aria-hidden="true"></span>
+            <div class="c-event-row__body"><h3 class="c-event-row__title">大山紅葉ウォーク</h3><p class="c-event-row__meta">大山町｜大山寺周辺</p></div>
+            <span class="c-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>タクシーの帯 <code>.c-taxi-band</code></h3>
+      <p>トップ・エリア詳細・特集記事の最後に置き、予約へつなぐ。</p>
+      <div class="c-taxi-band" style="margin-top:16px">
+        <div>
+          <p class="c-taxi-band__kicker" lang="en">PLAN &amp; RESERVE</p>
+          <p class="c-taxi-band__title">どの​入口から​でも、​観光タクシーで​めぐれる。</p>
+          <p class="c-taxi-band__note">米子駅・皆生温泉・​大山寺ほか​発</p>
+        </div>
+        <div class="c-taxi-band__stats">
+          <div><p class="k">料金</p><p class="v">12,000<small>円〜</small></p><p class="s">通常料金の​約4割引き</p></div>
+          <div><p class="k">コース</p><p class="v">23<small>コース</small></p><p class="s">3・4・5時間</p></div>
+        </div>
+        <div class="c-taxi-band__btns">
+          <a class="c-btn-on-teal c-btn-on-teal--fill" href="#cards-top">プランを​探す<span class="c-arrow" aria-hidden="true">→</span></a>
+          <a class="c-btn-on-teal" href="#cards-top">ご予約の​流れ<span class="c-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== カード（下層） ===================== -->
+  <section class="p-sg-sec" id="cards-sub" aria-labelledby="h-cards-sub">
+    <h2 id="h-cards-sub">カード（下層）<small lang="en">CARDS</small></h2>
+    <div class="p-sg-item">
+      <h3>プランカード <code>.c-plan-card</code>＋並べ方 <code>.c-grid</code></h3>
+      <p>プラン一覧（検索結果）・関連プラン・特集記事で共通。箱に入れず写真＋文字で見せる（トップの季節・テーマと同じ組み方）。写真（NEWだけ左上に帯）→コードとつながりの軸→タイトル→発着と時間→特典・運休（色の点＋文字）→特別料金と通常料金。運休中もカードは押せるまま（詳細で理由を読めるように）。列数は <code>.c-grid</code>（3列）／<code>--2</code>／<code>--4</code>。</p>
+      <div class="p-sg-demo">
+        <div class="c-grid">
+          <a class="c-plan-card" href="#cards-sub"><div class="c-plan-card__ph c-lift"><img class="u-cover" src="assets/images/pick-katana.jpeg" alt="" loading="lazy"><span class="c-plan-card__new" lang="en">NEW</span></div><p class="c-plan-card__code"><span>A-2</span><span class="c-plan-card__axis">刀</span></p><h3 class="c-plan-card__title">童子切安綱を​生んだ 伯耆安綱​ゆかりの地めぐり</h3><p class="c-plan-card__meta">米子駅 → 米子駅<span aria-hidden="true">　|　</span><span class="u-visually-hidden">、</span>5時間</p><p class="c-plan-card__flags"><span class="is-perk">乗車特典付き</span></p><p class="c-plan-card__price"><span class="c-plan-card__now">18,000<small>円</small></span><span class="c-plan-card__was">通常 <s>33,000円</s></span></p></a>
+<a class="c-plan-card" href="#cards-sub"><div class="c-plan-card__ph c-lift"><img class="u-cover" src="assets/images/band-a.jpeg" alt="" loading="lazy"></div><p class="c-plan-card__code"><span>B-6</span><span class="c-plan-card__axis">森・水</span></p><h3 class="c-plan-card__title">断崖絶壁 大山南壁 フォトジェニックな​奥大山</h3><p class="c-plan-card__meta">米子駅 → 米子駅<span aria-hidden="true">　|　</span><span class="u-visually-hidden">、</span>4時間</p><p class="c-plan-card__flags"><span class="is-closed">12〜3月は運休</span></p><p class="c-plan-card__price"><span class="c-plan-card__now">15,000<small>円</small></span><span class="c-plan-card__was">通常 <s>26,400円</s></span></p></a>
+<a class="c-plan-card" href="#cards-sub"><div class="c-plan-card__ph c-lift"><img class="u-cover" src="assets/images/route-myth.webp" alt="" loading="lazy"></div><p class="c-plan-card__code"><span>D-1</span><span class="c-plan-card__axis">神話</span></p><h3 class="c-plan-card__title">大国主命​ゆかりの​再生神話と​花の旅</h3><p class="c-plan-card__meta">皆生温泉 → 米子駅<span aria-hidden="true">　|　</span><span class="u-visually-hidden">、</span>5時間</p><p class="c-plan-card__flags"><span class="is-perk">乗車特典付き</span></p><p class="c-plan-card__price"><span class="c-plan-card__now">18,000<small>円</small></span><span class="c-plan-card__was">通常 <s>33,000円</s></span></p></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>スポットカード <code>.c-spot-card</code></h3>
+      <p>スポットDBから出す。エリア詳細・特集記事・物語で4列（SPは2列、説明は省略）。カード全体が公式サイトへの外部リンク（新しいタブ）。スポット単体のページは作らない。公式サイトがないスポットはリンクにしない（<code>&lt;div class="c-spot-card"&gt;</code>）。</p>
+      <div class="p-sg-demo">
+        <div class="c-grid c-grid--4">
+          <a class="c-spot-card" href="https://www.example.com/" target="_blank" rel="noopener"><div class="c-spot-card__ph c-lift"><img class="u-cover" src="assets/images/season-autumn.webp" alt="" loading="lazy"></div><p class="c-spot-card__area">江府町</p><h3 class="c-spot-card__name">鍵掛峠展望台</h3><p class="c-spot-card__sub">大山南壁を正面に望む、紅葉の名所。</p><p class="c-spot-card__link">公式サイト<svg class="c-ext-icon" aria-hidden="true"><use href="#i-external"/></svg><span class="u-visually-hidden">（新しいタブで開きます）</span></p></a><a class="c-spot-card" href="https://www.example.com/" target="_blank" rel="noopener"><div class="c-spot-card__ph c-lift"><img class="u-cover" src="assets/images/season-summer.webp" alt="" loading="lazy"></div><p class="c-spot-card__area">大山町</p><h3 class="c-spot-card__name">貝田の棚田</h3><p class="c-spot-card__sub">日本海へ下る棚田と、夕日。</p><p class="c-spot-card__link">公式サイト<svg class="c-ext-icon" aria-hidden="true"><use href="#i-external"/></svg><span class="u-visually-hidden">（新しいタブで開きます）</span></p></a><a class="c-spot-card" href="https://www.example.com/" target="_blank" rel="noopener"><div class="c-spot-card__ph c-lift"><img class="u-cover" src="assets/images/route-sea.webp" alt="" loading="lazy"></div><p class="c-spot-card__area">境港市</p><h3 class="c-spot-card__name">美保関灯台</h3><p class="c-spot-card__sub">山陰最古の石造灯台。</p><p class="c-spot-card__link">公式サイト<svg class="c-ext-icon" aria-hidden="true"><use href="#i-external"/></svg><span class="u-visually-hidden">（新しいタブで開きます）</span></p></a><a class="c-spot-card" href="https://www.example.com/" target="_blank" rel="noopener"><div class="c-spot-card__ph c-lift"><img class="u-cover" src="assets/images/disc-tozan.webp" alt="" loading="lazy"></div><p class="c-spot-card__area">伯耆町</p><h3 class="c-spot-card__name">ますみず高原</h3><p class="c-spot-card__sub">リフトで上がる大山の西の展望台。</p><p class="c-spot-card__link">公式サイト<svg class="c-ext-icon" aria-hidden="true"><use href="#i-external"/></svg><span class="u-visually-hidden">（新しいタブで開きます）</span></p></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 本文 ===================== -->
+  <section class="p-sg-sec" id="prose" aria-labelledby="h-prose">
+    <h2 id="h-prose">読み物の本文<small lang="en">PROSE</small></h2>
+    <p>物語詳細・人・ジャーナル・固定ページの本文は <code>.c-prose</code> の中に、WPのブロックエディタが出すHTML（h2〜h4・p・ul/ol・blockquote・figure・table）をそのまま入れます。本文幅は680px。写真は <code>.c-prose__wide</code> で本文より広く出せます。</p>
+    <div class="p-sg-demo p-sg-demo--white">
+      <nav class="c-toc" aria-labelledby="sg-toc-title" style="margin-inline:auto">
+        <p class="c-toc__title" id="sg-toc-title">目次</p>
+        <ol><li><a href="#sg-p1">奥日野のたたら製鉄</a></li><li><a href="#sg-p2">日本刀ができるまで</a></li><li><a href="#sg-p3">伯耆国と童子切安綱</a></li></ol>
+      </nav>
+      <div class="c-prose c-prose--center" style="margin-top:40px">
+        <p class="c-prose__lead">中国山地の砂鉄と、大山の森の炭。その二つが出会った場所で、日本刀の歴史が動きはじめました。</p>
+        <h2 id="sg-p1">奥日野の​たたら製鉄</h2>
+        <p>日野川の上流、奥日野では古くから「たたら製鉄」が営まれてきました。山を崩して砂鉄を集め、三日三晩炭を燃やし続けて鉄の塊をつくります。<strong>一度の操業で使う炭は約10トン</strong>ともいわれます。</p>
+        <h3 id="sg-p2">日本刀が​できるまで</h3>
+        <ol><li>玉鋼を選び、熱して打ちのばす</li><li>折り返し鍛錬で不純物を除く</li><li>焼き入れで刃文をつける</li></ol>
+        <figure class="c-prose__wide"><img src="assets/images/story-iron.webp" alt="たたら製鉄の炉から炎が上がる様子"><figcaption>たたら製鉄の操業（写真は差し替え予定）。図版・画像は使用許諾を確認のうえ掲載。</figcaption></figure>
+        <h4>玉鋼とは</h4>
+        <p>たたら製鉄でできる鉄のうち、炭素量がほどよく、刀に向く部分のこと。</p>
+        <blockquote><p>火の色を見て、鉄の声を聴く。それがすべてです。</p><cite>— 刀匠（取材より）</cite></blockquote>
+        <ul><li>見学できる場所：<a href="#prose">日南町 たたら資料館</a></li><li>関連するテーマ：<a href="#prose">刀をめぐる旅</a></li></ul>
+        <p class="c-prose__note">※ 参考文献：〇〇〇〇（〇〇出版、2020年）</p>
+      </div>
+      <div style="max-width:var(--measure);margin:48px auto 0">
+        <span class="p-sg-label">動画 <code>.c-video</code>（16:9）</span>
+        <div class="c-video"><video title="伯耆国に眠る名刀の記憶（見本）" aria-label="動画の見本" muted playsinline poster="assets/images/pick-katana.jpeg"></video></div>
+      </div>
+      <div style="margin-top:48px">
+        <span class="p-sg-label">前後の記事 <code>.c-prevnext</code>（物語は水の流れの順：森→信仰→鉄→水→海）</span>
+        <nav class="c-prevnext" aria-label="前後の物語">
+          <a href="#prose"><small>← 前の物語</small><b>信仰の物語</b></a>
+          <a class="is-next" href="#prose"><small>次の物語 →</small><b>水の物語</b></a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 表 ===================== -->
+  <section class="p-sg-sec" id="table" aria-labelledby="h-table">
+    <h2 id="h-table">表・項目<small lang="en">TABLE</small></h2>
+    <div class="p-sg-item">
+      <h3>表 <code>.c-table</code>（SPで縦積みにするなら <code>--stack</code>）</h3>
+      <p>表は <code>.c-table-wrap</code> で包み、はみ出したら横にスクロール。列が多くSPで読みにくい表は <code>.c-table--stack</code> にし、各セルに <code>data-label</code> を付けると見出しを横に出して縦に積みます。金額は <code>.is-num</code> で右寄せ。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <div class="c-table-wrap">
+          <table class="c-table c-table--stack">
+            <caption>観光タクシーの料金（1台あたり・税込）</caption>
+            <thead><tr><th scope="col">所要時間</th><th scope="col">特別料金</th><th scope="col">通常料金</th><th scope="col">出発時刻</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">3時間</th><td class="is-num" data-label="特別料金">12,000円</td><td class="is-num" data-label="通常料金">19,800円</td><td data-label="出発時刻">14時まで</td></tr>
+              <tr><th scope="row">4時間</th><td class="is-num" data-label="特別料金">15,000円</td><td class="is-num" data-label="通常料金">26,400円</td><td data-label="出発時刻">13時まで</td></tr>
+              <tr><th scope="row">5時間</th><td class="is-num" data-label="特別料金">18,000円</td><td class="is-num" data-label="通常料金">33,000円</td><td data-label="出発時刻">12時まで</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>項目と内容 <code>.c-dl</code>／詰めた形 <code>--compact</code></h3>
+      <p>スポット情報・お問い合わせ先・イベント概要など。SPでは項目名を上に載せます（<code>--compact</code> は横並びのまま）。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <div class="p-sg-cols" style="--c:2">
+          <dl class="c-dl"><dt>所在地</dt><dd>鳥取県西伯郡大山町大山</dd><dt>営業時間</dt><dd>9:00〜17:00（12〜3月は閉館）</dd><dt>お問い合わせ</dt><dd>大山町観光案内所 <a href="tel:0859-52-2502" style="color:var(--color-primary)">0859-52-2502</a></dd></dl>
+          <dl class="c-dl c-dl--compact"><dt>発着</dt><dd>米子駅 → 米子駅／皆生温泉</dd><dt>出発</dt><dd>12時まで</dd><dt>人数</dt><dd>1台4名まで</dd></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 囲み・開閉・タブ ===================== -->
+  <section class="p-sg-sec" id="boxes" aria-labelledby="h-boxes">
+    <h2 id="h-boxes">囲み・開閉・タブ<small lang="en">BOXES</small></h2>
+    <div class="p-sg-item">
+      <h3>注意書き <code>.c-notice</code>（<code>--caution</code>／<code>--info</code>／<code>--error</code>）</h3>
+      <p>予約の注意・運休・お知らせ。要点だけを短く箇条書きにし、詳しい説明はアコーディオンに回します。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <div class="c-notice c-notice--caution">
+          <p class="c-notice__title"><svg aria-hidden="true"><use href="#i-caution"/></svg>ご予約の前に</p>
+          <ul><li>メール予約は利用日の30日前〜5日前まで（4日前以降はお電話で）</li><li>自動返信メールの時点では予約は完了していません。タクシー会社からの完了メールで確定します</li></ul>
+        </div>
+        <div class="c-notice c-notice--info" style="margin-top:16px">
+          <p class="c-notice__title"><svg aria-hidden="true"><use href="#i-info"/></svg>冬季の運行について</p>
+          <p>12〜3月は、大山南壁・奥大山方面のコース（B-3〜B-6）が運休です。</p>
+        </div>
+        <div class="c-notice c-notice--error" style="margin-top:16px" role="alert">
+          <p class="c-notice__title"><svg aria-hidden="true"><use href="#i-caution"/></svg>入力内容に2件の誤りがあります</p>
+          <ul><li><a href="#sg-f-date" style="color:inherit">ご利用日</a>：30日前〜5日前の日付を選んでください</li><li><a href="#sg-f-mail" style="color:inherit">メールアドレス</a>：形式が正しくありません</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>アコーディオン <code>.c-accordion</code>（Q&amp;Aは <code>--qa</code>）</h3>
+      <p>HTMLの <code>&lt;details&gt;</code> で作るのでJS不要。ご利用前の注意事項・よくある質問・人物ページのQ&amp;Aで使います。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <div class="c-accordion c-accordion--qa">
+          <details class="c-accordion__item" open><summary><span class="c-accordion__q" aria-hidden="true">Q</span>雨の日でも運行しますか？<span class="c-accordion__pm" aria-hidden="true"></span></summary><div class="c-accordion__body"><p>雨天でも運行します。天候により立ち寄り先を変更する場合は、ドライバーからご案内します。</p></div></details>
+          <details class="c-accordion__item"><summary><span class="c-accordion__q" aria-hidden="true">Q</span>料金はいつ支払いますか？<span class="c-accordion__pm" aria-hidden="true"></span></summary><div class="c-accordion__body"><p>ご利用時にドライバーへお支払いください。現金・クレジットカードが使えます。</p></div></details>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>タブ <code>.c-tabs</code>（<code>.js-tabs</code>）</h3>
+      <p>アクセスの「飛行機／JR／高速バス／車」など、同じ種類の情報を切り替える。矢印キーで移動、Home／Endで端へ（<code>ui.js</code>）。SPは横にスクロール。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <div class="c-tabs js-tabs">
+          <div class="c-tabs__list" role="tablist" aria-label="交通手段">
+            <button class="c-tabs__tab" role="tab" type="button" id="sg-tab-1" aria-controls="sg-panel-1" aria-selected="true">飛行機</button>
+            <button class="c-tabs__tab" role="tab" type="button" id="sg-tab-2" aria-controls="sg-panel-2" aria-selected="false" tabindex="-1">JR</button>
+            <button class="c-tabs__tab" role="tab" type="button" id="sg-tab-3" aria-controls="sg-panel-3" aria-selected="false" tabindex="-1">高速バス</button>
+            <button class="c-tabs__tab" role="tab" type="button" id="sg-tab-4" aria-controls="sg-panel-4" aria-selected="false" tabindex="-1">車</button>
+          </div>
+          <div class="c-tabs__panel" role="tabpanel" id="sg-panel-1" aria-labelledby="sg-tab-1" tabindex="0"><p>羽田空港 → 米子鬼太郎空港（約1時間20分）。空港から米子駅まではバスで約30分。</p></div>
+          <div class="c-tabs__panel" role="tabpanel" id="sg-panel-2" aria-labelledby="sg-tab-2" tabindex="0" hidden><p>岡山駅 → 米子駅（特急やくも 約2時間15分）。</p></div>
+          <div class="c-tabs__panel" role="tabpanel" id="sg-panel-3" aria-labelledby="sg-tab-3" tabindex="0" hidden><p>大阪・神戸・東京から米子駅行きの高速バスがあります。</p></div>
+          <div class="c-tabs__panel" role="tabpanel" id="sg-panel-4" aria-labelledby="sg-tab-4" tabindex="0" hidden><p>米子自動車道 溝口IC・米子ICから大山方面へ約20分。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 絞り込み ===================== -->
+  <section class="p-sg-sec" id="filter" aria-labelledby="h-filter">
+    <h2 id="h-filter">絞り込み・ページ送り<small lang="en">FILTER</small></h2>
+    <div class="p-sg-item">
+      <h3>検索バー <code>.c-search</code></h3>
+      <p>プラン一覧の上。出発地・到着地・日付・人数。日付を入れると冬季運休のコースを自動で外す。SPは2列×2段。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <form class="c-search" role="search" aria-label="プランを検索" onsubmit="return false">
+          <div class="c-field"><label class="c-field__label" for="sg-s-from">出発地</label><select class="c-select" id="sg-s-from"><option>米子駅</option><option>皆生温泉</option><option>大山寺</option><option>米子鬼太郎空港</option><option>境港駅</option></select></div>
+          <div class="c-field"><label class="c-field__label" for="sg-s-to">到着地</label><select class="c-select" id="sg-s-to"><option>指定なし</option><option>米子駅</option><option>皆生温泉</option></select></div>
+          <div class="c-field"><label class="c-field__label" for="sg-s-date">ご利用日</label><input class="c-input" id="sg-s-date" type="date"></div>
+          <div class="c-field"><label class="c-field__label" for="sg-s-pax">人数</label><select class="c-select" id="sg-s-pax"><option>1名</option><option selected>2名</option><option>3名</option><option>4名</option></select></div>
+          <button class="c-btn c-btn--fill" type="submit"><span>この条件で探す</span></button>
+        </form>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>検索結果の特集の導入 <code>.c-feature</code></h3>
+      <p>気分・季節・テーマの絞り込みが1つだけのとき、プランの検索結果の一覧とページ送りの下に、その条件の特集記事（ジャーナル）を1本だけ出す。アイキャッチ・抜粋（3行まで）・「特集を読む」・動画（任意）。条件が2つ以上、または特集がないときは出さない。カード全体ではなく「特集を読む」だけをリンクにする（動画を別に再生できるように）。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <section class="c-feature" aria-labelledby="sg-feature-title">
+          <div class="c-feature__ph"><img class="u-cover" src="assets/images/pick-katana.jpeg" alt="" loading="lazy"></div>
+          <div>
+            <p class="c-feature__kicker"><span lang="en">FEATURE</span>特集</p>
+            <h2 class="c-feature__title" id="sg-feature-title">刀を​めぐる旅 ― 鉄が​生んだ、​暮らしと​文化。</h2>
+            <p class="c-feature__text">天下五剣のひとつ「童子切安綱」は、なぜこの土地で生まれたのか。中国山地の砂鉄、大山の森の炭、日野川の水をたどり、たたら製鉄の跡と刀工・安綱の足跡をめぐります。</p>
+            <div class="c-feature__actions">
+              <a class="c-btn c-btn--sm" href="#filter"><span>特集を読む</span><span class="c-arrow" aria-hidden="true">→</span></a>
+              <a class="c-feature__movie" href="#filter"><svg aria-hidden="true"><use href="#i-play"/></svg>動画：伯耆国に眠る名刀の記憶（語り：中村悠一）</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>絞り込み <code>.c-filter</code>＋チップ <code>.c-chip</code>／件数バー <code>.c-result-bar</code>／ページ送り <code>.c-pagination</code></h3>
+      <p>チップは <code>&lt;button aria-pressed&gt;</code>（押すと選択／解除）。いまのページを示すチップ（気分の切り替えなど）はリンクにして <code>aria-current="page"</code>。適用中の条件は <code>.c-chip--applied</code> で一覧の上に並べ、✕で外せる。URLパラメータ（<code>?mood=zekkei</code> <code>?season=autumn</code> <code>?axis=katana</code>）で選択済みの状態を開く。テーマの条件名は WordPress の予約語 theme を避けて axis。ページ送りは <code>/plan/page/2/</code>。気分・季節・テーマのカードやメニューはすべてここ（検索結果）へ飛ぶ。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <div class="l-with-side l-with-side--left">
+          <form class="c-filter" aria-label="プランの絞り込み" onsubmit="return false">
+            <fieldset class="c-filter__group"><legend class="c-filter__legend">気分<small lang="en">MOOD</small></legend>
+              <div class="c-chip-group"><button class="c-chip" type="button" aria-pressed="true">絶景</button><button class="c-chip" type="button" aria-pressed="false">グルメ</button><button class="c-chip" type="button" aria-pressed="false">温泉</button><button class="c-chip" type="button" aria-pressed="false">雨の日</button></div>
+            </fieldset>
+            <fieldset class="c-filter__group"><legend class="c-filter__legend">季節<small lang="en">SEASON</small></legend>
+              <div class="c-chip-group"><button class="c-chip" type="button" aria-pressed="false">春</button><button class="c-chip" type="button" aria-pressed="false">夏</button><button class="c-chip" type="button" aria-pressed="true">秋</button><button class="c-chip" type="button" aria-pressed="false">冬</button></div>
+            </fieldset>
+            <fieldset class="c-filter__group"><legend class="c-filter__legend">所要時間<small lang="en">TIME</small></legend>
+              <div class="c-choice-group"><label class="c-choice c-choice--plain"><input type="checkbox" checked>3時間</label><label class="c-choice c-choice--plain"><input type="checkbox">4時間</label><label class="c-choice c-choice--plain"><input type="checkbox">5時間</label></div>
+            </fieldset>
+          </form>
+          <div>
+            <div class="c-result-bar">
+              <p class="c-result-bar__count" aria-live="polite">全<b>6</b>コース</p>
+              <div class="c-result-bar__applied"><button class="c-chip c-chip--applied" type="button" aria-label="条件「絶景」を外す">絶景</button><button class="c-chip c-chip--applied" type="button" aria-label="条件「秋」を外す">秋</button>
+                <label class="u-visually-hidden" for="sg-sort">並び替え</label><select class="c-select c-select--inline" id="sg-sort"><option>おすすめ順</option><option>料金の安い順</option><option>所要時間の短い順</option></select></div>
+            </div>
+            <p style="font-size:var(--fs-note);color:var(--color-gray);padding:24px 0 40px;text-align:center">（ここにプランカードが並ぶ）</p>
+            <nav class="c-pagination" aria-label="ページ送り">
+              <ul>
+                <li><a class="is-prev" href="#filter" aria-label="前のページ">←<span>前へ</span></a></li>
+                <li><a href="#filter">1</a></li>
+                <li><span aria-current="page">2</span></li>
+                <li><a href="#filter">3</a></li>
+                <li><span class="is-gap" aria-hidden="true">…</span></li>
+                <li><a href="#filter">8</a></li>
+                <li><a class="is-next" href="#filter" aria-label="次のページ"><span>次へ</span>→</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>下から出るシート <code>.c-sheet</code>（SPの絞り込み）</h3>
+      <p>SPでは絞り込み欄を本文の上に出さず、「絞り込み」ボタンで下からシートを開く。HTMLの <code>&lt;dialog&gt;</code> を使うので、背景の操作止め・Escで閉じる・フォーカスの戻りはブラウザが行う。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <button class="c-btn c-btn--sm" type="button" data-sheet-open="sg-sheet" aria-haspopup="dialog" aria-expanded="false" aria-controls="sg-sheet"><svg aria-hidden="true" style="width:18px;height:18px"><use href="#i-filter"/></svg><span>絞り込み（2）</span></button>
+        <dialog class="c-sheet" id="sg-sheet" aria-labelledby="sg-sheet-title">
+          <div class="c-sheet__head"><p class="c-sheet__title" id="sg-sheet-title">絞り込み</p><button class="c-sheet__close" type="button" data-sheet-close aria-label="閉じる"><svg aria-hidden="true" style="width:22px;height:22px"><use href="#i-close"/></svg></button></div>
+          <div class="c-sheet__body">
+            <div class="c-filter">
+              <fieldset class="c-filter__group"><legend class="c-filter__legend">気分</legend><div class="c-chip-group"><button class="c-chip" type="button" aria-pressed="true">絶景</button><button class="c-chip" type="button" aria-pressed="false">グルメ</button><button class="c-chip" type="button" aria-pressed="false">温泉</button></div></fieldset>
+              <fieldset class="c-filter__group"><legend class="c-filter__legend">季節</legend><div class="c-chip-group"><button class="c-chip" type="button" aria-pressed="false">春</button><button class="c-chip" type="button" aria-pressed="true">秋</button></div></fieldset>
+            </div>
+          </div>
+          <div class="c-sheet__foot"><button class="c-btn c-btn--sm" type="button">すべて解除</button><button class="c-btn c-btn--fill c-btn--sm" type="button" data-sheet-close>6件を表示</button></div>
+        </dialog>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== プラン詳細 ===================== -->
+  <section class="p-sg-sec" id="plan" aria-labelledby="h-plan">
+    <h2 id="h-plan">プラン詳細の部品<small lang="en">PLAN</small></h2>
+    <div class="p-sg-item">
+      <h3>予約ボックス <code>.c-reserve-box</code>／料金 <code>.c-price</code>／SPの固定バー <code>.c-fixed-bar</code></h3>
+      <p>PCは右の列で追従（<code>position: sticky</code>）。SPは本文の中に置いたうえで、画面下に「予約する」の固定バーを出す（固定バーがある画面は、本文の最後に同じ高さの余白を足す）。</p>
+      <div class="p-sg-demo">
+        <div class="p-sg-cols" style="--c:2">
+          <section class="c-reserve-box" aria-label="料金と予約">
+            <p class="c-reserve-box__kicker" lang="en">PRICE</p>
+            <p class="c-price c-price--lg"><span class="c-price__now">18,000<small>円</small></span><span class="c-price__was">通常 <s>33,000円</s></span></p>
+            <dl class="c-dl c-dl--compact"><dt>発着</dt><dd>米子駅 → 米子駅／皆生温泉</dd><dt>出発</dt><dd>12時まで</dd><dt>人数</dt><dd>1台4名まで</dd></dl>
+            <a class="c-btn c-btn--fill c-btn--block" href="#plan"><span>このプランで予約する</span><span class="c-arrow" aria-hidden="true">→</span></a>
+            <p class="c-reserve-box__note">メール予約は利用日の30〜5日前まで</p>
+          </section>
+          <div>
+            <span class="p-sg-label">SPの固定バー（見本では枠の中に表示）</span>
+            <div class="c-fixed-bar"><p class="c-price"><span class="c-price__now">18,000<small>円</small></span></p><a class="c-btn c-btn--fill" href="#plan"><span>予約する</span><span class="c-arrow" aria-hidden="true">→</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-sg-item">
+      <h3>めぐるルート <code>.c-route</code></h3>
+      <p>立ち寄り先はスポットDBを順番に並べるだけで組める。番号は自動。出発・到着は写真なしの <code>--end</code>。</p>
+      <div class="p-sg-demo p-sg-demo--white">
+        <ol class="c-route">
+          <li class="c-route__stop c-route__stop--end"><div><p class="c-route__name">米子駅</p><p class="c-route__meta"><span>出発 10:00</span></p></div></li>
+          <li class="c-route__stop"><div class="c-route__ph"><img class="u-cover" src="assets/images/route-sword.webp" alt="" loading="lazy"></div><div><p class="c-route__name">伯耆安綱の碑</p><p class="c-route__text">伯耆国の刀工・安綱の功績をたたえる碑。童子切安綱の物語の入口に。</p><p class="c-route__meta"><span>大山町</span><span>滞在 約20分</span></p><a class="c-link-more c-link-more--primary c-route__link" href="https://www.example.com/" target="_blank" rel="noopener">公式サイト<svg class="c-ext-icon" aria-hidden="true"><use href="#i-external"/></svg><span class="u-visually-hidden">（新しいタブで開きます）</span></a></div></li>
+          <li class="c-route__stop"><div class="c-route__ph"><img class="u-cover" src="assets/images/route-myth.webp" alt="" loading="lazy"></div><div><p class="c-route__name">大山寺宝物館 霊宝閣</p><p class="c-route__text">大山寺の寺宝を収める宝物館。<span class="c-badge c-badge--closed">冬期閉館</span></p><p class="c-route__meta"><span>大山町</span><span>滞在 約40分</span></p></div></li>
+          <li class="c-route__stop c-route__stop--end"><div><p class="c-route__name">米子駅または皆生温泉</p><p class="c-route__meta"><span>到着 15:00ごろ</span></p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== フォーム ===================== -->
+  <section class="p-sg-sec" id="form" aria-labelledby="h-form">
+    <h2 id="h-form">フォーム<small lang="en">FORM</small></h2>
+    <p>予約フォーム（3ステップ）とお問い合わせで共通。ラベルは入力欄の上に置き、必須は「必須」と文字で書く（色だけ・「*」だけにしない）。入力例は欄の中ではなく補足文に書く。エラーは欄の下に赤字で、何をどう直せばいいかを書く。<b>予約フォームだけ</b>、外国の方のために項目名の後ろに英語を小さく添える（<code>.c-field__en</code>）。外国語版のフォームは作らない。</p>
+    <div class="p-sg-demo p-sg-demo--white">
+      <ol class="c-steps" aria-label="予約の手順"><li class="is-done">内容の入力</li><li aria-current="step">確認</li><li>送信完了</li></ol>
+    </div>
+    <div class="p-sg-demo p-sg-demo--white">
+      <form class="c-form" onsubmit="return false" novalidate>
+        <fieldset class="c-form__section">
+          <legend class="c-form__section-title">ご希望のプラン</legend>
+          <div class="c-form__grid">
+            <div class="c-field is-full"><label class="c-field__label" for="sg-f-plan">ご希望のコース<span class="c-field__en" lang="en">Course</span><span class="c-field__req">必須</span></label><select class="c-select" id="sg-f-plan" required><option>A-2 伯耆安綱ゆかりの地めぐり（5時間）</option></select></div>
+            <div class="c-field is-error"><label class="c-field__label" for="sg-f-date">ご利用日<span class="c-field__en" lang="en">Date</span><span class="c-field__req">必須</span></label><input class="c-input" id="sg-f-date" type="date" required aria-invalid="true" aria-describedby="sg-f-date-help sg-f-date-err" value="2026-10-21"><p class="c-field__help" id="sg-f-date-help">ご利用日の30日前〜5日前まで選べます</p><p class="c-field__error" id="sg-f-date-err">30日前〜5日前の日付を選んでください（4日前以降はお電話でご予約ください）</p></div>
+            <div class="c-field"><label class="c-field__label" for="sg-f-time">ご乗車予定時間<span class="c-field__en" lang="en">Pick-up time</span><span class="c-field__req">必須</span></label><select class="c-select" id="sg-f-time" required><option>10:00</option><option>11:00</option><option>12:00</option></select></div>
+            <fieldset class="c-field is-full"><legend class="c-field__label">お支払方法<span class="c-field__en" lang="en">Payment</span><span class="c-field__req">必須</span></legend><div class="c-choice-group"><label class="c-choice"><input type="radio" name="sg-pay" checked>現金</label><label class="c-choice"><input type="radio" name="sg-pay">クレジットカード</label></div></fieldset>
+          </div>
+        </fieldset>
+        <fieldset class="c-form__section">
+          <legend class="c-form__section-title">ご予約者</legend>
+          <div class="c-form__grid">
+            <div class="c-field"><label class="c-field__label" for="sg-f-name">代表者のお名前<span class="c-field__en" lang="en">Name</span><span class="c-field__req">必須</span></label><input class="c-input" id="sg-f-name" type="text" autocomplete="name" aria-describedby="sg-f-name-help" required><p class="c-field__help" id="sg-f-name-help">お迎えのプラカードに表示します</p></div>
+            <div class="c-field"><label class="c-field__label" for="sg-f-tel">電話番号（携帯）<span class="c-field__en" lang="en">Mobile phone</span><span class="c-field__req">必須</span></label><input class="c-input" id="sg-f-tel" type="tel" autocomplete="tel" inputmode="tel" required></div>
+            <div class="c-field is-error"><label class="c-field__label" for="sg-f-mail">メールアドレス<span class="c-field__en" lang="en">Email</span><span class="c-field__req">必須</span></label><input class="c-input" id="sg-f-mail" type="email" autocomplete="email" required aria-invalid="true" aria-describedby="sg-f-mail-err" value="daisen@example"><p class="c-field__error" id="sg-f-mail-err">メールアドレスの形式が正しくありません（例：name@example.jp）</p></div>
+            <div class="c-field"><label class="c-field__label" for="sg-f-country">国名<span class="c-field__en" lang="en">Country</span><span class="c-field__opt">任意</span></label><input class="c-input" id="sg-f-country" type="text" autocomplete="country-name" aria-describedby="sg-f-country-help"><p class="c-field__help" id="sg-f-country-help">日本以外にお住まいの方のみ</p></div>
+            <div class="c-field is-full"><label class="c-field__label" for="sg-f-note">その他・ご要望<span class="c-field__en" lang="en">Notes</span><span class="c-field__opt">任意</span></label><textarea class="c-textarea" id="sg-f-note"></textarea></div>
+            <div class="c-field is-full"><label class="c-choice c-choice--plain"><input type="checkbox" required>個人情報の取り扱いに同意する<span class="c-field__req">必須</span></label></div>
+          </div>
+        </fieldset>
+        <div class="c-form__actions"><button class="c-btn" type="button"><span>入力画面に戻る</span></button><button class="c-btn c-btn--fill" type="submit"><span>入力内容を確認する</span><span class="c-arrow" aria-hidden="true">→</span></button></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== 動き ===================== -->
+  <section class="p-sg-sec" id="motion" aria-labelledby="h-motion">
+    <h2 id="h-motion">動き<small lang="en">MOTION</small></h2>
+    <table class="p-sg-rules">
+      <thead><tr><th scope="col">動き</th><th scope="col">ルール</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">見出しのリビール <code>.js-reveal</code></th><td>見出しとラベルだけ。1.2秒でふわっと（ぼかし＋上へ22px）。本文やカードには付けない。</td></tr>
+        <tr><th scope="row">ホバー</th><td>矢印が右へ6px、写真が持ち上がる（<code>.c-lift</code>）か1.04倍。0.3〜0.6秒、<code>--ease-out</code>。</td></tr>
+        <tr><th scope="row">開閉</th><td>メニュー・アコーディオン・シートは0.25〜0.4秒。切り替え中にチラつかせない。</td></tr>
+        <tr><th scope="row">自動で動くもの</th><td>動画・スライダーは必ず一時停止ボタンを付ける。5秒以上続く動きは止められること。</td></tr>
+        <tr><th scope="row">「動きを減らす」設定</th><td><code>prefers-reduced-motion</code> のときは、リビール・パララックス・流れ星・自動再生をすべて止め、最初から表示しておく。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== アクセシビリティ ===================== -->
+  <section class="p-sg-sec" id="a11y" aria-labelledby="h-a11y">
+    <h2 id="h-a11y">アクセシビリティ<small lang="en">ACCESSIBILITY</small></h2>
+    <p>目標は JIS X 8341-3 の適合レベルAA（WCAG 2.2 AA 相当）。トップは axe-core で違反0件を確認済み。下層も公開前に同じ確認を行います。</p>
+    <table class="p-sg-rules">
+      <thead><tr><th scope="col">項目</th><th scope="col">ルール</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">コントラスト</th><td>文字は背景に対して4.5:1以上（大きな見出しは3:1以上）。<code>--color-gray</code> が使える最も薄い文字色。写真の上は幕を敷く。</td></tr>
+        <tr><th scope="row">見出し</th><td>1ページに h1 は1つ。h2 → h3 → h4 を飛ばさない。英字ラベルは見出しにしない（<code>p</code>）。</td></tr>
+        <tr><th scope="row">リンクとボタン</th><td>ページを移動するのはリンク（<code>a</code>）、その場で何かするのはボタン（<code>button</code>）。押せる範囲は44×44px以上。カードの中にリンクを入れ子にしない。</td></tr>
+        <tr><th scope="row">キーボード</th><td>すべての操作がTabとEnter／Space／矢印で行える。フォーカスの枠は消さない（暗い面では明るい色に）。メニューやシートを開いたらフォーカスを中に移し、閉じたら元に戻す。</td></tr>
+        <tr><th scope="row">画像</th><td>意味のある写真・図には内容を表す <code>alt</code>。文字で名前が書いてあるカードの写真は <code>alt=""</code>。アイコンは <code>aria-hidden="true"</code> にし、アイコンだけのボタンには <code>aria-label</code>。</td></tr>
+        <tr><th scope="row">状態</th><td>開閉は <code>aria-expanded</code>、選択は <code>aria-pressed</code>／<code>aria-selected</code>、いまの場所は <code>aria-current</code>。色だけで状態を伝えない。</td></tr>
+        <tr><th scope="row">フォーム</th><td>すべての欄に <code>label</code>。補足とエラーは <code>aria-describedby</code> で欄に結び付け、誤りのある欄は <code>aria-invalid="true"</code>。送信時は上に誤りの一覧を出して各欄へリンク。<code>autocomplete</code> を付ける。</td></tr>
+        <tr><th scope="row">言語</th><td>英字ラベルには <code>lang="en"</code>。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== 文言 ===================== -->
+  <section class="p-sg-sec" id="writing" aria-labelledby="h-writing">
+    <h2 id="h-writing">文言・表記<small lang="en">WRITING</small></h2>
+    <table class="p-sg-rules">
+      <thead><tr><th scope="col">項目</th><th scope="col"><span class="p-sg-do">こう書く</span></th><th scope="col"><span class="p-sg-dont">こう書かない</span></th></tr></thead>
+      <tbody>
+        <tr><th scope="row">トーン</th><td>静かに語りかける。「〜をめぐる」「〜に出会う」</td><td>「絶対行くべき！」などのあおり、！の多用</td></tr>
+        <tr><th scope="row">ボタン</th><td>行き先・行動を動詞で。「プランを探す」「このプランで予約する」「すべての物語」</td><td>「こちら」「詳しくはこちら」「クリック」</td></tr>
+        <tr><th scope="row">数字・金額</th><td>半角数字、3桁区切り、「円」。「18,000円」「5時間」「4名まで」</td><td>「18000円」「¥18,000」「五時間」</td></tr>
+        <tr><th scope="row">日付・時刻</th><td>「2026年11月8日（日）」、範囲は「〜」。時刻は「10:00」「12時まで」</td><td>「11/8」だけ、「10時〜」と「10:00〜」の混在</td></tr>
+        <tr><th scope="row">固有名詞</th><td>「大山（だいせん）」は初出でルビか読みを添える。市町村名は正式名称（米子市、日吉津村）</td><td>略称だけ（「米子」で市を指す）</td></tr>
+        <tr><th scope="row">英字ラベル</th><td>大文字の短い英単語（STORIES、PLAN）。必ず和文の見出しと組にする</td><td>英字だけで意味を伝える</td></tr>
+        <tr><th scope="row">サイト内の呼び名</th><td>「観光タクシー旅」「プラン」「つながりの軸」「物語」「地域の人」</td><td>「ツアー」「コース商品」など別の呼び名を混ぜる</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</div>
+</body>
+</html>

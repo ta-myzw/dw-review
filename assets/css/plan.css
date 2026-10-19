@@ -1,0 +1,116 @@
+/* =========================================================
+   プラン一覧（/plan/）  p-plan-
+   部品は components.css の c- を使い、ここでは並べ方だけを書く
+   トップと同じく、箱や色面を増やさず、罫線と余白・明朝の大きさで組む
+   ========================================================= */
+
+/* ---------- ページの頭 ---------- */
+.p-plan__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 18px 64px; padding: 48px 0 56px; }
+.p-plan__head .c-page-head__kicker, .p-plan__head .c-page-head__title { grid-column: 1 / -1; }
+.p-plan__head .c-page-head__kicker { margin-bottom: 0; }
+.p-plan__lead { grid-column: 1; margin-top: 4px; font-size: var(--fs-body); line-height: 2; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+.p-plan__facts { grid-column: 2; grid-row: 3 / span 2; align-self: end; display: flex; gap: 0; padding-bottom: 6px; }
+.p-plan__period { grid-column: 1; font-size: var(--fs-note); letter-spacing: var(--ls-body); color: var(--color-gray); }
+.p-plan__facts > div { padding: 0 28px; border-left: 1px solid var(--color-line); }
+.p-plan__facts > div:first-child { border-left: 0; padding-left: 0; }
+.p-plan__facts dt { font-size: var(--fs-note); letter-spacing: .2em; color: var(--color-gray); }
+.p-plan__facts dd { margin: 6px 0 0; font-family: var(--font-serif); font-size: 30px; line-height: 1.2; letter-spacing: .02em; white-space: nowrap; }
+.p-plan__facts dd small { margin-left: 2px; font-family: var(--font-sans); font-size: var(--fs-small); }
+.p-plan__facts dd.is-sm { font-size: 17px; padding-top: 10px; }
+
+/* ---------- 条件（PC：横一列。罫線で区切る） ---------- */
+.p-plan-cond { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 1.2fr) repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--color-ink); border-bottom: 1px solid var(--color-line); }
+.p-plan-cond__cell { position: relative; display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 14px 18px 12px; border-left: 1px solid var(--color-line); }
+.p-plan-cond__cell:first-child { border-left: 0; padding-left: 0; }
+.p-plan-cond__label { font-size: var(--fs-tag); letter-spacing: .14em; color: var(--color-gray); }
+.p-plan-cond__select, .p-plan-cond__btn {
+  width: 100%; min-height: 36px; margin-top: 2px; padding: 0 22px 0 0; border: 0; border-radius: 0; background: transparent;
+  font: inherit; font-size: var(--fs-base); letter-spacing: var(--ls-body); color: var(--color-ink); text-align: left; cursor: pointer;
+  -webkit-appearance: none; appearance: none;
+}
+select.p-plan-cond__select { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23386A76' stroke-width='1.4'/%3E%3C/svg%3E") right 2px center / 10px 6px no-repeat; }
+input.p-plan-cond__select { padding-right: 0; }
+.p-plan-cond__btn { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.p-plan-cond__btn > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.p-plan-cond__caret { flex: none; width: 10px; height: 6px; margin-right: 2px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23386A76' stroke-width='1.4'/%3E%3C/svg%3E") center / contain no-repeat; transition: transform .25s ease; }
+.p-plan-cond__btn[aria-expanded="true"] .p-plan-cond__caret { transform: rotate(180deg); }
+.p-plan-cond__btn.is-set > span:first-child, select.p-plan-cond__select.is-set, input.p-plan-cond__select.is-set { color: var(--color-primary); }
+.p-plan-cond__select:focus-visible, .p-plan-cond__btn:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+.p-plan-cond__panel {
+  position: absolute; left: 0; top: calc(100% + 1px); z-index: 20; width: max(100%, 300px); padding: 18px 18px 14px;
+  background: var(--color-white); box-shadow: var(--shadow-panel); border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+.p-plan-cond__cell:last-child .p-plan-cond__panel { left: auto; right: 0; }
+.p-plan-cond__clear { margin-top: 14px; padding: 4px 0; border: 0; background: none; font-size: var(--fs-note); color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* ---------- 件数・適用中の条件・並び順 ---------- */
+.p-plan__results { padding-top: 40px; }
+.p-plan__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 36px; }
+.p-plan__count { font-size: var(--fs-base); font-weight: 400; letter-spacing: var(--ls-body); }
+.p-plan__count b { margin-right: 4px; font-family: var(--font-serif); font-size: 34px; font-weight: 400; letter-spacing: .02em; }
+.p-plan__applied { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; min-width: 0; }
+.p-plan__sort { display: flex; align-items: center; gap: 10px; margin-left: auto; font-size: var(--fs-note); color: var(--color-gray); }
+.p-plan__sort select { min-height: 40px; padding: 0 22px 0 0; border: 0; border-bottom: 1px solid var(--color-line); border-radius: 0; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23386A76' stroke-width='1.4'/%3E%3C/svg%3E") right 2px center / 10px 6px no-repeat; font: inherit; font-size: var(--fs-small); color: var(--color-ink); -webkit-appearance: none; appearance: none; cursor: pointer; }
+.p-plan__open { display: none; }
+
+/* ---------- 一覧 ---------- */
+.p-plan__grid { gap: 64px 40px; }
+.p-plan__item[hidden], .p-plan__grid[hidden], .p-plan__empty[hidden] { display: none; }
+.p-plan__empty { padding: 72px 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); text-align: center; color: var(--color-ink-sub); }
+.p-plan__empty .c-link-more { margin-top: 14px; border: 0; background: none; cursor: pointer; font: inherit; }
+.p-plan__pager { margin-top: 72px; }
+.p-plan__pager:empty { display: none; }
+
+/* ---------- 特集（ページの下） ---------- */
+.p-plan__features { padding-bottom: 120px; }
+.p-plan__features:has(.c-feature:not([hidden])) { padding-top: 96px; }
+.p-plan__features .c-feature { padding: 40px 0 0; border-top: 1px solid var(--color-line); border-radius: 0; background: none; grid-template-columns: minmax(0, 480px) minmax(0, 1fr); gap: 48px; }
+
+/* ---------- ご利用の前に ---------- */
+.p-plan__info-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
+.p-plan__info-h { margin-bottom: 16px; font-family: var(--font-serif); font-size: var(--fs-h3-sm); font-weight: 500; letter-spacing: var(--ls-heading); }
+.p-plan__info .c-table caption { caption-side: bottom; padding-top: 10px; text-align: left; font-size: var(--fs-note); color: var(--color-gray); }
+.p-plan__contact { margin-top: 64px; }
+
+/* シート（スマホ・タブレットだけ使う） */
+.p-plan__sheet-fields { display: grid; gap: 0; border-top: 1px solid var(--color-ink); }
+.p-plan__sheet-fields .p-plan-cond__cell { padding: 12px 0; border-left: 0; border-bottom: 1px solid var(--color-line); }
+
+@media (max-width: 1320px) {
+  .p-plan__head { grid-template-columns: minmax(0, 1fr); }
+  .p-plan__facts { grid-column: 1; grid-row: auto; margin-top: 18px; }
+  .p-plan-cond__cell { padding-inline: 12px; }
+  .p-plan-cond__cell:nth-child(n+6) .p-plan-cond__panel { left: auto; right: 0; }
+}
+@media (max-width: 1180px) {
+  .p-plan__grid { --cols: 2; }
+  /* 条件バーはヘッダーがハンバーガーになる幅で、下から出るシートに切り替える */
+  .p-plan-cond { display: none; }
+  .p-plan__results { padding-top: 8px; border-top: 1px solid var(--color-ink); }
+  .p-plan__open { display: inline-flex; }
+  .p-plan__applied { order: 3; flex-basis: 100%; }
+  .p-plan__applied:empty { display: none; }
+}
+@media (max-width: 1024px) {
+  .p-plan__info-grid { grid-template-columns: 1fr; gap: 40px; }
+  .p-plan__features .c-feature { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 768px) {
+  .p-plan__head { padding: 28px 0 36px; }
+  .p-plan__lead { font-size: var(--fs-base); }
+  .p-plan__facts > div { padding: 0 14px; }
+  .p-plan__facts dd { font-size: 21px; }
+  .p-plan__facts dd small { font-size: var(--fs-note); }
+  .p-plan__count b { font-size: 28px; }
+  .p-plan__grid { --cols: 1; gap: 48px; }
+  .p-plan__features { padding-bottom: 80px; }
+  .p-plan__features:has(.c-feature:not([hidden])) { padding-top: 64px; }
+  .p-plan__contact { margin-top: 48px; }
+}
+@media (max-width: 360px) {
+  .p-plan__facts > div { padding: 0 8px; }
+  .p-plan__facts dd { font-size: 18px; }
+  .p-plan__facts dt { letter-spacing: .1em; }
+  .p-plan__sort label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+.p-plan__clear-all { align-self: center; margin-left: 4px; padding: 4px 0; border: 0; background: none; font: inherit; font-size: var(--fs-note); cursor: pointer; }
