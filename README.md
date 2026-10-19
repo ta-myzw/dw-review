@@ -8,6 +8,7 @@
 ```
 index.html          … トップ
 plan/index.html     … プラン一覧（/plan/）。気分・季節・テーマの検索結果を兼ねる
+check/index.html    … 確認用ページ一覧（/check/。ブックマーク用。作ったページと確認用URLを並べる。noindex）
 styleguide.html     … デザインシステム（部品カタログ）。色・文字・余白・アイコン・全部品の見本と使い方のルール
 parts/
   area-map.svg      … 10市町村の地図（メガメニューとスマホメニューで共通。リンクと連動があるのでページには直書きで出す）
@@ -92,7 +93,7 @@ assets/
 ## 下層ページの作り方
 
 - 下層はヘッダー・スマホメニュー・フッターを index.html から写して作る（共通部分を直すときは index.html を直してから下層を作り直す）。`<main class="l-main l-main--sub">` で固定ヘッダーの高さぶん下げる
-- 作ったページは devlinks.js の `built` に足す
+- 作ったページは devlinks.js の `built` と、確認用ページ一覧（check/index.html を作る CHECK・TODO）に足す
 
 - まず styleguide.html の部品（`c-`）だけで組む。ページ固有の見た目が必要なときだけ `p-ページ名-` のCSSを作る
 - 色・文字サイズ・余白はトークン（tokens.css の変数）を使い、色コードを直接書かない
