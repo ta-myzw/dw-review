@@ -114,3 +114,8 @@ input.p-plan-cond__select { padding-right: 0; }
   .p-plan__sort label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
 .p-plan__clear-all { align-self: center; margin-left: 4px; padding: 4px 0; border: 0; background: none; font: inherit; font-size: var(--fs-note); cursor: pointer; }
+
+/* 予約の確定についての注意書き（予約フォームへのボタンの直前） */
+.p-plan__reserve-note { margin-top: 64px; }
+.p-plan__reserve-note + .p-plan__contact { margin-top: 16px; }
+@media (max-width: 768px) { .p-plan__reserve-note { margin-top: 48px; } }
