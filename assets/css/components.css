@@ -1024,7 +1024,8 @@ button.c-btn--fill { background-color: var(--color-primary); }
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
 }
 .c-fixed-bar .c-price__now { font-size: 20px; }
-.c-fixed-bar .c-btn { padding: 12px 22px; font-size: var(--fs-base); }
+.c-fixed-bar .c-price { min-width: 0; }
+.c-fixed-bar .c-btn { flex: none; gap: 8px; padding: 12px 18px; font-size: var(--fs-base); letter-spacing: .06em; }
 
 /* ---------- 7-14. ルート（立ち寄り順） ---------- */
 .c-route { counter-reset: stop; }
@@ -1182,7 +1183,11 @@ button.c-btn--fill { background-color: var(--color-primary); }
   .c-prevnext .is-next { grid-column: auto; }
   .c-pagination .is-prev span, .c-pagination .is-next span { display: none; }
 
-  .c-route__stop { grid-template-columns: 40px 88px minmax(0, 1fr); gap: 0 12px; }
+  /* スマホは1カラム：番号の右に写真（横幅いっぱい）、その下に名前・説明 */
+  .c-route__stop { grid-template-columns: 40px minmax(0, 1fr); gap: 0 12px; }
+  .c-route__stop > * { grid-column: 2; }
+  .c-route__stop::before { grid-column: 1; grid-row: 1; }
+  .c-route__ph { aspect-ratio: 3 / 2; margin-bottom: 12px; }
   .c-route__name { font-size: 17px; }
   .c-route__text { font-size: var(--fs-note); }
 
@@ -1215,7 +1220,7 @@ button.c-btn--fill { background-color: var(--color-primary); }
   .c-pagination .is-prev, .c-pagination .is-next { padding: 0 12px; }
 }
 @media (max-width: 360px) {
-  .c-route__stop { grid-template-columns: 36px 64px minmax(0, 1fr); gap: 0 10px; }
+  .c-route__stop { grid-template-columns: 36px minmax(0, 1fr); gap: 0 10px; }
   .c-route__stop--end { grid-template-columns: 36px minmax(0, 1fr); }
 }
 

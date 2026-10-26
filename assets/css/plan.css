@@ -175,7 +175,7 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .p-pd__flags { margin-top: 18px; }
 .p-pd__sec { margin-top: 88px; }
 .p-pd__h2 { margin: 6px 0 28px; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h2); letter-spacing: var(--ls-heading); }
-.p-pd__map { height: 420px; border-radius: var(--radius-sm); overflow: hidden; background: #E4EEF0; }
+.p-pd__map { position: relative; z-index: 0; isolation: isolate; /* 地図の中の重なり（Leaflet は z-index 400〜1000）を中に閉じこめ、固定ヘッダーより前に出さない */ height: 420px; border-radius: var(--radius-sm); overflow: hidden; background: #E4EEF0; }
 .p-pd__map.is-fallback, .p-pd__map.is-fallback + .p-pd__map-note { display: none; }
 .p-pd__map-note { margin: 10px 0 36px; font-size: var(--fs-note); color: var(--color-gray); }
 .p-pd__route { padding-top: 8px; border-top: 1px solid var(--color-ink); }
@@ -220,18 +220,20 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
   body:has(.c-fixed-bar) { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 }
 
-/* 予約ボックス：箱や影を使わず、上の罫線と余白で組む（プラン詳細の右の列） */
-.c-reserve-box { padding: 22px 0 0; border: 0; border-top: 1px solid var(--color-ink); border-radius: 0; background: none; box-shadow: none; }
+/* 予約ボックス：ページでいちばん目立たせたい欄。セージの面＋上の太線（影は使わない） */
+.c-reserve-box { padding: 26px 22px 24px; border: 0; border-top: 3px solid var(--color-primary); border-radius: 0 0 var(--radius-md) var(--radius-md); background: var(--color-sage); box-shadow: none; }
 .c-reserve-box__unit { margin: -8px 0 16px; font-size: var(--fs-note); color: var(--color-gray); }
 .c-reserve-box .c-dl { padding-top: 14px; border-top: 1px solid var(--color-line); }
 .c-reserve-box__note { text-align: left; }
 .c-reserve-box__confirm { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--color-line); font-size: var(--fs-note); line-height: 1.7; color: var(--color-ink-sub); }
 
-/* 発着を選ぶ（予約ボックスの中）。箱にせず、罫線で区切った行に丸い選択 */
+/* 発着を選ぶ（予約ボックスの中）。白いカードを並べ、選んだものを枠で強調 */
 .c-route-pick { margin: 0 0 18px; padding: 0; border: 0; min-width: 0; }
 .c-route-pick__legend { margin-bottom: 6px; padding: 0; font-size: var(--fs-note); letter-spacing: var(--ls-body); color: var(--color-gray); }
-.c-route-pick__row { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 8px 0; border-top: 1px solid var(--color-line); cursor: pointer; }
-.c-route-pick__row:last-child { border-bottom: 1px solid var(--color-line); }
+.c-route-pick__row { display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 8px 14px; border: 1px solid var(--color-line); border-radius: var(--radius-sm); background: var(--color-white); cursor: pointer; transition: border-color var(--dur-base) var(--ease-out); }
+.c-route-pick__row + .c-route-pick__row { margin-top: 6px; }
+.c-route-pick__row:hover { border-color: rgba(56, 106, 118, .45); }
+.c-route-pick__row:has(input:checked) { border-color: var(--color-primary); box-shadow: inset 0 0 0 1px var(--color-primary); }
 .c-route-pick__row input { appearance: none; -webkit-appearance: none; flex: none; width: 20px; height: 20px; margin: 0; border: 1.5px solid rgba(56, 106, 118, .7); border-radius: 50%; background: var(--color-white); cursor: pointer; }
 .c-route-pick__row input:checked { border-color: var(--color-primary); background: var(--color-primary); box-shadow: inset 0 0 0 4px var(--color-white); }
 .c-route-pick__row input:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
@@ -239,4 +241,6 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .c-route-pick__to { margin: 0 8px; font-family: var(--font-serif); color: var(--color-primary); }
 .c-route-pick__h { flex: none; font-size: var(--fs-note); color: var(--color-gray); }
 .c-route-pick__row:has(input:checked) .c-route-pick__od { color: var(--color-primary); }
+.c-reserve-box .c-btn--fill { padding-block: 17px; }
+.c-reserve-box__confirm { border-top-color: rgba(56, 106, 118, .2); }
 .c-reserve-box .c-dl { border-top: 0; padding-top: 0; }
