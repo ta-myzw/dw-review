@@ -10,7 +10,8 @@
   // 作成済みの静的ページ（ページを作ったらここに足す）
   var built = {
     '/': 'index.html',
-    '/plan/': 'plan/index.html'
+    '/plan/': 'plan/index.html',
+    '/plan/a-2/': 'plan/a-2/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');
