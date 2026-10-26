@@ -132,10 +132,11 @@ a:hover > .c-lift, a.c-lift:hover { transform: translateY(-3px); box-shadow: var
   font-size: var(--fs-body); letter-spacing: .12em; text-decoration: none; white-space: nowrap;
   color: var(--color-primary);
   transition: color .45s ease, border-color .45s ease;
+  isolation: isolate;   /* ホバーの面（::before）を文字の後ろに置く。文字を<span>で包み忘れても隠れない */
 }
 .c-btn::before {
   content: ""; position: absolute; inset: 0; border-radius: 32px; background: var(--color-primary);
-  opacity: 0; transition: opacity .55s ease; z-index: 0;
+  opacity: 0; transition: opacity .55s ease; z-index: -1;
 }
 .c-btn > * { position: relative; z-index: 1; }
 .c-btn .c-arrow { font-family: var(--font-serif); }
