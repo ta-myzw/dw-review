@@ -56,8 +56,8 @@
   --fs-small:   15px;
   --fs-note:    14px;
   --fs-tag:     13px;
-  --fs-kicker:  12px;   /* 英字ラベル（飾り。読ませる文字には使わない） */
-  --fs-micro:   11px;   /* 英字の飾りのみ */
+  --fs-kicker:  13px;   /* 英字ラベル（飾り。読ませる文字には使わない）。下限13pxにそろえる */
+  --fs-micro:   13px;   /* 英字の飾り。下限13pxにそろえる（以前は11px） */
 
   --ls-kicker:  .4em;
   --ls-heading: .05em;
