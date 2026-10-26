@@ -927,13 +927,15 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-pagination { display: flex; justify-content: center; }
 .c-pagination ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
 .c-pagination a, .c-pagination span {
-  display: inline-grid; place-items: center; min-width: 44px; height: 44px; padding: 0 8px; border-radius: 22px;
-  font-size: var(--fs-base); color: var(--color-ink-sub); text-decoration: none; font-variant-numeric: tabular-nums;
+  display: inline-grid; place-items: center; min-width: 44px; height: 44px; padding: 0 8px;
+  font-family: var(--font-serif); font-size: 18px; color: var(--color-gray); text-decoration: none; font-variant-numeric: tabular-nums;
+  transition: color .25s ease, box-shadow .25s ease;
 }
-.c-pagination a:hover { background: var(--color-mist); color: var(--color-primary); }
-.c-pagination [aria-current="page"] { background: var(--color-primary); color: var(--color-paper); }
+/* 塗りや枠は使わず、今のページは濃い文字＋下線、ほかは薄い文字 */
+.c-pagination a:hover { color: var(--color-primary); box-shadow: inset 0 -1px 0 var(--color-primary); }
+.c-pagination [aria-current="page"] { color: var(--color-ink); box-shadow: inset 0 -2px 0 var(--color-ink); }
 .c-pagination .is-gap { min-width: 24px; }
-.c-pagination .is-prev, .c-pagination .is-next { padding: 0 16px; gap: 6px; display: inline-flex; border: 1px solid var(--color-line); }
+.c-pagination .is-prev, .c-pagination .is-next { padding: 0 12px; gap: 8px; display: inline-flex; align-items: center; font-family: var(--font-sans); font-size: var(--fs-base); color: var(--color-ink); }
 
 .c-prevnext { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .c-prevnext a { display: flex; flex-direction: column; gap: 6px; padding: 22px 24px; border: 1px solid var(--color-line); border-radius: var(--radius-md); text-decoration: none; color: var(--color-ink); transition: border-color .3s ease, background .3s ease; }
@@ -1243,3 +1245,8 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-reserve-note__title { font-family: var(--font-serif); font-size: 18px; font-weight: 500; line-height: 1.6; letter-spacing: var(--ls-heading); }
 .c-reserve-note__text { font-size: var(--fs-base); line-height: 1.9; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
 @media (max-width: 768px) { .c-reserve-note { grid-template-columns: 1fr; padding: 20px 0; } .c-reserve-note__title { font-size: 17px; } }
+
+/* 7. スマホではセクション見出しの「すべての〜」を、どのセクションも見出しの下に置く */
+@media (max-width: 768px) {
+  .c-sec-head { flex-direction: column; align-items: flex-start; flex-wrap: nowrap; gap: 14px; }
+}

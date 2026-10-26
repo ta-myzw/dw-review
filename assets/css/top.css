@@ -338,7 +338,6 @@
   .p-top-band--b .p-top-band__body { left: var(--gutter); }
   .p-top-band__line { font-size: 22px; }
 
-  .p-top-themes .c-sec-head { flex-wrap: nowrap; gap: 8px; }
 
   .p-top-taxi { padding-bottom: 80px; }
 
@@ -358,3 +357,7 @@
   .p-top-pickup__ctrl { left: 12px; gap: 6px; }
   .p-top-pickup__dot { width: 26px; }
 }
+
+/* 6. 地図（Leaflet・地理院タイル）が読み込めないときは、メニューと同じSVGの地図を出す */
+.p-top-area__map.is-fallback { display: flex; justify-content: center; background: #E4EEF0; }
+.p-top-area__map.is-fallback .c-area-svg { width: auto; height: 100%; max-width: 100%; border-radius: 0; }

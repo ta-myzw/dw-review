@@ -119,3 +119,21 @@ input.p-plan-cond__select { padding-right: 0; }
 .p-plan__reserve-note { margin-top: 72px; }
 .p-plan__reserve-note + .p-plan__contact { margin-top: 40px; }
 @media (max-width: 768px) { .p-plan__reserve-note { margin-top: 48px; } }
+
+/* 8. スマホは1行目に件数（左）と並び順（右）、2行目に「条件で絞り込む」を置く */
+@media (max-width: 768px) {
+  .p-plan__bar { row-gap: 0; }
+  .p-plan__count { order: 1; }
+  .p-plan__sort { order: 2; }
+  .p-plan__bar::after { content: ""; order: 3; flex-basis: 100%; height: 14px; }
+  .p-plan__open { order: 4; }
+  .p-plan__applied { order: 5; margin-top: 14px; }
+}
+
+/* 5. ご利用日：ブラウザ標準の見た目をやめ、ほかの条件と同じ「指定なし ▼」に合わせる */
+.p-plan-cond__date { position: relative; display: block; }
+input[type="date"].p-plan-cond__select { position: relative; padding-right: 22px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23386A76' stroke-width='1.4'/%3E%3C/svg%3E") right 2px center / 10px 6px no-repeat; }
+input[type="date"].p-plan-cond__select::-webkit-calendar-picker-indicator { position: absolute; inset: 0; width: auto; height: auto; margin: 0; padding: 0; opacity: 0; cursor: pointer; }
+input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transparent; }
+.p-plan-cond__ph { position: absolute; left: 0; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: var(--fs-base); letter-spacing: var(--ls-body); color: var(--color-ink); }
+.p-plan-cond__select.is-set + .p-plan-cond__ph, .p-plan-cond__select:focus + .p-plan-cond__ph { display: none; }

@@ -36,15 +36,31 @@
     if (c) { c.classList.toggle('is-hl', on); }
   }
 
+  // 地図が出せないとき（Leaflet や地理院タイルが読み込めない）は、メニューと同じSVGの地図に差し替える
+  function fallback() {
+    if (el.classList.contains('is-fallback')) { return; }
+    var svg = document.querySelector('.c-area-svg');
+    if (!svg) { return; }
+    el.innerHTML = '';
+    el.appendChild(svg.cloneNode(true));
+    el.classList.add('is-fallback');
+  }
+
   var tries = 0;
   (function build() {
-    if (!window.L) { if (tries++ < 60) { setTimeout(build, 150); } return; }
+    if (!window.L) { if (tries++ < 60) { setTimeout(build, 150); } else { fallback(); } return; }
     var L = window.L;
     var map = L.map(el, { scrollWheelZoom: false, attributionControl: true, zoomControl: true, zoomSnap: 0.25, zoomDelta: 0.5 });
-    L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+    var tiles = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
       attribution: "出典：<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank' rel='noopener'>国土地理院</a>",
       maxZoom: 18
     }).addTo(map);
+    // タイルが1枚も読めないまま失敗が続く・8秒たっても読めないときは予備の地図へ
+    var loaded = 0, errors = 0, gone = false;
+    function giveUp() { if (gone || loaded) { return; } gone = true; map.remove(); fallback(); }
+    tiles.on('tileload', function () { loaded++; });
+    tiles.on('tileerror', function () { if (++errors >= 4) { giveUp(); } });
+    setTimeout(giveUp, 8000);
     var pane = map.getPane('tilePane');
     if (pane) { pane.style.filter = 'grayscale(1) contrast(.9) brightness(1.06)'; }
     var pts = [];
