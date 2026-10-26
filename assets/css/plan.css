@@ -150,3 +150,7 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
   .p-plan__fab.is-shown { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity .3s ease, transform .3s var(--ease-out), visibility 0s; }
 }
 @media (prefers-reduced-motion: reduce) { .p-plan__fab, .p-plan__fab.is-shown { transition: none; } }
+
+/* 「N件を表示」で一覧の頭へ移動したあと、件数の見出しにフォーカスを移す（枠はキーボード操作のときだけ） */
+.p-plan__count:focus { outline: none; }
+.p-plan__count:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }

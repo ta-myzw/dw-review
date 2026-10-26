@@ -254,6 +254,23 @@
   syncControls();
   render();
 
+  // シートの「N件を表示」で閉じたら、一覧の頭（件数・選んだ条件）まで移動して、絞り込んだ結果を見せる
+  var showBtn = document.querySelector('.js-show-results');
+  var countHead = document.querySelector('.p-plan__count');
+  var goResults = false;
+  if (showBtn && results) {
+    showBtn.addEventListener('click', function () { goResults = true; });
+    sheet.addEventListener('close', function () {
+      if (!goResults) { return; }
+      goResults = false;
+      setTimeout(function () {
+        var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        results.scrollIntoView({ block: 'start', behavior: still ? 'auto' : 'smooth' });
+        if (countHead) { countHead.focus({ preventScroll: true }); }
+      }, 0);
+    });
+  }
+
   // スマホ・タブレットの FAB：上の「条件で絞り込む」が見えている間と、「ご利用の前に」から下では出さない
   var fab = document.querySelector('.js-fab');
   var inlineOpen = document.querySelector('.p-plan__open');
