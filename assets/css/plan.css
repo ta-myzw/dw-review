@@ -46,7 +46,7 @@ input.p-plan-cond__select { padding-right: 0; }
 /* ---------- 件数・適用中の条件・並び順 ---------- */
 .p-plan__results { padding-top: 40px; }
 .p-plan__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 36px; }
-.p-plan__count { font-size: var(--fs-base); font-weight: 400; letter-spacing: var(--ls-body); }
+.p-plan__count { font-size: var(--fs-base); font-weight: 500; letter-spacing: var(--ls-body); }
 .p-plan__count b { margin-right: 4px; font-family: var(--font-serif); font-size: 34px; font-weight: 400; letter-spacing: .02em; }
 .p-plan__applied { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; min-width: 0; }
 .p-plan__sort { display: flex; align-items: center; gap: 10px; margin-left: auto; font-size: var(--fs-note); color: var(--color-gray); }
@@ -68,7 +68,7 @@ input.p-plan-cond__select { padding-right: 0; }
 
 /* ---------- ご利用の前に ---------- */
 .p-plan__info-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
-.p-plan__info-h { margin-bottom: 16px; font-family: var(--font-serif); font-size: var(--fs-h3-sm); font-weight: 500; letter-spacing: var(--ls-heading); }
+.p-plan__info-h { margin-bottom: 16px; font-family: var(--font-serif); font-size: var(--fs-h3-sm); font-weight: 600; letter-spacing: var(--ls-heading); }
 .p-plan__info .c-table caption { caption-side: bottom; padding-top: 10px; text-align: left; font-size: var(--fs-note); color: var(--color-gray); }
 .p-plan__contact { margin-top: 64px; }
 

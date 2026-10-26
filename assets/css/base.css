@@ -12,6 +12,7 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   font-size: var(--fs-base);
+  font-weight: 500;   /* 本文は一段太く（400だとスマホで細く見えるため） */
   color: var(--color-ink);
   background: var(--color-paper);
   overflow-x: clip;

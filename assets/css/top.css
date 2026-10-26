@@ -72,7 +72,7 @@
   color: var(--color-paper); opacity: .92;
 }
 .p-top-hero__vcaption span:first-child {
-  writing-mode: vertical-rl; font-weight: 300; font-size: 13px; letter-spacing: .26em; text-shadow: 0 2px 16px rgba(8, 12, 28, .5);
+  writing-mode: vertical-rl; font-weight: 400; font-size: 13px; letter-spacing: .26em; text-shadow: 0 2px 16px rgba(8, 12, 28, .5);
 }
 .p-top-hero__vcaption span:last-child { width: 1px; height: 40px; margin-top: 4px; background: var(--color-paper); opacity: .7; }
 .p-top-hero__pause { position: absolute; z-index: 5; right: 5vw; bottom: 34px; }
@@ -179,7 +179,7 @@
 }
 .p-top-band--forest .p-top-band__catch { font-size: 42px; letter-spacing: .08em; text-shadow: 0 2px 22px rgba(var(--scrim-navy), .6); }
 .p-top-band--b .p-top-band__body { inset: auto; left: 8vw; bottom: 64px; display: block; padding: 0; color: var(--color-cream); }
-.p-top-band__label { margin-bottom: 10px; font-weight: 300; font-size: var(--fs-kicker); letter-spacing: .34em; opacity: .85; }
+.p-top-band__label { margin-bottom: 10px; font-weight: 400; font-size: var(--fs-kicker); letter-spacing: .34em; opacity: .85; }
 .p-top-band__line { font-family: var(--font-serif); font-size: 26px; letter-spacing: .08em; text-shadow: 0 2px 20px rgba(var(--scrim-navy), .45); }
 
 /* ---------- テーマ ---------- */
