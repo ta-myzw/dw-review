@@ -1,5 +1,5 @@
 /**
- * プラン詳細の「めぐるルート」の地図（Leaflet＋国土地理院タイル）
+ * プラン詳細の「めぐるルート」の地図（Leaflet＋国土地理院の白地図。ピンと点線が目立つよう、道路や等高線のない地図にする）
  * - .js-route-map の data-stops（[{n, name, lat, lng}]）から、立ち寄る順の番号ピンと、順番を結ぶ線を描く
  * - 1番（出発）と最後（到着）が同じ場所のときは「発着」のピンを1つにまとめ、線は出発地へ戻す
  * - ピンはTabで止まらない（地図の下の一覧で同じ情報を読める）
@@ -19,10 +19,10 @@
   (function build() {
     if (!window.L) { if (tries++ < 60) { setTimeout(build, 150); } else { fallback(); } return; }
     var L = window.L;
-    var map = L.map(el, { scrollWheelZoom: false, zoomSnap: 0.25, zoomDelta: 0.5 });
-    var tiles = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+    var map = L.map(el, { maxZoom: 14, scrollWheelZoom: false, zoomSnap: 0.25, zoomDelta: 0.5 });
+    var tiles = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/blank/{z}/{x}/{y}.png', {
       attribution: "出典：<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank' rel='noopener'>国土地理院</a>",
-      maxZoom: 18
+      maxZoom: 14   // 白地図は ズーム5〜14 まで
     }).addTo(map);
     var loaded = 0, errors = 0, gone = false;
     function giveUp() { if (gone || loaded) { return; } gone = true; map.remove(); fallback(); }
