@@ -166,6 +166,9 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .p-pd__title { margin-top: 14px; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-page); line-height: 1.45; letter-spacing: var(--ls-heading); }
 .p-pd__lead { margin-top: 20px; max-width: 680px; font-size: var(--fs-lead); line-height: 2; letter-spacing: var(--ls-body); color: var(--color-ink-sub); word-break: normal; }
 .p-pd__hero { position: relative; margin: 0; aspect-ratio: 21 / 9; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+/* 旧サイトの写真（幅540px）は1枚で横いっぱいに広げると粗くなるので、立ち寄り先の写真を3枚並べる。CMSでは「メイン写真（任意）」が大きければ1枚、なければ立ち寄り先の先頭3枚 */
+.p-pd__hero--trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; aspect-ratio: auto; background: none; }
+.p-pd__hero--trio img { position: static; display: block; width: 100%; height: auto; aspect-ratio: 10 / 7; object-fit: cover; border-radius: var(--radius-xs); }
 .p-pd__body { padding-top: 56px; gap: 72px; }
 .p-pd__side { position: sticky; top: calc(var(--header-h) + 24px); }
 .p-pd__side .c-reserve-box { position: static; }
@@ -207,6 +210,9 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
   .p-pd__br { display: none; }
   .p-pd__lead { font-size: var(--fs-base); }
   .p-pd__hero { aspect-ratio: 4 / 3; margin: 0 calc(var(--gutter) * -1); border-radius: 0; }
+  .p-pd__hero--trio { aspect-ratio: auto; grid-template-columns: 1fr 1fr; gap: 4px; }
+  .p-pd__hero--trio img { border-radius: 0; }
+  .p-pd__hero--trio img:first-child { grid-column: 1 / -1; }
   .p-pd__body { padding-top: 32px; }
   .p-pd__side { order: 1; }  /* スマホは本文のあとに料金と条件。予約は画面下の固定バーからも */
   .p-pd__facts > div { padding: 0 14px; }
