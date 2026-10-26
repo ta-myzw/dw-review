@@ -2,7 +2,8 @@
  * プラン一覧（/plan/）の絞り込み
  * - 条件は URL パラメータと同期する：?mood=zekkei,onsen&season=autumn&axis=katana&time=4&from=…&to=…&date=2027-01-15&sort=price
  *   テーマの条件名は WordPress の予約語 theme を避けて axis（物語・ジャーナルと共通）
- *   ページ送りは WordPress 標準の /plan/page/2/（静的HTMLを直接開いたときだけ #page-2 で代用）
+ *   ページ送りは WordPress 標準の /plan/page/2/。静的HTML（確認用サイト・直接開いたとき）は #page-2 で代用
+ *   （ページ送りの nav に data-pager="hash" がある＝静的HTML。WPのテンプレートには付けない）
  *   ?filter=mood など：その条件の選択肢を開く（1181px〜は条件バーの吹き出し、それ以下はシート）
  * - 同じ条件の中は「どれか」、条件同士は「すべて」を満たすもの。選ぶとすぐ一覧が変わる（「探す」ボタンはない）
  * - 気分・季節・テーマの条件がちょうど1つのとき、その特集の紹介（.js-feature）をページの下に出す
@@ -48,7 +49,8 @@
   }
   // 一覧の基本のパス（/plan/page/2/ の page/2/ を除いたもの）
   var BASE = location.pathname.replace(/page\/\d+\/?$/, '');
-  var PRETTY = /\/$/.test(BASE);   // WP（/plan/）なら true。静的HTML（plan/index.html）は false
+  // WP（/plan/）なら true。静的HTMLは /plan/page/2/ のページが無いので false（#page-2 を使う）
+  var PRETTY = /\/$/.test(BASE) && pager.getAttribute('data-pager') !== 'hash';
   function query(s, page) {
     var q = new URLSearchParams();
     GROUPS.forEach(function (g) { if (s[g].length) { q.set(g, s[g].join(',')); } });

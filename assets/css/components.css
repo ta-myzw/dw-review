@@ -1191,7 +1191,7 @@ button.c-btn--fill { background-color: var(--color-primary); }
 /* ---------- 7-19. 改行のルール（下層の読ませる文章） ----------
    見出しやキャッチは base.css の keep-all（文節の区切りにゼロ幅スペースを入れて改行位置を決める）。
    管理画面から入力される長い文章は、区切りを入れられないので通常の改行にする。 */
-.c-prose, .c-toc, .c-notice, .c-accordion__body, .c-table td, .c-dl dd,
+.c-prose, .c-toc, .c-notice, .c-reserve-note__text, .c-accordion__body, .c-table td, .c-dl dd,
 .c-route__text, .c-spot-card__sub, .c-page-hero__lead, .c-page-head__lead, .c-field__help, .c-field__error {
   word-break: normal;
 }
@@ -1231,3 +1231,10 @@ button.c-btn--fill { background-color: var(--color-primary); }
   .c-feature { grid-template-columns: 1fr; gap: 16px; padding: 16px; }
   .c-feature__title { font-size: var(--fs-h3-sm); }
 }
+
+/* 予約の確定についての注意書き（プラン一覧・詳細・予約確認・完了の4画面で共通）
+   箱・色面・アイコンを使わず、上下の罫線と明朝の見出しで組む */
+.c-reserve-note { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 8px 40px; padding: 24px 0; border-top: 1px solid var(--color-ink); border-bottom: 1px solid var(--color-line); }
+.c-reserve-note__title { font-family: var(--font-serif); font-size: 18px; font-weight: 500; line-height: 1.6; letter-spacing: var(--ls-heading); }
+.c-reserve-note__text { font-size: var(--fs-base); line-height: 1.9; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+@media (max-width: 768px) { .c-reserve-note { grid-template-columns: 1fr; padding: 20px 0; } .c-reserve-note__title { font-size: 17px; } }
