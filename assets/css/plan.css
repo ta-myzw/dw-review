@@ -137,3 +137,16 @@ input[type="date"].p-plan-cond__select::-webkit-calendar-picker-indicator { posi
 input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transparent; }
 .p-plan-cond__ph { position: absolute; left: 0; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: var(--fs-base); letter-spacing: var(--ls-body); color: var(--color-ink); }
 .p-plan-cond__select.is-set + .p-plan-cond__ph, .p-plan-cond__select:focus + .p-plan-cond__ph { display: none; }
+
+/* スマホ・タブレットの「条件で絞り込む」FAB（plan.js が .is-shown を付け外しする） */
+.p-plan__fab { display: none; }
+@media (max-width: 1180px) {
+  .p-plan__fab {
+    display: inline-flex; position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 25;
+    padding: 12px 26px; box-shadow: var(--shadow-panel);
+    opacity: 0; visibility: hidden; transform: translate(-50%, 24px);
+    transition: opacity .3s ease, transform .3s var(--ease-out), visibility 0s linear .3s;
+  }
+  .p-plan__fab.is-shown { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity .3s ease, transform .3s var(--ease-out), visibility 0s; }
+}
+@media (prefers-reduced-motion: reduce) { .p-plan__fab, .p-plan__fab.is-shown { transition: none; } }

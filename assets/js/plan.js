@@ -124,7 +124,7 @@
     FIELDS.forEach(function (k) { if (state[k]) { n++; } });
     document.querySelector('.js-count').textContent = hit.length;
     document.querySelector('.js-count-btn').textContent = hit.length + '件を表示';
-    document.querySelector('.js-active-n').textContent = n ? '（' + n + '）' : '';
+    $$('.js-active-n').forEach(function (el) { el.textContent = n ? '（' + n + '）' : ''; });
     document.querySelector('.js-result-label').textContent = n ? '（条件に合うプラン）' : '（すべてのプラン）';
 
     applied.textContent = '';
@@ -253,6 +253,23 @@
   state = readURL();
   syncControls();
   render();
+
+  // スマホ・タブレットの FAB：上の「条件で絞り込む」が見えている間と、「ご利用の前に」から下では出さない
+  var fab = document.querySelector('.js-fab');
+  var inlineOpen = document.querySelector('.p-plan__open');
+  var info = document.querySelector('.p-plan__info');
+  if (fab && inlineOpen && info && 'IntersectionObserver' in window) {
+    var inlineSeen = true, infoReached = false;
+    var updateFab = function () { fab.classList.toggle('is-shown', !inlineSeen && !infoReached); };
+    new IntersectionObserver(function (es) {
+      es.forEach(function (en) { inlineSeen = en.isIntersecting || en.boundingClientRect.top > 0; });
+      updateFab();
+    }).observe(inlineOpen);
+    new IntersectionObserver(function (es) {
+      es.forEach(function (en) { infoReached = en.isIntersecting || en.boundingClientRect.top < 0; });
+      updateFab();
+    }, { rootMargin: '0px 0px 120px 0px' }).observe(info);
+  }
   if (only && GROUPS.indexOf(only) > -1) {
     setTimeout(function () {
       if (wide.matches) {
