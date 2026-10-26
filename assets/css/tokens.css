@@ -74,10 +74,11 @@
   --space-section-sm: 120px;
 
   /* ---------- Shape ---------- */
-  --radius-xs: 5px;
+  /* 角丸は3段階だけ：小さな部品 4px／写真・カード 6px／帯・パネル 10px（ボタンの丸 999px は別） */
+  --radius-xs: 4px;
   --radius-sm: 6px;          /* 写真 */
-  --radius-md: 10px;         /* カード */
-  --radius-lg: 14px;         /* 帯・パネル */
+  --radius-md: 6px;          /* カード（写真と同じ） */
+  --radius-lg: 10px;         /* 帯・パネル */
   --radius-pill: 999px;
 
   --shadow-lift: 0 18px 44px -18px rgba(15, 22, 50, .42);
