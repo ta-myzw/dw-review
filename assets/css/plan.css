@@ -226,3 +226,17 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .c-reserve-box .c-dl { padding-top: 14px; border-top: 1px solid var(--color-line); }
 .c-reserve-box__note { text-align: left; }
 .c-reserve-box__confirm { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--color-line); font-size: var(--fs-note); line-height: 1.7; color: var(--color-ink-sub); }
+
+/* 発着を選ぶ（予約ボックスの中）。箱にせず、罫線で区切った行に丸い選択 */
+.c-route-pick { margin: 0 0 18px; padding: 0; border: 0; min-width: 0; }
+.c-route-pick__legend { margin-bottom: 6px; padding: 0; font-size: var(--fs-note); letter-spacing: var(--ls-body); color: var(--color-gray); }
+.c-route-pick__row { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 8px 0; border-top: 1px solid var(--color-line); cursor: pointer; }
+.c-route-pick__row:last-child { border-bottom: 1px solid var(--color-line); }
+.c-route-pick__row input { appearance: none; -webkit-appearance: none; flex: none; width: 20px; height: 20px; margin: 0; border: 1.5px solid rgba(56, 106, 118, .7); border-radius: 50%; background: var(--color-white); cursor: pointer; }
+.c-route-pick__row input:checked { border-color: var(--color-primary); background: var(--color-primary); box-shadow: inset 0 0 0 4px var(--color-white); }
+.c-route-pick__row input:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+.c-route-pick__od { flex: 1; font-size: var(--fs-base); letter-spacing: var(--ls-body); }
+.c-route-pick__to { margin: 0 8px; font-family: var(--font-serif); color: var(--color-primary); }
+.c-route-pick__h { flex: none; font-size: var(--fs-note); color: var(--color-gray); }
+.c-route-pick__row:has(input:checked) .c-route-pick__od { color: var(--color-primary); }
+.c-reserve-box .c-dl { border-top: 0; padding-top: 0; }
