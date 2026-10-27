@@ -82,8 +82,13 @@
       var has = (el.dataset[g] || '').split(' ');
       if (!want.some(function (v) { return has.indexOf(v) > -1; })) { return false; }
     }
-    if (state.from && el.dataset.from.split('|').indexOf(state.from) < 0) { return false; }
-    if (state.to && el.dataset.to.split('|').indexOf(state.to) < 0) { return false; }
+    // 出発地と到着地の両方を選んだときは、実在する発着の組（data-routes「発地→着地」）で判定する
+    if (state.from && state.to) {
+      if ((el.dataset.routes || '').split('|').indexOf(state.from + '→' + state.to) < 0) { return false; }
+    } else {
+      if (state.from && el.dataset.from.split('|').indexOf(state.from) < 0) { return false; }
+      if (state.to && el.dataset.to.split('|').indexOf(state.to) < 0) { return false; }
+    }
     if (state.date) {
       var m = String(parseInt(state.date.slice(5, 7), 10));
       if ((el.dataset.closed || '').split(' ').indexOf(m) > -1) { return false; }
