@@ -7,7 +7,7 @@
  */
 (function () {
   'use strict';
-  // 指で操作する端末（スマホ・タブレット）では、地図を指で動かさない：ページのスクロールを地図が奪わないように。拡大・縮小は＋－ボタンで
+  // 指で操作する端末：1本指はページのスクロール、2本指で地図を動かす（leaflet-gesture-handling）。部品が読めなかったときは地図を指で動かさない（拡大・縮小は＋－ボタン）
   var COARSE = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
   var el = document.querySelector('.js-route-map');
   if (!el) { return; }
@@ -21,7 +21,8 @@
   (function build() {
     if (!window.L) { if (tries++ < 60) { setTimeout(build, 150); } else { fallback(); } return; }
     var L = window.L;
-    var map = L.map(el, { dragging: !COARSE, touchZoom: !COARSE, maxZoom: 14, scrollWheelZoom: false, zoomSnap: 0.25, zoomDelta: 0.5 });
+    var GH = !!window.leafletGestureHandling;   // 2本指の操作（leaflet-gesture-handling）が読めたら使う
+    var map = L.map(el, { gestureHandling: GH, gestureHandlingOptions: { text: { touch: '地図を動かすには指2本で操作します', scroll: '地図を拡大・縮小するには、Ctrl キーを押しながらスクロールします', scrollMac: '地図を拡大・縮小するには、⌘ キーを押しながらスクロールします' } }, dragging: GH || !COARSE, touchZoom: GH || !COARSE, maxZoom: 14, scrollWheelZoom: false, zoomSnap: 0.25, zoomDelta: 0.5 });
     var tiles = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/blank/{z}/{x}/{y}.png', {
       attribution: "出典：<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank' rel='noopener'>国土地理院</a>",
       maxZoom: 14   // 白地図は ズーム5〜14 まで
