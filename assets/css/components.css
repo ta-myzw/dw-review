@@ -416,7 +416,10 @@ a:hover > .c-lift, a.c-lift:hover { transform: translateY(-3px); box-shadow: var
 }
 .c-spmenu.is-open { transform: none; opacity: 1; visibility: visible; transition: transform .5s cubic-bezier(.4, 0, .1, 1), opacity .4s ease, visibility 0s; }
 .c-spmenu__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6vh; }
-.c-spmenu__head img { height: 32px; width: auto; }
+.c-spmenu__head img { height: 46px; width: auto; } /* ヘッダーのロゴと同じ大きさ・位置（下の @media でもそろえる） */
+.c-spmenu__head { min-height: 46px; }
+@media (max-width: 1180px) { .c-spmenu { padding: 12px 24px 48px; } }
+@media (max-width: 768px) { .c-spmenu { padding: 8px 20px 48px; } .c-spmenu__head { min-height: 40px; } .c-spmenu__head img { height: 34px; } }
 .c-spmenu__close { width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; font-size: 26px; line-height: 1; color: var(--color-ink); }
 @media (max-width: 768px) { .c-spmenu { padding-left: 20px; padding-right: 20px; } }
 

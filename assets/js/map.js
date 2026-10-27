@@ -6,6 +6,8 @@
  */
 (function () {
   'use strict';
+  // 指で操作する端末（スマホ・タブレット）では、地図を指で動かさない：ページのスクロールを地図が奪わないように。拡大・縮小は＋－ボタンで
+  var COARSE = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
   var el = document.querySelector('.js-area-map');
   if (!el) { return; }
 
@@ -50,7 +52,7 @@
   (function build() {
     if (!window.L) { if (tries++ < 60) { setTimeout(build, 150); } else { fallback(); } return; }
     var L = window.L;
-    var map = L.map(el, { scrollWheelZoom: false, attributionControl: true, zoomControl: true, zoomSnap: 0.25, zoomDelta: 0.5 });
+    var map = L.map(el, { dragging: !COARSE, touchZoom: !COARSE, scrollWheelZoom: false, attributionControl: true, zoomControl: true, zoomSnap: 0.25, zoomDelta: 0.5 });
     var tiles = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
       attribution: "出典：<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank' rel='noopener'>国土地理院</a>",
       maxZoom: 18
