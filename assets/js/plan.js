@@ -156,7 +156,9 @@
     $$('.js-feature').forEach(function (f) { f.hidden = !(axes.length === 1 && f.dataset.key === axes[0]); });
 
     renderPager(pages);
-    history.replaceState(null, '', query(state, state.page));
+    // ページ送りは履歴に積む（ブラウザの戻るで前のページへ）。条件の変更は積まずに置き換える
+    var url = query(state, state.page);
+    if (opts.push && url !== location.pathname + location.search + location.hash) { history.pushState(null, '', url); } else { history.replaceState(null, '', url); }
     if (opts.scroll) { results.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' }); }
   }
 
@@ -171,7 +173,7 @@
       if (cls) { a.className = cls; }
       if (label) { a.setAttribute('aria-label', label); }
       if (p === state.page) { a.setAttribute('aria-current', 'page'); }
-      a.addEventListener('click', function (e) { e.preventDefault(); state.page = p; render({ scroll: true }); });
+      a.addEventListener('click', function (e) { e.preventDefault(); state.page = p; render({ scroll: true, push: true }); });
       return a;
     }
     if (state.page > 1) { li(link(state.page - 1, '<span class="c-arrow" aria-hidden="true">←</span><span>前へ</span>', 'is-prev', '前のページ')); }
@@ -258,6 +260,8 @@
   state = readURL();
   syncControls();
   render();
+  // ブラウザの戻る・進む：URLから状態を読み直して表示し直す
+  window.addEventListener('popstate', function () { state = readURL(); syncControls(); render({ scroll: true }); });
 
   // シートの「N件を表示」で閉じたら、一覧の頭（件数・選んだ条件）まで移動して、絞り込んだ結果を見せる
   var showBtn = document.querySelector('.js-show-results');
