@@ -68,6 +68,9 @@ a.c-axis:hover { text-decoration: underline; text-underline-offset: 3px; }
 .c-axis--lg { font-size: var(--fs-note); }
 /* 記事の種類のあとに並ぶときは、細い縦線で区切る */
 .c-article-row__meta .c-axis { padding-left: 10px; border-left: 1px solid var(--color-line); }
+/* 記事の種類（コラム・インタビュー・プレスリリースなど）：ベージュの丸いラベル */
+.c-type { display: inline-flex; align-items: center; padding: 3px 14px; border-radius: 999px; background: #EFEBE0; color: #6A5A3C; font-size: var(--fs-note); line-height: 1.6; letter-spacing: .06em; white-space: nowrap; }
+.c-article-row__meta .c-type + .c-axis { padding-left: 0; border-left: 0; }
 
 /* 期間・所要時間などのタグ */
 .c-tag {
@@ -610,7 +613,7 @@ a:hover > .c-lift, a.c-lift:hover { transform: translateY(-3px); box-shadow: var
 /* =========================================================
    5. フッター
    ========================================================= */
-.l-footer { position: relative; background: var(--color-primary); color: var(--color-paper); padding: 64px 0 32px; }
+.l-footer { position: relative; background: var(--color-primary); color: var(--color-paper); padding: 64px 0 32px; font-family: var(--font-serif); font-weight: 600; } /* フッターは明朝。小さい明朝なので 600 */
 .l-footer a { color: var(--color-paper); text-decoration: none; }
 .l-footer a:not(.c-btn-footer):not(.c-social):hover { text-decoration: underline; text-underline-offset: 4px; }
 .l-footer__top { display: grid; grid-template-columns: 260px 1fr; gap: 56px; padding-bottom: 40px; border-bottom: 1px solid var(--color-on-dark-line); }
@@ -621,7 +624,7 @@ a:hover > .c-lift, a.c-lift:hover { transform: translateY(-3px); box-shadow: var
 .l-footer .c-social { color: var(--color-paper); }
 .l-footer .c-social:hover { background: var(--color-paper); color: var(--color-primary); border-color: var(--color-paper); }
 .l-footer__nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.1fr) minmax(200px, 1.2fr); gap: 32px; }
-.l-footer__heading { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; font-size: var(--fs-base); font-weight: 500; letter-spacing: .06em; }
+.l-footer__heading { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; font-size: var(--fs-base); font-weight: 600; letter-spacing: .06em; }
 .l-footer__heading span { font-family: var(--font-serif); font-size: var(--fs-note); transition: transform .3s ease; }
 .l-footer__heading:hover span { transform: translateX(4px); }
 .l-footer__col li + li { margin-top: 8px; }
