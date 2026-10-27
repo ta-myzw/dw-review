@@ -207,37 +207,23 @@ a:hover > .c-lift, a.c-lift:hover { transform: translateY(-3px); box-shadow: var
 .l-header__burger span { display: block; width: 24px; height: 1.6px; background: var(--color-ink); border-radius: 2px; }
 .l-header__burger span:last-child { width: 16px; }
 
-/* ---------- グローバルナビ（日本語→ホバー・フォーカスで英語にくるっと回る） ---------- */
-.c-gnav { display: flex; gap: 30px; font-size: var(--fs-body); letter-spacing: .06em; color: var(--color-ink-sub); }
+/* ---------- グローバルナビ（明朝。ホバー・フォーカスで色が変わり、下に線が出る） ----------
+   HTMLの .c-flip（英語の裏面）は使わない：裏面は隠し、表面だけを出す（WordPressでは .c-flip を省いてよい） */
+.c-gnav { display: flex; gap: 30px; font-family: var(--font-serif); font-size: var(--fs-body); font-weight: 600; letter-spacing: .08em; color: var(--color-ink-sub); }
 .c-gnav__item, .c-gnav__trigger {
   position: relative; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit;
-  letter-spacing: inherit; cursor: pointer; text-decoration: none;
+  letter-spacing: inherit; cursor: pointer; text-decoration: none; transition: color .25s ease;
 }
-.c-gnav__trigger::after {
+.c-gnav__item::after, .c-gnav__trigger::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 2px; background: var(--color-primary);
   transform: scaleX(0); transition: transform .25s ease;
 }
-.c-gnav__trigger[aria-expanded="true"]::after { transform: scaleX(1); }
-.c-gnav__trigger[aria-expanded="true"] .c-flip__front { color: var(--color-primary); }
-
-.c-flip { display: inline-block; perspective: 340px; height: 1.5em; line-height: 1.5em; vertical-align: bottom; }
-.c-flip__inner {
-  display: inline-block; position: relative; height: 100%;
-  transform-style: preserve-3d; transition: transform .5s var(--ease-flip);
-}
-.c-flip__front, .c-flip__back {
-  backface-visibility: hidden; -webkit-backface-visibility: hidden; height: 1.5em; line-height: 1.5em;
-  font-weight: 500; white-space: nowrap;
-}
-.c-flip__front { display: block; text-align: center; transform: translateZ(.75em); }
-.c-flip__back {
-  position: absolute; top: 0; left: 50%; letter-spacing: .08em; color: var(--color-primary);
-  transform: translateX(-50%) rotateX(90deg) translateZ(.75em);
-}
-.c-gnav__item:hover .c-flip__inner, .c-gnav__item:focus-visible .c-flip__inner,
-.c-gnav__trigger:hover .c-flip__inner, .c-gnav__trigger:focus-visible .c-flip__inner { transform: rotateX(-90deg); }
+.c-gnav__item:hover, .c-gnav__trigger:hover, .c-gnav__trigger[aria-expanded="true"] { color: var(--color-primary); }
+.c-gnav__item:hover::after, .c-gnav__trigger:hover::after, .c-gnav__trigger[aria-expanded="true"]::after { transform: scaleX(1); }
+.c-flip, .c-flip__inner, .c-flip__front { display: inline; }
+.c-flip__back { display: none; }
 .c-gnav__item:focus-visible, .c-gnav__trigger:focus-visible { outline-offset: 4px; }
-@media (prefers-reduced-motion: reduce) { .c-flip__inner { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .c-gnav__item::after, .c-gnav__trigger::after { transition: none; } }
 
 /* ヘッダーの切り替え（ナビ定義の後に置く） */
 @media (min-width: 1680px) {
