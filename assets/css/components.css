@@ -530,6 +530,17 @@ a:hover > .c-lift, a.c-lift:hover { transform: translateY(-3px); box-shadow: var
 .c-theme-row__tags .c-plan-count { margin-right: 6px; }
 .c-theme-row__ar { flex: none; font-family: var(--font-serif); font-size: 22px; color: var(--color-ink); }
 .c-theme-row:hover .c-arrow { transform: translateX(6px); }
+/* PCの広い画面（1360px以上）だけ：右の余白に、このテーマのプラン（最大3件＋ほか◯件）。WordPressではテーマに紐づくプランから自動で出す。スマホ・タブレットでは出さない */
+.c-theme-row__plans { display: none; }
+@media (min-width: 1360px) {
+  .c-theme-row__body { min-width: 360px; }
+  .c-theme-row__plans { display: block; flex: 0 1 420px; min-width: 300px; align-self: center; padding: 4px 0 4px 36px; border-left: 1px solid var(--color-line); }
+  .c-theme-row__plans-h { margin-bottom: 8px; font-size: var(--fs-tag); letter-spacing: .1em; color: var(--color-gray); }
+  .c-theme-row__plans ul { margin: 0; padding: 0; list-style: none; }
+  .c-theme-row__plans li { display: flex; gap: 14px; padding: 5px 0; font-size: var(--fs-small); line-height: 1.6; color: var(--color-ink-sub); }
+  .c-theme-row__plan-code { flex: none; width: 2.4em; font-family: var(--font-serif); font-weight: 600; color: var(--color-primary); letter-spacing: .04em; }
+  .c-theme-row__plans li.is-more { padding-left: calc(2.4em + 14px); font-size: var(--fs-note); color: var(--color-gray); }
+}
 
 /* 物語カード（カード全体が1つのリンク） */
 .c-story-card { display: block; text-decoration: none; color: inherit; }
