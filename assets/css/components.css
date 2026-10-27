@@ -503,7 +503,7 @@ a:hover > .c-lift, a.c-lift:hover { transform: translateY(-3px); box-shadow: var
 .c-season-card__ph { position: relative; height: 360px; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
 .c-season-card__now {
   position: absolute; left: 12px; top: 12px; z-index: 2;
-  background: var(--color-primary); color: var(--color-paper); font-size: var(--fs-tag); letter-spacing: .08em;
+  background: var(--color-new); color: var(--color-paper); font-size: var(--fs-tag); letter-spacing: .08em;
   padding: 4px 12px 4px 14px;
 }
 .c-season-card__now { left: 0; top: 14px; }
@@ -820,6 +820,11 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-table tbody th { font-weight: 500; white-space: nowrap; }
 .c-table td.is-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .c-table tbody tr:nth-child(even) { background: rgba(239, 242, 236, .55); }
+/* 料金表：特別料金を主役に（明朝・大きく・濃く）、通常料金は打ち消し線で控えめに */
+.c-table--price tbody th, .c-table--price tbody td { vertical-align: middle; }
+.c-table--price thead th:nth-of-type(2) { color: var(--color-ink); font-weight: 700; }
+.c-table--price td:nth-of-type(1) { font-family: var(--font-serif); font-weight: 600; font-size: 22px; line-height: 1.4; color: var(--color-ink); }
+.c-table--price td:nth-of-type(2) { font-size: var(--fs-small); color: var(--color-gray); text-decoration: line-through; text-decoration-thickness: 1px; }
 
 /* 項目と内容の2列（料金・発着・お問い合わせなど） */
 .c-dl { display: grid; grid-template-columns: max-content 1fr; gap: 0 28px; font-size: var(--fs-base); line-height: 1.7; letter-spacing: var(--ls-body); }
@@ -946,7 +951,7 @@ button.c-btn--fill { background-color: var(--color-primary); }
   background: var(--color-sage); color: var(--color-ink-sub);
 }
 .c-badge--code { background: var(--color-ink); color: var(--color-paper); letter-spacing: .1em; }
-.c-badge--new { background: var(--color-primary); color: var(--color-paper); }
+.c-badge--new { background: var(--color-new); color: var(--color-paper); }
 .c-badge--perk { background: var(--color-caution-bg); color: #6B520C; box-shadow: inset 0 0 0 1px var(--color-caution-line); }
 .c-badge--closed { background: var(--color-white); color: var(--color-error); box-shadow: inset 0 0 0 1px rgba(168, 50, 38, .45); }
 .c-badge-row { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -955,7 +960,7 @@ button.c-btn--fill { background-color: var(--color-primary); }
 /* 箱に入れず、写真＋文字で見せる（トップの季節・テーマと同じ組み方） */
 .c-plan-card { display: flex; flex-direction: column; height: 100%; text-decoration: none; color: inherit; }
 .c-plan-card__ph { position: relative; aspect-ratio: 3 / 2; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
-.c-plan-card__new { position: absolute; left: 0; top: 14px; padding: 3px 12px 3px 14px; background: var(--color-primary); color: var(--color-paper); font-size: var(--fs-micro); letter-spacing: .3em; }
+.c-plan-card__new { position: absolute; left: 0; top: 14px; padding: 3px 12px 3px 14px; background: var(--color-new); color: var(--color-paper); font-size: var(--fs-micro); letter-spacing: .3em; }
 .c-plan-card__code { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-top: 18px; font-size: var(--fs-note); letter-spacing: .12em; color: var(--color-gray); }
 .c-plan-card__code > span:first-child { font-family: var(--font-serif); font-weight: 600; font-size: 15px; letter-spacing: .14em; color: var(--color-primary); }
 .c-plan-card__title { margin-top: 6px; font-family: var(--font-serif); font-weight: 600; font-size: 20px; line-height: 1.6; letter-spacing: var(--ls-heading); transition: color .3s ease; }
