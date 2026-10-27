@@ -1,7 +1,7 @@
 /**
  * 演出
  * 1) 見出しがスクロールでふわっと現れる（.js-reveal）
- * 2) メッセージの波線：画面に入ったら2回ゆらいで止まる（.js-waves）
+ * 2) （メッセージの波線は廃止）
  * 3) 写真帯のパララックス（.js-parallax）
  * 4) 最後の写真：画面の中ほどまで来たら色が戻る（.js-reveal-photo）
  * 5) 流れ星の線（コメット）：ページの進み具合に合わせて左の余白を下りていく
@@ -24,14 +24,6 @@
     Array.prototype.forEach.call(reveals, function (el) { el.classList.add('is-shown'); });
   }
 
-  /* ---------- 2) 波線 ---------- */
-  var waves = document.querySelector('.js-waves');
-  if (waves && 'IntersectionObserver' in window && !reduce) {
-    var wo = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { waves.classList.add('is-moving'); wo.disconnect(); } });
-    }, { threshold: 0.3 });
-    wo.observe(waves.parentElement);
-  }
 
   /* ---------- 3〜5) スクロール連動 ---------- */
   var plx = Array.prototype.slice.call(document.querySelectorAll('.js-parallax'));
