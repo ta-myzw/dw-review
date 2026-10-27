@@ -188,7 +188,7 @@
 .p-top-stories__lead .c-story-card__ph { height: 480px; }
 .p-top-stories__lead-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; font-size: var(--fs-micro); letter-spacing: .34em; color: var(--color-primary); }
 .p-top-stories__lead-title { margin-bottom: 8px; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h3-lg); line-height: 1.7; letter-spacing: .05em; transition: color .35s ease; }
-.p-top-stories__lead-sub { margin-bottom: 28px; font-family: var(--font-serif); font-size: 19px; letter-spacing: .05em; color: var(--color-ink-sub); }
+.p-top-stories__lead-sub { margin-bottom: 28px; font-family: var(--font-serif); font-weight: 600; font-size: 19px; letter-spacing: .05em; color: var(--color-ink-sub); }
 .p-top-stories__lead-text { margin-bottom: 32px; font-size: var(--fs-body); line-height: 2.1; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
 .p-top-stories__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
 

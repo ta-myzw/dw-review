@@ -160,7 +160,7 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
    一覧と同じく箱や色面を増やさず、写真・罫線・余白で組む
    ========================================================= */
 .p-pd__head { padding: 40px 0 36px; max-width: 920px; }
-.p-pd__code { display: flex; align-items: center; gap: 0 14px; font-family: var(--font-serif); font-size: 17px; letter-spacing: .08em; color: var(--color-primary); }
+.p-pd__code { display: flex; align-items: center; gap: 0 14px; font-family: var(--font-serif); font-weight: 600; font-size: 17px; letter-spacing: .08em; color: var(--color-primary); }
 .p-pd__code .c-axis { padding-left: 14px; border-left: 1px solid var(--color-line); font-size: var(--fs-note); }
 .p-pd__new { padding: 2px 10px 2px 12px; background: var(--color-primary); color: var(--color-paper); font-family: var(--font-sans); font-size: var(--fs-micro); letter-spacing: .3em; }
 .p-pd__title { margin-top: 14px; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-page); line-height: 1.45; letter-spacing: var(--ls-heading); }
@@ -197,7 +197,7 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .p-pd__plans .c-plan-card__title { font-size: 18px; }
 .p-pd .p-plan__info { margin-top: 0; }
 /* 地図のピン（立ち寄る順の番号） */
-.c-route-pin { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--color-primary); color: var(--color-paper); font-family: var(--font-serif); font-size: 15px; line-height: 1; box-shadow: 0 0 0 3px rgba(247, 247, 247, .95); }
+.c-route-pin { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--color-primary); color: var(--color-paper); font-family: var(--font-serif); font-weight: 600; font-size: 15px; line-height: 1; box-shadow: 0 0 0 3px rgba(247, 247, 247, .95); }
 .c-route-pin.is-end { background: var(--color-ink); font-family: var(--font-sans); font-size: 12px; letter-spacing: .04em; width: 40px; border-radius: 14px; }
 .p-pd__map .leaflet-control-attribution { font-size: 12px; background: rgba(247, 247, 247, .88); }
 
