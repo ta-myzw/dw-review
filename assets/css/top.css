@@ -96,7 +96,7 @@
 .p-top-pickup { padding: 74px 0 64px; background: var(--color-paper); }
 .p-top-pickup .c-sec-head { margin-bottom: 26px; }
 .p-top-pickup__slider { position: relative; overflow: hidden; border-radius: var(--radius-lg); background: var(--color-primary); }
-.p-top-pickup__track { position: relative; height: 300px; }
+.p-top-pickup__track { position: relative; width: 100%; height: auto; aspect-ratio: 3 / 1; min-height: 300px; max-height: 440px; } /* PCは横3：縦1。3:2の写真の約半分の高さが見える（被写体が切れにくい） */
 .p-top-pickup__slide {
   position: absolute; inset: 0; display: block; text-decoration: none;
   opacity: 0; z-index: 1; pointer-events: none; transition: opacity 1.1s ease;
@@ -284,7 +284,6 @@
   .p-top-stories__lead .c-story-card__ph { height: 560px; }
   .p-top-stories__grid .c-story-card__ph { height: 320px; }
   .p-top-area__map { height: 520px; }
-  .p-top-pickup__track { height: 340px; }
   /* 写真帯・最後の写真の文字は、本文の左端にそろえる */
   .p-top-band--a .p-top-band__body { padding-inline: max(8vw, calc((100% - var(--container-max)) / 2)); }
   .p-top-band--b .p-top-band__body, .p-top-reveal__label { left: max(8vw, calc((100% - var(--container-max)) / 2)); }
