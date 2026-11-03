@@ -256,13 +256,13 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
    予約フォーム（/plan/reserve/・confirm/・thanks/）  p-rsv-
    部品は c-form・c-field・c-choice・c-steps・c-reserve-note・c-route-pick を使い、ここでは並べ方だけ
    ========================================================= */
-/* ページの頭：左に見出し、右に手順（見出しの下端にそろえる） */
-.p-rsv__top { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 24px 56px; align-items: end; padding-bottom: 40px; }
+/* ページの頭：見出しの下に手順（横一列 c-steps--row） */
+.p-rsv__top { display: grid; grid-template-columns: minmax(0, 1fr) var(--side-w); gap: 36px 72px; padding-bottom: 40px; }   /* 下の本文と同じ列。見出しと手順は左の列に縦に積む */
+.p-rsv__top > * { grid-column: 1; }
 .p-rsv__head { border-bottom: 0; padding-bottom: 0; }
 .p-rsv__head a { color: var(--color-primary); }
-.p-rsv__steps { margin: 0 0 6px; padding: 0; list-style: none; }
+.p-rsv__steps { margin: 0; padding: 0; list-style: none; }
 .p-rsv__narrow .p-rsv__top { grid-template-columns: minmax(0, 1fr); }
-.p-rsv__narrow .p-rsv__steps { max-width: 420px; }
 .p-rsv__note { margin-bottom: 8px; }
 .p-rsv__body { padding-top: 40px; gap: 72px; }
 .p-rsv__errors { margin-bottom: 8px; }
@@ -322,7 +322,6 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .p-rsv__next-list { display: flex; flex-wrap: wrap; gap: 14px 36px; list-style: none; margin: 24px 0 0; padding: 0; }
 @media (max-width: 1024px) {
   .p-rsv__top { grid-template-columns: minmax(0, 1fr); }
-  .p-rsv__steps { max-width: 420px; }
   .p-rsv__body { gap: 48px; }
   .p-rsv__side { position: static; order: -1; }
   /* 写真とプラン名は高さを決めた1つのまとまり（プラン名は3行まで、越えたら「…」）。表はその下に固定の間隔で */
@@ -334,7 +333,7 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
   .p-rsv__tel-groups { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 768px) {
-  .p-rsv__top { padding-bottom: 28px; }
+  .p-rsv__top { gap: 24px; padding-bottom: 28px; }
   .p-rsv__body { padding-top: 28px; }
   .p-rsv__sum-top { --sum-h: 100px; grid-template-columns: 112px minmax(0, 1fr); gap: 0 14px; }
   .p-rsv__sum-head .p-rsv__sum-title { font-size: 17px; line-height: 1.5; }
