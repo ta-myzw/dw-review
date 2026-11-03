@@ -1,48 +1,136 @@
 /* =========================================================
    アクセス（/access/）  p-access-
-   部品は c-page-head・c-table・c-tabs（ui.js）・c-notice・c-link-more を使い、ここでは並べ方だけ
+   部品は c-page-head・c-tabs（ui.js）・c-area-illust・c-notice・c-link-more を使い、ここでは並べ方だけ
+   図で見せる：全国からの図 → 出発地を選ぶと行き方が並ぶ → 着いてからの図
+   交通手段の色：電車＝ティール、車＝黄土、高速バス＝苔、飛行機＝灰青、船＝海
    ========================================================= */
-.p-access__sec { padding-top: 88px; }
+.p-access { --ac-train: #386A76; --ac-car: #A8742A; --ac-bus: #6E7F45; --ac-air: #5C7F93; --ac-ship: #4F8FA3; }
+.p-access__sec { padding-top: 96px; }
 .p-access__sec--first { padding-top: 56px; }
 .p-access__sec .c-sec-head { margin-bottom: 32px; }
-.p-access__note { margin: 12px 0 0; font-size: var(--fs-note); line-height: 1.8; color: var(--color-gray); }
+.p-access__note { margin: 16px 0 0; font-size: var(--fs-note); line-height: 1.8; color: var(--color-gray); }
+.p-access__ico { width: 22px; height: 22px; flex: none; }
 
-/* 主な都市からの目安（一覧表） */
-.p-access__summary th[scope="row"] { font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-body); white-space: nowrap; }
-.p-access__summary td small { display: block; font-size: var(--fs-note); color: var(--color-gray); }
+/* ---------- 1. 全国からの図 ---------- */
+.p-access__map { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #F1EFE8; }
+.p-access__map svg { display: block; width: 100%; height: auto; }
+.p-access__map text { font-family: var(--font-sans); }
+.p-access__map .city { font-size: 17px; font-weight: 500; fill: var(--color-ink); }
+.p-access__map .lbl, .p-access__map .city { paint-order: stroke; stroke: #F1EFE8; stroke-width: 5px; stroke-linejoin: round; }
+.p-access__map .lbl { font-size: 14px; font-weight: 500; }
+.p-access__map .lbl--box { stroke: none; }
+.p-access__map .goal { font-family: var(--font-serif); font-size: 26px; font-weight: 600; fill: var(--color-ink); }
+.p-access__legend { display: flex; flex-wrap: wrap; gap: 10px 28px; list-style: none; margin: 18px 0 0; padding: 0; font-size: var(--fs-small); color: var(--color-ink-sub); }
+.p-access__legend li { display: flex; align-items: center; gap: 10px; }
+.p-access__legend i { display: block; width: 28px; height: 0; border-top: 4px solid; }
+.p-access__legend .is-train i { border-color: var(--ac-train); }
+.p-access__legend .is-car i { border-top-style: dashed; border-color: var(--ac-car); }
+.p-access__legend .is-air i { border-top-style: dotted; border-color: var(--ac-air); }
+.p-access__legend .is-ship i { border-top-style: dotted; border-color: var(--ac-ship); }
 
-/* 交通手段ごとのタブ */
-.p-access__tabs .c-tabs__panel { padding-top: 32px; }
-.p-access__panel-lead { max-width: 44em; margin: 0 0 24px; font-size: var(--fs-body); line-height: 1.9; color: var(--color-ink-sub); }
-.p-access__panel-sub { margin: 40px 0 12px; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); letter-spacing: var(--ls-heading); }
-.p-access__routes { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line); }
-.p-access__routes li { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--color-line); font-size: var(--fs-base); line-height: 1.8; }
-.p-access__routes b { font-family: var(--font-serif); font-weight: 600; }
-.p-access__links { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 24px; }
+/* ---------- 2. 出発地を選ぶ ---------- */
+.p-access__cities .c-tabs__list { gap: 8px; border-bottom: 0; padding-bottom: 4px; }
+.p-access__cities .c-tabs__tab { padding: 10px 22px; border: 1px solid var(--color-line); border-radius: var(--radius-pill); background: var(--color-white); font-size: var(--fs-base); color: var(--color-ink); white-space: nowrap; }
+.p-access__cities .c-tabs__tab::after { content: none; }
+.p-access__cities .c-tabs__tab[aria-selected="true"] { border-color: var(--color-primary); background: var(--color-primary); color: var(--color-paper); }
+.p-access__cities .c-tabs__panel { padding-top: 28px; }
 
-/* 現地での移動：3つの方法を線で区切って並べる */
-.p-access__local { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; list-style: none; margin: 0; padding: 0; }
-.p-access__local li { padding-top: 22px; border-top: 1px solid var(--color-ink); }
-.p-access__local h3 { margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3); line-height: 1.5; letter-spacing: var(--ls-heading); }
-.p-access__local p { margin: 12px 0 18px; font-size: var(--fs-base); line-height: 1.9; color: var(--color-ink-sub); }
+.p-access__ways { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.p-access__way { display: grid; grid-template-columns: 210px minmax(0, 1fr); align-items: center; gap: 12px 32px; padding: 22px 28px; border-radius: var(--radius-md); background: var(--color-white); border: 1px solid var(--color-line-soft); }
+.p-access__way.is-fast { border-color: var(--color-primary); box-shadow: inset 4px 0 0 var(--color-primary); }
+.p-access__mode { display: flex; align-items: center; gap: 12px; }
+.p-access__mode-ico { display: grid; place-items: center; width: 48px; height: 48px; flex: none; border-radius: 50%; color: var(--color-paper); }
+.p-access__mode-ico svg { width: 26px; height: 26px; }
+.is-train .p-access__mode-ico { background: var(--ac-train); }
+.is-car .p-access__mode-ico { background: var(--ac-car); }
+.is-bus .p-access__mode-ico { background: var(--ac-bus); }
+.is-air .p-access__mode-ico { background: var(--ac-air); }
+.p-access__mode b { display: block; font-size: var(--fs-base); font-weight: 500; }
+.p-access__total { display: block; font-family: var(--font-serif); font-size: 22px; white-space: nowrap; font-weight: 600; line-height: 1.3; letter-spacing: .02em; color: var(--color-ink); }
+.p-access__fast { display: inline-block; margin-top: 4px; padding: 1px 10px; border-radius: var(--radius-pill); background: var(--color-primary); color: var(--color-paper); font-size: var(--fs-tag); letter-spacing: .06em; }
 
-/* 便利なサイト */
-.p-access__sites { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; list-style: none; margin: 0; padding: 0; }
-.p-access__sites a { display: block; padding: 18px 0; border-bottom: 1px solid var(--color-line); color: var(--color-ink); text-decoration: none; }
-.p-access__sites b { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; font-size: var(--fs-body); }
-.p-access__sites span { display: block; margin-top: 4px; font-size: var(--fs-note); color: var(--color-gray); }
+/* 乗り継ぎの線：駅（点）と区間（線＋手段・時間）を左から右へ */
+.p-access__strip { display: flex; align-items: flex-start; list-style: none; margin: 0; padding: 0; min-width: 0; }
+.p-access__strip li { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.p-access__stop { flex: none; width: 92px; font-size: var(--fs-small); font-weight: 500; line-height: 1.4; }
+.p-access__stop::before { content: ""; display: block; width: 14px; height: 14px; margin: 0 auto 8px; border: 2px solid var(--color-ink); border-radius: 50%; background: var(--color-white); }
+.p-access__stop.is-goal::before { width: 18px; height: 18px; margin-top: -2px; border-color: var(--color-primary); background: var(--color-primary); box-shadow: 0 0 0 4px rgba(56, 106, 118, .18); }
+.p-access__stop.is-goal { color: var(--color-primary); }
+.p-access__leg { flex: 1 1 0; min-width: 72px; margin: 0 -40px; padding: 0 44px; font-size: var(--fs-note); line-height: 1.4; color: var(--color-ink-sub); }
+.p-access__leg::before { content: ""; display: block; align-self: stretch; height: 0; margin: 6px 0 10px; border-top: 4px solid currentColor; }
+.p-access__leg b { display: block; font-weight: 500; color: var(--color-ink); }
+.p-access__leg.is-train { color: var(--ac-train); }
+.p-access__leg.is-car { color: var(--ac-car); }
+.p-access__leg.is-car::before { border-top-style: dashed; }
+.p-access__leg.is-bus { color: var(--ac-bus); }
+.p-access__leg.is-air { color: var(--ac-air); }
+.p-access__leg.is-air::before { border-top-style: dotted; }
+.p-access__leg span { color: var(--color-gray); }
+.p-access__way-note { grid-column: 2; margin: -4px 0 0; font-size: var(--fs-note); color: var(--color-gray); }
+
+/* ---------- 3. 着いてから ---------- */
+.p-access__arrive { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.p-access__arrive .c-area-map { background: #D5E4E9; }
+.c-area-illust .gates text { font-family: var(--font-sans); font-size: 7.6px; font-weight: 700; fill: var(--color-ink); paint-order: stroke; stroke: #F4F3EE; stroke-width: 2.6px; stroke-linejoin: round; }
+.c-area-illust .gates .g { fill: var(--color-primary); stroke: #fff; stroke-width: 1.2; }
+.c-area-illust .gates .g--main { fill: var(--color-ink); }
+.c-area-illust .gates .taxi { fill: none; stroke: var(--ac-car); stroke-width: 1.6; stroke-dasharray: 3 2.4; stroke-linecap: round; }
+.p-access__gates { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line); }
+.p-access__gates li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 16px 0; border-bottom: 1px solid var(--color-line); }
+.p-access__gates b { font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); }
+.p-access__gates span { grid-column: 1; font-size: var(--fs-note); color: var(--color-gray); }
+.p-access__gates em { grid-column: 2; grid-row: 1 / span 2; align-self: center; display: flex; align-items: center; gap: 6px; font-style: normal; font-size: var(--fs-small); color: var(--ac-car); white-space: nowrap; }
+.p-access__gates em.is-train { color: var(--ac-train); }
+.p-access__gates em.is-bus { color: var(--ac-bus); }
+
+.p-access__local { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; list-style: none; margin: 56px 0 0; padding: 0; }
+.p-access__local li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 0 16px; align-items: start; }
+.p-access__local .p-access__mode-ico { background: var(--color-primary); }
+.p-access__local li:nth-child(2) .p-access__mode-ico { background: var(--ac-bus); }
+.p-access__local li:nth-child(3) .p-access__mode-ico { background: var(--ac-car); }
+.p-access__local h3 { margin: 4px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); letter-spacing: var(--ls-heading); }
+.p-access__local p { margin: 8px 0 12px; font-size: var(--fs-small); line-height: 1.85; color: var(--color-ink-sub); }
+
+/* ---------- 4. 冬の注意：アイコン＋3項目を横に ---------- */
+.p-access__winter { padding: 32px 36px; border-radius: var(--radius-lg); background: #EEF3F6; }
+.p-access__winter h2 { display: flex; align-items: center; gap: 12px; margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3); }
+.p-access__winter h2 svg { width: 30px; height: 30px; color: var(--ac-air); }
+.p-access__winter ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; list-style: none; margin: 24px 0 0; padding: 0; }
+.p-access__winter li { padding-top: 14px; border-top: 2px solid var(--ac-air); font-size: var(--fs-small); line-height: 1.85; }
+.p-access__winter li b { display: block; margin-bottom: 4px; font-size: var(--fs-base); }
+.p-access__winter .c-link-more { margin-top: 24px; }
+
+/* ---------- 5. 便利なサイト ---------- */
+.p-access__sites { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; list-style: none; margin: 0; padding: 0; }
+.p-access__sites a { display: flex; gap: 14px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--color-line); color: var(--color-ink); text-decoration: none; }
+.p-access__sites .p-access__ico { margin-top: 2px; color: var(--color-primary); }
+.p-access__sites b { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
+.p-access__sites span { display: block; margin-top: 2px; font-size: var(--fs-note); color: var(--color-gray); }
 .p-access__sites a:hover b { color: var(--color-primary); }
 .p-access__end { padding-bottom: var(--space-section-sm); }
 
+@media (max-width: 1024px) {
+  .p-access__way { grid-template-columns: 1fr; padding: 20px; }
+  .p-access__way-note { grid-column: 1; }
+  .p-access__arrive { grid-template-columns: 1fr; gap: 32px; }
+  .p-access__sites { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 768px) {
-  .p-access__sec { padding-top: 64px; }
-  .p-access__routes li { grid-template-columns: 1fr; }
-  .p-access__local { grid-template-columns: 1fr; gap: 32px; }
+  .p-access__sec { padding-top: 72px; }
+  .p-access__map { margin: 0 calc(var(--gutter) * -1); border-radius: 0; overflow-x: auto; }
+  .p-access__map svg { min-width: 620px; }
+  .p-access__map-hint { display: block; margin-top: 8px; font-size: var(--fs-note); color: var(--color-gray); }
+  .p-access__cities .c-tabs__tab { padding: 8px 16px; font-size: var(--fs-small); }
+  .p-access__strip { flex-direction: column; align-items: stretch; }
+  .p-access__strip li { flex-direction: row; align-items: center; text-align: left; gap: 14px; }
+  .p-access__stop { width: auto; }
+  .p-access__stop::before { margin: 0; }
+  .p-access__leg { margin: 0 0 0 6px; padding: 10px 0 10px 20px; border-left: 4px solid currentColor; }
+  .p-access__leg::before { content: none; }
+  .p-access__leg.is-car, .p-access__leg.is-air { border-left-style: dashed; }
+  .p-access__local { grid-template-columns: 1fr; gap: 28px; }
+  .p-access__winter { padding: 24px 20px; }
+  .p-access__winter ul { grid-template-columns: 1fr; gap: 18px; }
   .p-access__sites { grid-template-columns: 1fr; }
 }
-
-/* SP：表は横にスクロール（時間を途中で折り返さない）。長いリンクは折り返す */
-@media (max-width: 768px) {
-  .p-access .c-table td { white-space: nowrap; }
-  .p-access__links .c-link-more { max-width: 100%; white-space: normal; }
-}
+@media (min-width: 769px) { .p-access__map-hint { display: none; } }
