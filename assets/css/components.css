@@ -1050,6 +1050,14 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-steps li[aria-current="step"]::before { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-paper); }
 .c-steps li.is-done::before { background: var(--color-sage); border-color: var(--color-primary); color: var(--color-primary); }
 .c-steps li.is-done + li::after, .c-steps li[aria-current="step"]::after { background: var(--color-primary); }
+/* 横一列：番号の右に名前、間を線でつなぐ。左端を本文にそろえ、列の幅いっぱいに広げる（1段組のページ用） */
+.c-steps--row { align-items: center; }
+.c-steps--row li { position: static; flex-direction: row; gap: 12px; text-align: left; white-space: nowrap; }
+.c-steps--row li:last-child { flex: none; }
+.c-steps--row li + li::after { content: none; }
+.c-steps--row li:not(:last-child)::after { content: ""; position: static; flex: 1; width: auto; min-width: 24px; height: 1.5px; margin: 0 20px 0 8px; background: rgba(56, 106, 118, .25); }
+.c-steps.c-steps--row li:not(.is-done)::after { background: rgba(56, 106, 118, .25); }   /* 線は「済んだ段の右」だけ濃く */
+.c-steps.c-steps--row li.is-done::after { background: var(--color-primary); }
 
 .c-form { display: flex; flex-direction: column; gap: 28px; }
 .c-form__section { border: 0; padding: 0; margin: 0; min-width: 0; }
@@ -1196,6 +1204,9 @@ button.c-btn--fill { background-color: var(--color-primary); }
   .c-route__text { font-size: var(--fs-note); }
 
   .c-steps li { font-size: var(--fs-tag); }
+  .c-steps--row li { gap: 6px; }
+  .c-steps--row li::before { width: 28px; height: 28px; font-size: 13px; }
+  .c-steps--row li:not(:last-child)::after { min-width: 10px; margin: 0 8px 0 2px; }
   .c-form__grid { grid-template-columns: 1fr; }
   .c-form__actions .c-btn { width: 100%; justify-content: center; }
   .c-input, .c-select, .c-textarea { font-size: 16px; } /* iOSの拡大を防ぐ */

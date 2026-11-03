@@ -9,7 +9,7 @@
 .p-contact__narrow { max-width: 820px; }
 .p-contact__top { padding-bottom: 40px; }
 .p-contact__head { border-bottom: 0; padding-bottom: 0; }
-.p-contact__steps { max-width: 420px; margin: 32px 0 0; padding: 0; list-style: none; }
+.p-contact__steps { margin: 36px 0 0; padding: 0; list-style: none; }
 
 /* 観光の相談はここではない、の案内：枠で囲まず、上下の罫線ではさむ */
 .p-contact__kanko { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 32px; align-items: end; padding: 24px 0; border-top: 1px solid var(--color-ink); border-bottom: 1px solid var(--color-line); }
@@ -78,8 +78,15 @@
   .p-kanko__body { padding-top: 32px; }
   .p-kanko__mapcol { margin: 0 calc(var(--gutter) * -1); }
   .p-kanko__mapcol .c-area-map { border-radius: 0; }
-  .p-kanko__town { grid-template-columns: 1fr; gap: 14px; padding: 24px 0 22px; }
-  .p-kanko__desks, .p-kanko__tbd, .p-kanko__more { grid-column: 1; }
-  .p-kanko__desk { flex-direction: column; align-items: flex-start; }
-  .p-kanko__tel { font-size: 22px; }
+  /* スマホ：町名の行の右に「町を見る」。電話番号は幅いっぱいの押しやすいボタンにして、右の空きをなくす */
+  .p-kanko__town { grid-template-columns: minmax(0, 1fr) auto; gap: 16px 12px; padding: 24px 0; }
+  .p-kanko__town-h { grid-column: 1; grid-row: 1; align-self: center; padding-top: 0; }
+  .p-kanko__more { grid-column: 2; grid-row: 1; align-self: center; margin-top: 0; }
+  .p-kanko__desks, .p-kanko__tbd { grid-column: 1 / -1; }
+  .p-kanko__tbd { margin: 0; }
+  .p-kanko__desk { flex-direction: column; align-items: stretch; gap: 10px; }
+  .p-kanko__desk + .p-kanko__desk { margin-top: 18px; padding-top: 18px; }
+  .p-kanko__tel { justify-content: center; gap: 10px; padding: 12px 16px; border-radius: var(--radius-pill); background: var(--color-sage); font-size: 21px; }
+  .p-kanko__tel:hover { text-decoration: none; }
+  .p-kanko__tel-ic { width: 16px; height: 16px; }
 }
