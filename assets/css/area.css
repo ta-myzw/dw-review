@@ -1,14 +1,13 @@
 /* =========================================================
    エリア紹介（/area/）・エリア詳細（/area/{市町村}/）  p-area- / p-town-
    部品は c-page-head・c-area-map・c-area-svg・c-spot-card・c-plan-card・c-dl・c-prevnext を使い、ここでは並べ方だけ
-   並びはどこでも日野川の上流 → 下流（倉吉市は流域の外なので最後）
+   並びはどこでも日野川の上流から順（流域の外の倉吉市は最後。見た目では区別しない）
    ========================================================= */
 
 /* ---------- 一覧：地図＋上流から下流への並び ---------- */
 .p-area__overview { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 64px; align-items: start; padding: 64px 0 0; }
 .p-area__map { position: sticky; top: calc(var(--header-h) + 24px); height: min(700px, calc(100vh - var(--header-h) - 48px)); }
 .p-area__flow-label { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-gray); }
-.p-area__flow-label .c-arrow { color: var(--color-primary); }
 
 /* 川の線：番号の列に縦の線を引き、番号の丸をその上に置く */
 .p-area__river { position: relative; list-style: none; margin: 0; padding: 0; }
@@ -24,11 +23,6 @@
 .p-area__town:hover .p-area__no, .p-area__town.is-hl .p-area__no { background: var(--color-primary); color: var(--color-paper); }
 .p-area__town:hover .p-area__ph img { transform: scale(1.05); }
 .p-area__town:hover > .c-arrow { transform: translateX(6px); }
-.p-area__river-end { margin: 14px 0 0 54px; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-gray); }
-/* 流域の外（倉吉市） */
-.p-area__outside { margin-top: 40px; }
-.p-area__outside .p-area__river::before { content: none; }
-.p-area__outside .p-area__no { border-style: dashed; }
 
 .p-area__after { display: flex; flex-wrap: wrap; gap: 16px 40px; margin-top: 88px; padding: 32px 0 var(--space-section-sm); border-top: 1px solid var(--color-ink); }
 
@@ -83,8 +77,7 @@
   .p-area__river::before { left: 15px; }
   .p-area__name { font-size: 18px; }
   .p-area__sub { font-size: var(--fs-note); }
-  .p-area__river-end { margin-left: 46px; }
-  .p-area__after { margin-top: 56px; }
+    .p-area__after { margin-top: 56px; }
   .p-town__head { grid-template-columns: 1fr; gap: 28px; padding: 24px 0 32px; }
   .p-town__minimap { max-width: 320px; }
   .p-town__sec { padding-top: 72px; }
