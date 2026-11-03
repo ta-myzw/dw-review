@@ -27,7 +27,7 @@ assets/
     hero.js         … ヒーロー動画の一時停止
     pickup.js       … Pick Up のスライダー
     top.js          … いまの季節、スマホ横スクロールの点
-    map.js          … エリアマップ（Leaflet＋国土地理院タイル）
+    map.js          … エリアのイラスト地図（parts/area-illust.svg）と一覧のホバー連動
     ui.js           … 下層の共通の動き（タブ、選べるチップ、下から出るシート）
     plan.js         … プラン一覧の絞り込み・並び替え・ページ送り・特集の導入（URLパラメータと同期）
     devlinks.js     … 確認用。直接開いたときに /plan/ などのリンクを作成済みの静的ページへ置き換える（WPでは読み込まない）

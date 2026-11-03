@@ -1305,27 +1305,39 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-mega__towns--sp a { padding: 9px 2px; }
 
 /* =========================================================
-   エリアの地図 c-area-map（Leaflet＋地理院タイル。assets/js/map.js）
-   トップのエリアマップとエリア紹介で共用。高さは使う側（p-）で決める
+   エリアのイラスト地図 c-area-map ＋ c-area-illust（parts/area-illust.svg・assets/js/map.js）
+   トップのエリアマップとエリア紹介で共用。番号は一覧と同じ日野川の上流からの順
    ========================================================= */
-.c-area-map { position: relative; z-index: 0; isolation: isolate; /* 地図の中の重なり（Leaflet は z-index 400〜1000）を中に閉じこめ、固定ヘッダーより前に出さない */ width: 100%; border-radius: var(--radius-md); overflow: hidden; background: #E4EEF0; }
-.c-area-map .leaflet-control-attribution { font-size: 12px; background: rgba(247, 247, 247, .88); }
-.c-area-map .leaflet-control-attribution a { color: var(--color-primary-dk); }
-.c-map-marker { position: relative; width: 16px; height: 16px; }
-.c-map-marker .ring { position: absolute; left: 50%; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--color-primary); animation: mapPulse 2.4s ease-out infinite; }
-.c-map-marker .dot { position: absolute; left: 50%; top: 50%; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; border-radius: 50%; background: var(--color-primary); box-shadow: 0 0 0 3px rgba(247, 247, 247, .9), 0 0 12px 2px rgba(56, 106, 118, .6); transition: transform .25s ease; }
-.c-map-marker.is-hl .dot { transform: scale(1.5); background: var(--color-primary-dk); }
-.c-map-label {
-  margin-top: 2px; font-family: var(--font-sans); font-size: var(--fs-note); font-weight: 500; letter-spacing: .04em; white-space: nowrap; color: var(--color-ink);
-  text-shadow: 0 1px 3px rgba(247, 247, 247, .9), 0 0 8px rgba(247, 247, 247, .8);
+.c-area-map { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #DDE8EB; }
+.c-area-illust { display: block; width: 100%; height: auto; }
+.c-area-illust .sea { fill: #DDE8EB; }
+.c-area-illust .waves path { fill: none; stroke: #B9CDD3; stroke-width: .8; stroke-linecap: round; }
+.c-area-illust .land { fill: #F1EFE8; }
+.c-area-illust .near { fill: #EAE7DE; stroke: #F7F6F1; stroke-width: .8; }
+.c-area-illust .areas path { fill: #E1E7DA; stroke: #FAFAF6; stroke-width: 1.2; stroke-linejoin: round; cursor: pointer; transition: fill .3s ease; }
+.c-area-illust .areas path.is-hl { fill: #C9D9D6; }
+.c-area-illust .river-bank { fill: none; stroke: #F7F7F2; stroke-width: 4.6; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.c-area-illust .river { fill: none; stroke: #6E9DAB; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.c-area-illust .river-nm { font-family: var(--font-serif); font-size: 7.5px; letter-spacing: .2em; fill: #4F7F8D; }
+.c-area-illust .mt { pointer-events: none; }
+.c-area-illust .mt-body { fill: #7D978F; }
+.c-area-illust .mt-snow { fill: #F7F7F2; }
+.c-area-illust .mt text { font-family: var(--font-serif); font-size: 7px; letter-spacing: .1em; fill: #4E6660; }
+.c-area-illust .sea-nm { font-family: var(--font-serif); font-size: 8.5px; letter-spacing: .3em; fill: #7C9AA3; }
+.c-area-illust .sea-nm--s { font-size: 6.5px; letter-spacing: .2em; }
+.c-area-illust .pins circle { fill: var(--color-paper); stroke: var(--color-primary); stroke-width: 1; transition: fill .25s ease; }
+.c-area-illust .pins .no { font-family: var(--font-serif); font-size: 5.6px; font-weight: 600; fill: var(--color-primary); }
+.c-area-illust .pins .nm { font-family: var(--font-sans); font-size: 7.4px; font-weight: 500; letter-spacing: .05em; fill: var(--color-ink); paint-order: stroke; stroke: #F4F3EE; stroke-width: 2.4px; stroke-linejoin: round; }
+.c-area-illust .pins a.is-hl circle, .c-area-illust .pins a:hover circle { fill: var(--color-primary); }
+.c-area-illust .pins a.is-hl .no, .c-area-illust .pins a:hover .no { fill: var(--color-paper); }
+.c-area-illust .pins a.is-hl .nm, .c-area-illust .pins a:hover .nm { fill: var(--color-primary); }
+/* スマホ：町の名前は地図のすぐ下の一覧にまかせ、地図には番号だけを大きめに出す */
+@media (max-width: 768px) {
+  .c-area-illust .pins .nm { display: none; }
+  .c-area-illust .pins circle { r: 7.4px; }
+  .c-area-illust .pins .no { font-size: 7.4px; }
 }
-.c-map-marker.is-hl + .c-map-label { color: var(--color-primary); font-weight: 700; }
-@keyframes mapPulse { 0% { transform: scale(.6); opacity: .85; } 70% { transform: scale(2.6); opacity: 0; } 100% { transform: scale(2.6); opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .c-map-marker .ring { animation: none; opacity: 0; } }
-/* ピン：見た目は小さいまま、押せる範囲を44×44pxに広げる */
-.c-map-marker::before { content: ""; position: absolute; inset: -14px; border-radius: 50%; }
-/* 地図（Leaflet・地理院タイル）が読み込めないときは、メニューと同じSVGの地図を出す */
-.c-area-map.is-fallback { display: flex; justify-content: center; }
-.c-area-map.is-fallback .c-area-svg { width: auto; height: 100%; max-width: 100%; border-radius: 0; }
+/* 一覧の番号（ピンと同じ） */
+.c-area-chip__no { margin-right: 10px; font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; letter-spacing: 0; color: var(--color-primary); }
 /* SVGの地図で、いま見ているエリアを塗る（エリア詳細） */
 .c-area-svg a.is-current .m { fill: var(--color-primary); }

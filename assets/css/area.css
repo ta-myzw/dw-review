@@ -1,12 +1,12 @@
 /* =========================================================
    エリア紹介（/area/）・エリア詳細（/area/{市町村}/）  p-area- / p-town-
-   部品は c-page-head・c-area-map・c-area-svg・c-spot-card・c-plan-card・c-dl を使い、ここでは並べ方だけ
+   部品は c-page-head・c-area-map（イラスト地図）・c-area-svg・c-spot-card・c-plan-card・c-dl を使い、ここでは並べ方だけ
    並びはどこでも日野川の上流から順（流域の外の倉吉市は最後。見た目では区別しない）
    ========================================================= */
 
 /* ---------- 一覧：地図＋上流から下流への並び ---------- */
 .p-area__overview { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 64px; align-items: start; padding: 64px 0 0; }
-.p-area__map { position: sticky; top: calc(var(--header-h) + 24px); height: min(700px, calc(100vh - var(--header-h) - 48px)); }
+.p-area__map { position: sticky; top: calc(var(--header-h) + 24px); }
 .p-area__flow-label { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-gray); }
 
 /* 川の線：番号の列に縦の線を引き、番号の丸をその上に置く */
@@ -73,14 +73,13 @@
 
 @media (max-width: 1024px) {
   .p-area__overview { grid-template-columns: 1fr; gap: 40px; }
-  .p-area__map { position: relative; top: auto; height: 460px; }
+  .p-area__map { position: relative; top: auto; }
   .p-town__head { grid-template-columns: minmax(0, 1fr) 280px; gap: 40px; }
   .p-town__rel a { grid-template-columns: 140px minmax(0, 1fr); gap: 18px; }
   .p-town__rel-text { display: none; }
 }
 @media (max-width: 768px) {
   .p-area__overview { padding-top: 32px; }
-  .p-area__map { height: 340px; }
   .p-area__town { grid-template-columns: 32px 76px minmax(0, 1fr); gap: 0 14px; padding: 12px 0; }
   .p-area__town > .c-arrow { display: none; }
   .p-area__no { width: 32px; height: 32px; }
