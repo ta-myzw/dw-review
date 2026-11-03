@@ -12,7 +12,8 @@
 .p-access__ico { width: 22px; height: 22px; flex: none; }
 
 /* ---------- 1. 全国からの図 ---------- */
-.p-access__map { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #D5E4E9; }
+/* PCでも画面の高さに収まるよう、幅に上限をつけて中央に */
+.p-access__map { position: relative; max-width: min(1000px, calc((100vh - var(--header-h) - 120px) * 760 / 460)); margin-inline: auto; border-radius: var(--radius-lg); overflow: hidden; background: #D5E4E9; }
 .p-access__map svg { display: block; width: 100%; height: auto; }
 /* 地図の中身（parts/access-map.svg）。地形は地理院「地球地図日本」から、線と文字は描き足し */
 .p-access__map .sea { fill: #D5E4E9; }
@@ -55,7 +56,7 @@
 .p-access__map .callout--air .c-lbl { fill: var(--ac-air); }
 .p-access__map .c-val { font-size: 16px; font-weight: 700; fill: var(--color-ink); }
 .p-access__map .credit { font-size: 10px; fill: #7C8A90; }
-.p-access__legend { display: flex; flex-wrap: wrap; gap: 10px 28px; list-style: none; margin: 18px 0 0; padding: 0; font-size: var(--fs-small); color: var(--color-ink-sub); }
+.p-access__legend { justify-content: center; display: flex; flex-wrap: wrap; gap: 10px 28px; list-style: none; margin: 18px 0 0; padding: 0; font-size: var(--fs-small); color: var(--color-ink-sub); }
 .p-access__legend li { display: flex; align-items: center; gap: 10px; }
 .p-access__legend i { display: block; width: 28px; height: 0; border-top: 4px solid; }
 .p-access__legend .is-train i { border-color: var(--ac-train); }
@@ -102,28 +103,32 @@
 .p-access__leg span { color: var(--color-gray); }
 .p-access__way-note { grid-column: 2; margin: -4px 0 0; font-size: var(--fs-note); color: var(--color-gray); }
 
-/* ---------- 3. 着いてから ---------- */
-.p-access__arrive { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+/* ---------- 3. 米子駅から：イラスト地図に米子駅からの線と時間。右に「車がなくても大丈夫」 ---------- */
+.p-access__arrive { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: center; }
 .p-access__arrive .c-area-map { background: #D5E4E9; }
-.c-area-illust .gates text { font-family: var(--font-sans); font-size: 7.6px; font-weight: 700; fill: var(--color-ink); paint-order: stroke; stroke: #F4F3EE; stroke-width: 2.6px; stroke-linejoin: round; }
-.c-area-illust .gates .g { fill: var(--color-primary); stroke: #fff; stroke-width: 1.2; }
-.c-area-illust .gates .g--main { fill: var(--color-ink); }
-.c-area-illust .gates .taxi { fill: none; stroke: var(--ac-car); stroke-width: 1.6; stroke-dasharray: 3 2.4; stroke-linecap: round; }
-.p-access__gates { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line); }
-.p-access__gates li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 16px 0; border-bottom: 1px solid var(--color-line); }
-.p-access__gates b { font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); }
-.p-access__gates span { grid-column: 1; font-size: var(--fs-note); color: var(--color-gray); }
-.p-access__gates em { grid-column: 2; grid-row: 1 / span 2; align-self: center; display: flex; align-items: center; gap: 6px; font-style: normal; font-size: var(--fs-small); color: var(--ac-car); white-space: nowrap; }
-.p-access__gates em.is-train { color: var(--ac-train); }
-.p-access__gates em.is-bus { color: var(--ac-bus); }
-
-.p-access__local { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; list-style: none; margin: 56px 0 0; padding: 0; }
-.p-access__local li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 0 16px; align-items: start; }
-.p-access__local .p-access__mode-ico { background: var(--color-primary); }
+.c-area-illust .hub .sp { fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.c-area-illust .hub .sp--train { stroke: var(--ac-train); }
+.c-area-illust .hub .sp--car { stroke: var(--ac-car); stroke-dasharray: 3 2.2; }
+.c-area-illust .hub .sp--bus { stroke: var(--ac-bus); stroke-dasharray: 1 2.4; stroke-width: 2.2; }
+.c-area-illust .hub .d { fill: #fff; stroke: var(--color-ink); stroke-width: 1.3; }
+.c-area-illust .hub text { font-family: var(--font-sans); paint-order: stroke; stroke: rgba(244, 243, 238, .95); stroke-width: 2.8px; stroke-linejoin: round; }
+.c-area-illust .hub .n { font-size: 7.6px; font-weight: 700; fill: var(--color-ink); }
+.c-area-illust .hub .tm { font-size: 7px; font-weight: 700; }
+.c-area-illust .hub .tm--train { fill: var(--ac-train); }
+.c-area-illust .hub .tm--car { fill: var(--ac-car); }
+.c-area-illust .hub .tm--bus { fill: var(--ac-bus); }
+.c-area-illust .hub-halo { fill: rgba(56, 106, 118, .22); }
+.c-area-illust .hub-dot { fill: var(--color-primary); stroke: #fff; stroke-width: 1.6; }
+.c-area-illust .hub .hub-name { font-family: var(--font-serif); font-size: 10px; font-weight: 700; fill: var(--color-ink); }
+.p-access__nocar-h { margin: 0 0 20px; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3); letter-spacing: var(--ls-heading); }
+.p-access__local { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line); }
+.p-access__local li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 0 18px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--color-line); }
+.p-access__local .p-access__mode-ico { background: var(--ac-car); }
 .p-access__local li:nth-child(2) .p-access__mode-ico { background: var(--ac-bus); }
-.p-access__local li:nth-child(3) .p-access__mode-ico { background: var(--ac-car); }
+.p-access__local li:nth-child(3) .p-access__mode-ico { background: #8E9BA2; }
 .p-access__local h3 { margin: 4px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); letter-spacing: var(--ls-heading); }
-.p-access__local p { margin: 8px 0 12px; font-size: var(--fs-small); line-height: 1.85; color: var(--color-ink-sub); }
+.p-access__local p { margin: 6px 0 12px; font-size: var(--fs-small); line-height: 1.85; color: var(--color-ink-sub); }
+.p-access__local p:last-child { margin-bottom: 0; }
 
 /* ---------- 4. 冬の注意：アイコン＋3項目を横に ---------- */
 .p-access__winter { padding: 32px 36px; border-radius: var(--radius-lg); background: #EEF3F6; }
@@ -151,7 +156,8 @@
 }
 @media (max-width: 768px) {
   .p-access__sec { padding-top: 72px; }
-  .p-access__map { margin: 0 calc(var(--gutter) * -1); border-radius: 0; overflow-x: auto; }
+  .p-access__map { max-width: none; margin: 0 calc(var(--gutter) * -1); border-radius: 0; overflow-x: auto; }
+  .p-access__legend { justify-content: flex-start; }
   .p-access__map svg { min-width: 620px; }
   .p-access__map-hint { display: block; margin-top: 8px; font-size: var(--fs-note); color: var(--color-gray); }
   .p-access__cities .c-tabs__tab { padding: 8px 16px; font-size: var(--fs-small); }
@@ -162,7 +168,6 @@
   .p-access__leg { margin: 0 0 0 6px; padding: 10px 0 10px 20px; border-left: 4px solid currentColor; }
   .p-access__leg::before { content: none; }
   .p-access__leg.is-car, .p-access__leg.is-air { border-left-style: dashed; }
-  .p-access__local { grid-template-columns: 1fr; gap: 28px; }
   .p-access__winter { padding: 24px 20px; }
   .p-access__winter ul { grid-template-columns: 1fr; gap: 18px; }
   .p-access__sites { grid-template-columns: 1fr; }
