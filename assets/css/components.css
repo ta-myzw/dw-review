@@ -1242,10 +1242,12 @@ button.c-btn--fill { background-color: var(--color-primary); }
 
 /* 予約の確定についての注意書き（プラン一覧・詳細・予約確認・完了の4画面で共通）
    箱・色面・アイコンを使わず、上下の罫線と明朝の見出しで組む */
-.c-reserve-note { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 8px 40px; padding: 24px 0; border-top: 1px solid var(--color-ink); border-bottom: 1px solid var(--color-line); }
+.c-reserve-note { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 8px 40px; padding: 26px 32px; border-radius: var(--radius-md); background: var(--color-sage); }
+/* 地色がセージのセクションの中では、面を紙の色にして見分ける */
+.l-section--sage .c-reserve-note { background: var(--color-paper); }
 .c-reserve-note__title { font-family: var(--font-serif); font-size: 18px; font-weight: 600; line-height: 1.6; letter-spacing: var(--ls-heading); }
 .c-reserve-note__text { font-size: var(--fs-base); line-height: 1.9; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
-@media (max-width: 768px) { .c-reserve-note { grid-template-columns: 1fr; padding: 20px 0; } .c-reserve-note__title { font-size: 17px; } }
+@media (max-width: 768px) { .c-reserve-note { grid-template-columns: 1fr; padding: 20px 20px; } .c-reserve-note__title { font-size: 17px; } }
 
 /* 7. スマホではセクション見出しの「すべての〜」を、どのセクションも見出しの下に置く */
 @media (max-width: 768px) {
