@@ -1,6 +1,6 @@
 /* =========================================================
    アクセス（/access/）  p-access-
-   部品は c-page-head・c-tabs（ui.js）・c-area-illust・c-notice・c-link-more を使い、ここでは並べ方だけ
+   部品は c-page-head・c-tabs（ui.js）・parts/access-map.svg・c-area-illust・c-notice・c-link-more を使い、ここでは並べ方だけ
    図で見せる：全国からの図 → 出発地を選ぶと行き方が並ぶ → 着いてからの図
    交通手段の色：電車＝ティール、車＝黄土、高速バス＝苔、飛行機＝灰青、船＝海
    ========================================================= */
@@ -12,14 +12,49 @@
 .p-access__ico { width: 22px; height: 22px; flex: none; }
 
 /* ---------- 1. 全国からの図 ---------- */
-.p-access__map { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #F1EFE8; }
+.p-access__map { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #D5E4E9; }
 .p-access__map svg { display: block; width: 100%; height: auto; }
+/* 地図の中身（parts/access-map.svg）。地形は地理院「地球地図日本」から、線と文字は描き足し */
+.p-access__map .sea { fill: #D5E4E9; }
+.p-access__map .land path { fill: #EFEDE6; stroke: #fff; stroke-width: .8; }
+.p-access__map .tottori path { fill: #E6E8DD; stroke: #fff; stroke-width: .8; }
+.p-access__map .region { fill: #C9DBD2; }
+.p-access__map .rt { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.p-access__map .rt--bg { stroke: #fff; stroke-width: 9; }
+.p-access__map .rt--shinkansen { stroke: #8E9BA2; stroke-width: 5; }
+.p-access__map .rt--train { stroke: var(--ac-train); stroke-width: 5; }
+.p-access__map .rt--car { stroke: var(--ac-car); stroke-width: 3.5; stroke-dasharray: 8 5; }
+.p-access__map .air, .p-access__map .ship { fill: none; stroke-width: 2.4; stroke-dasharray: 1 6; stroke-linecap: round; }
+.p-access__map .air { stroke: var(--ac-air); }
+.p-access__map .ship { stroke: var(--ac-ship); }
+.p-access__map .dot circle { fill: #fff; stroke: var(--color-ink); stroke-width: 2.6; }
+.p-access__map .jct { fill: #fff; stroke: var(--ac-car); stroke-width: 2; }
+.p-access__map .stn { fill: #fff; stroke: var(--ac-train); stroke-width: 2; }
+.p-access__map .mt path { fill: #7D978F; }
+.p-access__map .mt .snow { fill: #F7F7F2; }
+.p-access__map .goal-halo { fill: rgba(56, 106, 118, .2); }
+.p-access__map .goal { fill: var(--color-primary); stroke: #fff; stroke-width: 2; }
+.p-access__map .port { fill: #fff; stroke: var(--ac-air); stroke-width: 2; }
 .p-access__map text { font-family: var(--font-sans); }
-.p-access__map .city { font-size: 17px; font-weight: 500; fill: var(--color-ink); }
-.p-access__map .lbl, .p-access__map .city { paint-order: stroke; stroke: #F1EFE8; stroke-width: 5px; stroke-linejoin: round; }
-.p-access__map .lbl { font-size: 14px; font-weight: 500; }
-.p-access__map .lbl--box { stroke: none; }
-.p-access__map .goal { font-family: var(--font-serif); font-size: 26px; font-weight: 600; fill: var(--color-ink); }
+.p-access__map .t text { paint-order: stroke; stroke: rgba(247, 247, 244, .92); stroke-width: 4px; stroke-linejoin: round; font-size: 13px; font-weight: 500; }
+.p-access__map .t .t-city { font-size: 16px; fill: var(--color-ink); }
+.p-access__map .t .t-sub { font-size: 11px; fill: #6E7C83; }
+.p-access__map .t-car { fill: var(--ac-car); }
+.p-access__map .t-mt { fill: #4E6660; font-family: var(--font-serif); }
+.p-access__map .t .t-port { font-size: 12px; fill: var(--color-ink); }
+.p-access__map .t .t-sea { font-family: var(--font-serif); font-size: 15px; letter-spacing: .3em; fill: #7C9AA3; stroke: none; }
+.p-access__map .t-air { fill: var(--ac-air); }
+.p-access__map .t-ship { fill: var(--ac-ship); }
+.p-access__map .t .t-edge { font-size: 12px; fill: var(--color-gray); }
+.p-access__map .callout rect { fill: #fff; filter: drop-shadow(0 2px 6px rgba(15, 21, 37, .12)); }
+.p-access__map .lead { fill: none; stroke: var(--color-primary); stroke-width: 1.2; }
+.p-access__map .c-big { font-family: var(--font-serif); font-size: 20px; font-weight: 700; fill: var(--color-ink); }
+.p-access__map .c-sm { font-size: 11.5px; font-weight: 500; fill: var(--color-primary); }
+.p-access__map .c-lbl { font-size: 12px; font-weight: 500; }
+.p-access__map .callout--train .c-lbl { fill: var(--ac-train); }
+.p-access__map .callout--air .c-lbl { fill: var(--ac-air); }
+.p-access__map .c-val { font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+.p-access__map .credit { font-size: 10px; fill: #7C8A90; }
 .p-access__legend { display: flex; flex-wrap: wrap; gap: 10px 28px; list-style: none; margin: 18px 0 0; padding: 0; font-size: var(--fs-small); color: var(--color-ink-sub); }
 .p-access__legend li { display: flex; align-items: center; gap: 10px; }
 .p-access__legend i { display: block; width: 28px; height: 0; border-top: 4px solid; }
@@ -37,7 +72,6 @@
 
 .p-access__ways { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
 .p-access__way { display: grid; grid-template-columns: 210px minmax(0, 1fr); align-items: center; gap: 12px 32px; padding: 22px 28px; border-radius: var(--radius-md); background: var(--color-white); border: 1px solid var(--color-line-soft); }
-.p-access__way.is-fast { border-color: var(--color-primary); box-shadow: inset 4px 0 0 var(--color-primary); }
 .p-access__mode { display: flex; align-items: center; gap: 12px; }
 .p-access__mode-ico { display: grid; place-items: center; width: 48px; height: 48px; flex: none; border-radius: 50%; color: var(--color-paper); }
 .p-access__mode-ico svg { width: 26px; height: 26px; }
