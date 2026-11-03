@@ -1,0 +1,83 @@
+/* =========================================================
+   大山ワンダーとは（/about/）  p-about-
+   部品は c-page-hero・c-sec-head・c-area-map（イラスト地図）・c-area-chip・c-btn を使い、ここでは並べ方だけ
+   背景：物語（紙）→ めぐり（セージ）→ 10市町村（紙）→ ロゴ（セージ）→ 使い方（紙）
+   ========================================================= */
+.p-about__hero { min-height: clamp(420px, 52vw, 680px); }
+.p-about__hero > img { object-position: 30% 40%; }
+
+/* ---------- ブランドストーリー：明朝・中央寄せで読み物として ---------- */
+.p-about__story { text-align: center; }
+.p-about__story .c-kicker { margin-bottom: 28px; }
+.p-about__catch { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.9; letter-spacing: .12em; }
+.p-about__story-text { max-width: 40em; margin: 56px auto 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-lead); line-height: 2.4; letter-spacing: .1em; color: var(--color-ink-sub); }
+.p-about__story-text p + p { margin-top: 1.6em; }
+.p-about__story-end { margin-top: 2em !important; color: var(--color-ink); font-weight: 600; }
+.p-about__en { margin: 56px 0 0; font-family: var(--font-serif); font-style: italic; font-size: var(--fs-h4); letter-spacing: .08em; color: var(--color-primary); }
+
+/* ---------- めぐり：山 → 森 → 川 → 里 → 海 ---------- */
+.p-about__meguri .c-sec-head { margin-bottom: 40px; }
+.p-about__meguri-ph { position: relative; margin: 0 0 64px; aspect-ratio: 21 / 8; border-radius: var(--radius-md); overflow: hidden; background: var(--color-ph); }
+.p-about__meguri-ph img { object-position: 50% 85%; }
+.p-about__meguri-ph figcaption { position: absolute; right: 16px; bottom: 12px; font-size: var(--fs-tag); letter-spacing: .06em; color: var(--color-paper); text-shadow: 0 1px 6px rgba(var(--scrim-navy), .6); }
+.p-about__flow { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 28px; list-style: none; margin: 0; padding: 0; }
+.p-about__flow::before { content: ""; position: absolute; left: 0; right: 0; top: 17px; height: 1px; background: var(--color-primary); opacity: .35; }
+.p-about__flow-dot { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--color-primary); border-radius: 50%; background: var(--color-sage); font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; color: var(--color-primary); }
+.p-about__stage { display: flex; align-items: baseline; gap: 12px; margin: 20px 0 0; }
+.p-about__stage b { font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h2); line-height: 1.2; }
+.p-about__stage span { font-size: var(--fs-tag); letter-spacing: .16em; color: var(--color-primary); }
+.p-about__flow-text { margin: 12px 0 18px; font-size: var(--fs-small); line-height: 1.9; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+.p-about__flow > li { display: flex; flex-direction: column; }   /* 説明の長さが違っても、リンクの線の高さをそろえる */
+.p-about__flow-links { list-style: none; margin: auto 0 0; padding: 14px 0 0; border-top: 1px solid var(--color-line); }
+.p-about__flow-links li + li { margin-top: 6px; }
+.p-about__flow-links a { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-small); color: var(--color-ink); text-decoration: none; }
+.p-about__flow-links small { font-size: var(--fs-tag); color: var(--color-primary); }
+.p-about__flow-links a:hover { color: var(--color-primary); }
+.p-about__flow-links a:hover .c-arrow { transform: translateX(4px); }
+
+/* ---------- 10市町村 ---------- */
+.p-about__towns .c-sec-head { margin-bottom: 44px; }
+.p-about__towns-body { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.p-about__towns-grid { display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(5, auto); gap: 0 32px; border-bottom: 1px solid var(--color-line); }
+
+/* ---------- ロゴ ---------- */
+.p-about__logo { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 72px; align-items: center; }
+.p-about__logo-mark { display: grid; place-items: center; margin: 0; }
+.p-about__logo-mark img { width: 150px; height: auto; }
+.p-about__logo h2 { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h2); line-height: 1.5; letter-spacing: var(--ls-heading); }
+.p-about__logo p { max-width: 36em; margin: 20px 0 0; font-size: var(--fs-body); line-height: 2; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+
+/* ---------- このサイトの使い方 ---------- */
+.p-about__howto .c-sec-head { margin-bottom: 40px; }
+.p-about__ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; list-style: none; margin: 0; padding: 0; }
+.p-about__way { padding-top: 24px; border-top: 1px solid var(--color-ink); }
+.p-about__way-no { margin: 0; font-family: var(--font-serif); font-size: var(--fs-small); font-weight: 600; color: var(--color-primary); }
+.p-about__way h3 { margin: 10px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3); line-height: 1.5; letter-spacing: var(--ls-heading); }
+.p-about__way p { margin: 12px 0 18px; font-size: var(--fs-base); line-height: 1.95; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+.p-about__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px; margin-top: 88px; }
+
+@media (max-width: 1024px) {
+  .p-about__flow { grid-template-columns: 1fr; gap: 0; }
+  .p-about__flow::before { left: 17px; right: auto; top: 18px; bottom: 18px; width: 1px; height: auto; }
+  .p-about__flow > li { display: grid; align-content: start; grid-template-columns: 36px minmax(0, 1fr); gap: 0 24px; padding-bottom: 36px; }
+  .p-about__flow > li > :not(.p-about__flow-dot) { grid-column: 2; }
+  .p-about__stage { margin-top: 2px; }
+  .p-about__towns-body { grid-template-columns: 1fr; gap: 32px; }
+  .p-about__logo { grid-template-columns: 200px minmax(0, 1fr); gap: 48px; }
+}
+@media (max-width: 768px) {
+  .p-about__story { text-align: left; }
+  .p-about__catch { font-size: 22px; letter-spacing: .06em; }
+  .p-about__story-text { margin-top: 36px; font-size: var(--fs-body); line-height: 2.2; letter-spacing: .06em; }
+  .p-about__story-text br { display: none; }
+  .p-about__en { margin-top: 36px; }
+  .p-about__meguri-ph { aspect-ratio: 4 / 3; margin: 0 calc(var(--gutter) * -1) 40px; border-radius: 0; }
+  .p-about__stage b { font-size: 26px; }
+  .p-about__towns-grid { gap: 0 20px; }
+  .p-about__logo { grid-template-columns: 1fr; gap: 28px; }
+  .p-about__logo-mark { justify-items: start; }
+  .p-about__logo-mark img { width: 110px; }
+  .p-about__ways { grid-template-columns: 1fr; gap: 36px; }
+  .p-about__cta { margin-top: 56px; }
+  .p-about__cta .c-btn { width: 100%; justify-content: center; }
+}

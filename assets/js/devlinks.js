@@ -20,7 +20,8 @@
     '/area/': 'area/index.html',
     '/area/hino/': 'area/hino/index.html',
     '/stories/': 'stories/index.html',
-    '/stories/iron/': 'stories/iron/index.html'
+    '/stories/iron/': 'stories/iron/index.html',
+    '/about/': 'about/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');
