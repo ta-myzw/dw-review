@@ -96,6 +96,7 @@ assets/
 - CSS は tokens → base → components → ページ別 の順で `wp_enqueue_style`。JS は `defer` のまま `wp_enqueue_script`
 - 一覧の繰り返し（カード・行）は1件分のマークアップをそのままループにする
 - 画像・動画・テキストは差し替え前提の仮素材
+- 管理画面から入る見出し（プラン名・記事タイトル・スポット名など）は、出力するときに BudouX（PHP か JS）で文節の区切りを入れ、変な位置で改行しないようにする。静的HTMLでは CSS の `word-break: auto-phrase`（Chrome・Edge のみ）で代用している
 
 ## 下層ページの作り方
 
