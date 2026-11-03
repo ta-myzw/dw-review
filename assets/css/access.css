@@ -117,6 +117,8 @@
 .c-area-illust .hub .tm--train { fill: var(--ac-train); }
 .c-area-illust .hub .tm--car { fill: var(--ac-car); }
 .c-area-illust .hub .tm--bus { fill: var(--ac-bus); }
+.c-area-illust .hub .key rect { fill: rgba(255, 255, 255, .85); }
+.c-area-illust .hub .key text { font-size: 6.6px; font-weight: 500; fill: var(--color-ink-sub); stroke: none; }
 .c-area-illust .hub-halo { fill: rgba(56, 106, 118, .22); }
 .c-area-illust .hub-dot { fill: var(--color-primary); stroke: #fff; stroke-width: 1.6; }
 .c-area-illust .hub .hub-name { font-family: var(--font-serif); font-size: 10px; font-weight: 700; fill: var(--color-ink); }
