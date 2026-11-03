@@ -1,0 +1,92 @@
+/* =========================================================
+   物語（/stories/・/stories/{物語}/）  p-stories- / p-story-
+   部品は c-page-head・c-axis・c-prose・c-toc・c-spot-card・c-neighbor を使い、ここでは並べ方だけ
+   並びは水の流れの順（森 → 信仰 → 鉄 → 水 → 海）。番号の丸と縦の線はエリア紹介の一覧と同じ見た目
+   ========================================================= */
+
+/* ---------- 一覧 ---------- */
+.p-stories__list { position: relative; list-style: none; margin: 0; padding: 0; }
+.p-stories__list::before { content: ""; position: absolute; left: 17px; top: 64px; bottom: 64px; width: 1px; background: var(--color-primary); opacity: .35; }
+.p-stories__link { display: grid; grid-template-columns: 36px minmax(0, 1.1fr) minmax(0, 1fr); gap: 0 48px; align-items: center; padding: 48px 0; border-bottom: 1px solid var(--color-line); color: var(--color-ink); text-decoration: none; }
+.p-stories__no { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--color-primary); border-radius: 50%; background: var(--color-paper); font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; color: var(--color-primary); transition: background .3s ease, color .3s ease; }
+.p-stories__ph { position: relative; aspect-ratio: 3 / 2; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+.p-stories__ph img { transition: transform .8s var(--ease-out); }
+.p-stories__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0; font-size: var(--fs-note); letter-spacing: .06em; color: var(--color-gray); }
+.p-stories__title { margin: 14px 0 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h2); line-height: 1.4; letter-spacing: var(--ls-heading); transition: color .3s ease; }
+.p-stories__catch { margin: 10px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); line-height: 1.7; letter-spacing: var(--ls-heading); color: var(--color-ink-sub); }
+.p-stories__text { margin: 16px 0 20px; font-size: var(--fs-base); line-height: 1.95; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+.p-stories__link:hover .p-stories__no { background: var(--color-primary); color: var(--color-paper); }
+.p-stories__link:hover .p-stories__title { color: var(--color-primary); }
+.p-stories__link:hover .p-stories__ph img { transform: scale(1.04); }
+.p-stories__link:hover .c-arrow { transform: translateX(6px); }
+.p-stories__after { display: flex; flex-wrap: wrap; gap: 16px 40px; padding: 56px 0 var(--space-section-sm); }
+
+/* ---------- 詳細 ---------- */
+.p-story__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; align-items: center; padding: 32px 0 64px; border-bottom: 1px solid var(--color-line); }
+.p-story__kicker { display: flex; align-items: center; gap: 14px; margin: 0 0 18px; }
+.p-story__kicker .c-kicker { margin: 0; }
+.p-story__title { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-page); line-height: 1.4; letter-spacing: var(--ls-heading); }
+.p-story__catch { margin: 14px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3); line-height: 1.7; letter-spacing: var(--ls-heading); color: var(--color-ink-sub); }
+.p-story__stage { margin: 28px 0 0; font-size: var(--fs-note); letter-spacing: .06em; color: var(--color-gray); }
+.p-story__stage a { color: var(--color-primary); text-underline-offset: 3px; }
+.p-story__hero { position: relative; margin: 0; aspect-ratio: 3 / 2; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+
+.p-story__intro { margin-top: 64px; }
+.p-story__toc { margin: 48px auto 0; }
+.p-story__body { margin-top: 64px; }
+.p-story__body h2 { scroll-margin-top: calc(var(--header-h) + 24px); }
+
+/* たたら製鉄の流れ：イラストと説明を上から順に。番号の丸を縦の線でつなぐ */
+.p-story__steps { position: relative; max-width: 880px; margin: 40px auto 0; padding: 0; list-style: none; }
+.p-story__steps::before { content: ""; position: absolute; left: 17px; top: 30px; bottom: 30px; width: 1px; background: var(--color-primary); opacity: .35; }
+.p-story__step { display: grid; grid-template-columns: 36px 240px minmax(0, 1fr); gap: 0 32px; align-items: start; padding: 28px 0; border-bottom: 1px solid var(--color-line); }
+.p-story__step:first-child { border-top: 1px solid var(--color-line); }
+.p-story__step-no { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--color-primary); border-radius: 50%; background: var(--color-paper); font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; color: var(--color-primary); }
+.p-story__step-ph { margin: 0; padding: 10px; border-radius: var(--radius-sm); background: var(--color-white); }
+.p-story__step-ph img { display: block; width: 100%; height: auto; }
+.p-story__step-title { margin: 4px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); line-height: 1.6; letter-spacing: var(--ls-heading); }
+.p-story__step-title small { margin-left: 8px; font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-note); color: var(--color-gray); }
+.p-story__step-text { margin: 8px 0 0; font-size: var(--fs-base); line-height: 1.95; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+.p-story__credit { max-width: 880px; margin: 14px auto 0; font-size: var(--fs-note); color: var(--color-gray); text-align: right; }
+.p-story__saying { max-width: var(--measure); margin: 56px auto 0; padding: 28px 0; border-top: 1px solid var(--color-ink); border-bottom: 1px solid var(--color-line); text-align: center; }
+.p-story__saying b { display: block; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h2); letter-spacing: .2em; }
+.p-story__saying span { display: block; margin-top: 12px; font-size: var(--fs-small); line-height: 1.9; color: var(--color-ink-sub); }
+
+.p-story__places { padding-top: 112px; }
+.p-story__places .c-sec-head, .p-story__next .c-sec-head { margin-bottom: 40px; }
+.p-story__next { margin-top: var(--space-section-sm); }
+.p-story__next-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; list-style: none; margin: 0; padding: 0; }
+.p-story__next-card { display: block; color: var(--color-ink); text-decoration: none; }
+.p-story__next-ph { position: relative; aspect-ratio: 3 / 2; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+.p-story__next-ph img { transition: transform .6s var(--ease-out); }
+.p-story__next-type { margin: 16px 0 0; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-primary); }
+.p-story__next-title { margin: 6px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3-sm); line-height: 1.6; letter-spacing: var(--ls-heading); transition: color .3s ease; }
+.p-story__next-card:hover .p-story__next-title { color: var(--color-primary); }
+.p-story__next-card:hover .p-story__next-ph img { transform: scale(1.04); }
+.p-story__nav { padding: var(--space-section-sm) 0; }
+.p-story__back { margin: 32px 0 0; }
+
+@media (max-width: 1024px) {
+  .p-stories__link { grid-template-columns: 36px minmax(0, 1fr) minmax(0, 1fr); gap: 0 28px; }
+  .p-story__head { gap: 40px; }
+  .p-story__step { grid-template-columns: 36px 180px minmax(0, 1fr); gap: 0 24px; }
+}
+@media (max-width: 768px) {
+  .p-stories__list::before { left: 15px; top: 40px; bottom: 40px; }
+  .p-stories__link { grid-template-columns: 32px minmax(0, 1fr); gap: 16px 16px; align-items: start; padding: 32px 0; }
+  .p-stories__no { width: 32px; height: 32px; }
+  .p-stories__body { grid-column: 2; }
+  .p-stories__title { margin-top: 10px; }
+  .p-stories__text { font-size: var(--fs-small); }
+  .p-story__head { grid-template-columns: 1fr; gap: 28px; padding: 16px 0 40px; }
+  .p-story__hero { order: -1; margin: 0 calc(var(--gutter) * -1); border-radius: 0; }
+  .p-story__intro, .p-story__body { margin-top: 40px; }
+  .p-story__steps::before { left: 15px; }
+  .p-story__step { grid-template-columns: 32px minmax(0, 1fr); gap: 14px 16px; padding: 24px 0; }
+  .p-story__step-no { width: 32px; height: 32px; }
+  .p-story__step-ph { grid-column: 2; max-width: 260px; }
+  .p-story__step > div { grid-column: 2; }
+  .p-story__saying b { font-size: 24px; letter-spacing: .12em; }
+  .p-story__places { padding-top: 72px; }
+  .p-story__next-grid { grid-template-columns: 1fr; gap: 28px; }
+}

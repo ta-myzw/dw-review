@@ -1341,3 +1341,24 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-area-chip__no { margin-right: 10px; font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; letter-spacing: 0; color: var(--color-primary); }
 /* SVGの地図で、いま見ているエリアを塗る（エリア詳細） */
 .c-area-svg a.is-current .m { fill: var(--color-primary); }
+
+/* =========================================================
+   となりへのリンク c-neighbor（エリア詳細の上流・下流の町、物語の前後の物語）
+   箱にせず、罫線の間に写真＋ラベル＋名前を左右に置く
+   ========================================================= */
+.c-neighbor { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 24px 40px; padding: 28px 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.c-neighbor__link { display: flex; align-items: center; gap: 18px; color: var(--color-ink); text-decoration: none; }
+.c-neighbor__link--next { grid-column: 2; flex-direction: row-reverse; text-align: right; }
+.c-neighbor__ph { position: relative; flex: none; width: 96px; aspect-ratio: 4 / 3; border-radius: var(--radius-xs); overflow: hidden; background: var(--color-ph); }
+.c-neighbor__ph img { transition: transform .6s var(--ease-out); }
+.c-neighbor__txt small { display: block; font-size: var(--fs-note); letter-spacing: .1em; color: var(--color-primary); }
+.c-neighbor__txt b { display: block; margin-top: 2px; font-family: var(--font-serif); font-weight: 600; font-size: 20px; letter-spacing: var(--ls-heading); transition: color .3s ease; }
+.c-neighbor__link:hover b { color: var(--color-primary); }
+.c-neighbor__link:hover .c-neighbor__ph img { transform: scale(1.06); }
+@media (max-width: 768px) {
+  .c-neighbor { gap: 20px 12px; }
+  .c-neighbor__link { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .c-neighbor__link--next { flex-direction: column; align-items: flex-end; }
+  .c-neighbor__ph { width: 100%; }
+  .c-neighbor__txt b { font-size: 18px; }
+}

@@ -1,6 +1,6 @@
 /* =========================================================
    エリア紹介（/area/）・エリア詳細（/area/{市町村}/）  p-area- / p-town-
-   部品は c-page-head・c-area-map（イラスト地図）・c-area-svg・c-spot-card・c-plan-card・c-dl を使い、ここでは並べ方だけ
+   部品は c-page-head・c-area-map（イラスト地図）・c-area-svg・c-spot-card・c-plan-card・c-dl・c-neighbor を使い、ここでは並べ方だけ
    並びはどこでも日野川の上流から順（流域の外の倉吉市は最後。見た目では区別しない）
    ========================================================= */
 
@@ -59,16 +59,6 @@
 .p-town__info .c-link-more { margin-top: 20px; }
 
 .p-town__nav { padding: 96px 0 var(--space-section-sm); }
-/* 上流・下流の町へ：箱にせず、罫線の間に上流と下流のとなりの町を左右に置く */
-.p-town__flow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 24px 40px; padding: 28px 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
-.p-town__flow-link { display: flex; align-items: center; gap: 18px; color: var(--color-ink); text-decoration: none; }
-.p-town__flow-link--next { flex-direction: row-reverse; text-align: right; }
-.p-town__flow-ph { position: relative; flex: none; width: 96px; aspect-ratio: 4 / 3; border-radius: var(--radius-xs); overflow: hidden; background: var(--color-ph); }
-.p-town__flow-ph img { transition: transform .6s var(--ease-out); }
-.p-town__flow-txt small { display: block; font-size: var(--fs-note); letter-spacing: .1em; color: var(--color-primary); }
-.p-town__flow-txt b { display: block; margin-top: 2px; font-family: var(--font-serif); font-weight: 600; font-size: 20px; letter-spacing: var(--ls-heading); transition: color .3s ease; }
-.p-town__flow-link:hover b { color: var(--color-primary); }
-.p-town__flow-link:hover .p-town__flow-ph img { transform: scale(1.06); }
 .p-town__back { margin: 32px 0 0; }
 
 @media (max-width: 1024px) {
@@ -100,9 +90,4 @@
   .p-town__rel-title { font-size: var(--fs-base); }
   .p-town__info { grid-template-columns: 1fr; gap: 40px; }
   .p-town__nav { padding-top: 64px; }
-  .p-town__flow { grid-template-columns: 1fr 1fr; gap: 20px 12px; }
-  .p-town__flow-link { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .p-town__flow-link--next { flex-direction: column; align-items: flex-end; }
-  .p-town__flow-ph { width: 100%; }
-  .p-town__flow-txt b { font-size: 18px; }
 }
