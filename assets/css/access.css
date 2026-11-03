@@ -112,13 +112,13 @@
 .c-area-illust .hub .sp--bus { stroke: var(--ac-bus); stroke-dasharray: 1 2.4; stroke-width: 2.2; }
 .c-area-illust .hub .d { fill: #fff; stroke: var(--color-ink); stroke-width: 1.3; }
 .c-area-illust .hub text { font-family: var(--font-sans); paint-order: stroke; stroke: rgba(244, 243, 238, .95); stroke-width: 2.8px; stroke-linejoin: round; }
-.c-area-illust .hub .n { font-size: 7.6px; font-weight: 700; fill: var(--color-ink); }
-.c-area-illust .hub .tm { font-size: 7px; font-weight: 700; }
+.c-area-illust .hub .n { font-size: 8px; font-weight: 700; fill: var(--color-ink); }
+.c-area-illust .hub .tm { font-size: 7.4px; font-weight: 700; }
 .c-area-illust .hub .tm--train { fill: var(--ac-train); }
 .c-area-illust .hub .tm--car { fill: var(--ac-car); }
 .c-area-illust .hub .tm--bus { fill: var(--ac-bus); }
 .c-area-illust .hub .key rect { fill: rgba(255, 255, 255, .85); }
-.c-area-illust .hub .key text { font-size: 6.6px; font-weight: 500; fill: var(--color-ink-sub); stroke: none; }
+.c-area-illust .hub .key text { font-size: 6.4px; font-weight: 500; fill: var(--color-ink-sub); stroke: none; }
 .c-area-illust .hub-halo { fill: rgba(56, 106, 118, .22); }
 .c-area-illust .hub-dot { fill: var(--color-primary); stroke: #fff; stroke-width: 1.6; }
 .c-area-illust .hub .hub-name { font-family: var(--font-serif); font-size: 10px; font-weight: 700; fill: var(--color-ink); }
@@ -161,7 +161,8 @@
   .p-access__sec { padding-top: 72px; }
   .p-access__map { max-width: none; margin: 0 calc(var(--gutter) * -1); border-radius: 0; overflow-x: auto; }
   .p-access__legend { justify-content: flex-start; }
-  .p-access__map svg { min-width: 620px; }
+  /* スマホは地図を大きく表示して横スクロール（文字を読める大きさに） */
+  .p-access__map svg { min-width: 940px; }
   .p-access__map-hint { display: block; margin-top: 8px; font-size: var(--fs-note); color: var(--color-gray); }
   .p-access__cities .c-tabs__tab { padding: 8px 16px; font-size: var(--fs-small); }
   .p-access__strip { flex-direction: column; align-items: stretch; }
@@ -171,6 +172,7 @@
   .p-access__leg { margin: 0 0 0 6px; padding: 10px 0 10px 20px; border-left: 4px solid currentColor; }
   .p-access__leg::before { content: none; }
   .p-access__leg.is-car, .p-access__leg.is-air { border-left-style: dashed; }
+  .p-access__arrive .c-area-map { margin: 0 calc(var(--gutter) * -1); border-radius: 0; }
   .p-access__winter { padding: 24px 20px; }
   .p-access__winter ul { grid-template-columns: 1fr; gap: 18px; }
   .p-access__sites { grid-template-columns: 1fr; }

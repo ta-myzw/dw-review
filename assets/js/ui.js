@@ -64,4 +64,11 @@
       if (e.clientY < r.top || e.clientY > r.bottom || e.clientX < r.left || e.clientX > r.right) { e.target.close(); }
     }
   });
+
+  // 横スクロールする図（.js-scroll-start）：最初に見せたい位置へ寄せる（data-scroll-x＝図の幅に対する割合）
+  Array.prototype.forEach.call(document.querySelectorAll('.js-scroll-start'), function (el) {
+    if (el.scrollWidth <= el.clientWidth) { return; }
+    var r = parseFloat(el.getAttribute('data-scroll-x') || '0');
+    el.scrollLeft = Math.max(0, el.scrollWidth * r - el.clientWidth / 2);
+  });
 })();
