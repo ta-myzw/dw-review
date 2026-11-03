@@ -23,7 +23,11 @@
     '/stories/iron/': 'stories/iron/index.html',
     '/about/': 'about/index.html',
     '/people/': 'people/index.html',
-    '/people/brewer-01/': 'people/brewer-01/index.html'
+    '/people/brewer-01/': 'people/brewer-01/index.html',
+    '/news/': 'news/index.html',
+    '/news/sample/': 'news/sample/index.html',
+    '/event/': 'event/index.html',
+    '/event/sample/': 'event/sample/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');

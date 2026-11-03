@@ -70,6 +70,7 @@ a.c-axis:hover { text-decoration: underline; text-underline-offset: 3px; }
 .c-article-row__meta .c-axis { padding-left: 10px; border-left: 1px solid var(--color-line); }
 /* 記事の種類（コラム・インタビュー・プレスリリースなど）：ベージュの丸いラベル */
 .c-type { display: inline-flex; align-items: center; padding: 3px 14px; border-radius: 999px; background: #EFEBE0; color: #6A5A3C; font-size: var(--fs-note); line-height: 1.6; letter-spacing: .06em; white-space: nowrap; }
+.c-type--important { background: var(--color-error-bg); color: var(--color-error); }   /* お知らせの種類「重要」 */
 .c-article-row__meta .c-type + .c-axis { padding-left: 0; border-left: 0; }
 
 /* 期間・所要時間などのタグ */

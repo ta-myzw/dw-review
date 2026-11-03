@@ -1,0 +1,74 @@
+/* =========================================================
+   お知らせ（/news/）・イベント（/event/）  p-news- / p-event-
+   部品は c-page-head・c-chip・c-type・c-notice・c-event-row・c-dl・c-prose・c-pagination を使い、ここでは並べ方だけ
+   ========================================================= */
+
+/* ---------- 共通：絞り込みの行 ---------- */
+.p-news__filters { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 32px 0 0; }
+.p-news__chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+
+/* ---------- お知らせ一覧：日付・種類・題名の行 ---------- */
+.p-news__important { margin-top: 32px; }
+.p-news__important a { color: inherit; text-underline-offset: 3px; }
+.p-news__list { list-style: none; margin: 40px 0 0; padding: 0; border-bottom: 1px solid var(--color-line); }
+.p-news__row { display: grid; grid-template-columns: 7.5em 8.5em minmax(0, 1fr) auto; align-items: baseline; gap: 8px 24px; padding: 24px 0; border-top: 1px solid var(--color-line); color: var(--color-ink); text-decoration: none; }
+.p-news__row time { font-family: var(--font-serif); font-size: var(--fs-small); letter-spacing: .06em; color: var(--color-gray); }
+.p-news__row .c-type { justify-self: start; }
+.p-news__title { font-size: var(--fs-body); line-height: 1.7; letter-spacing: var(--ls-body); transition: color .3s ease; }
+.p-news__row > .c-arrow { color: var(--color-primary); }
+.p-news__row:hover .p-news__title { color: var(--color-primary); }
+.p-news__row:hover > .c-arrow { transform: translateX(6px); }
+.p-news__pager { margin: 56px 0 var(--space-section-sm); }
+
+/* ---------- お知らせ詳細 ---------- */
+.p-news__article { max-width: var(--measure); margin: 0 auto; padding: 40px 0 0; }
+.p-news__meta { display: flex; align-items: center; gap: 14px; margin: 0; }
+.p-news__meta time { font-family: var(--font-serif); font-size: var(--fs-small); color: var(--color-gray); }
+.p-news__h1 { margin: 16px 0 0; font-family: var(--font-serif); font-weight: 500; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.6; letter-spacing: var(--ls-heading); }
+.p-news__h1-sub { display: block; margin-top: 6px; font-size: .72em; color: var(--color-ink-sub); }
+.p-news__body { margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--color-line); }
+.p-news__actions { display: flex; margin-top: 40px; flex-wrap: wrap; gap: 12px 16px; }
+.p-news__qr { display: flex; margin: 24px 0 0; align-items: center; gap: 16px; font-size: var(--fs-small); color: var(--color-ink-sub); }
+.p-news__qr img { width: 96px; height: 96px; border-radius: 0; }
+.p-news__back { margin: 72px 0 var(--space-section-sm); padding-top: 32px; border-top: 1px solid var(--color-ink); }
+
+/* ---------- イベント一覧 ---------- */
+.p-event__filters { display: flex; flex-wrap: wrap; align-items: end; gap: 16px 24px; padding: 32px 0 0; }
+.p-event__filters .c-field { width: 180px; }
+.p-event__h { margin: 56px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); letter-spacing: var(--ls-heading); }
+.p-event__list { list-style: none; margin: 16px 0 0; padding: 0; border-bottom: 1px solid var(--color-line-soft); }
+.p-event__list .c-event-row { gap: 24px; padding: 24px 0; }
+.p-event__ph { position: relative; flex: none; width: 120px; aspect-ratio: 3 / 2; border-radius: var(--radius-xs); overflow: hidden; background: var(--color-ph); }
+.p-event__now { display: inline-block; margin-right: 10px; padding: 1px 10px; border-radius: var(--radius-pill); background: var(--color-primary); color: var(--color-paper); font-size: var(--fs-tag); letter-spacing: .06em; vertical-align: 2px; }
+.p-event__ext { display: inline-flex; align-items: center; gap: 4px; margin-left: 10px; font-size: var(--fs-tag); color: var(--color-primary); }
+.p-event__list--past { opacity: .75; }
+.p-event__after { margin: 56px 0 var(--space-section-sm); }
+
+/* ---------- イベント詳細：本文＋右に開催情報 ---------- */
+.p-event__head { padding: 40px 0 0; }
+.p-event__status { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 0; font-size: var(--fs-note); color: var(--color-gray); }
+.p-event__date { font-family: var(--font-serif); font-size: var(--fs-h4); font-weight: 600; letter-spacing: .04em; color: var(--color-primary); }
+.p-event__h1 { margin: 14px 0 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-page); line-height: 1.5; letter-spacing: var(--ls-heading); }
+.p-event__ended { margin-top: 28px; }
+.p-event__layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 64px; align-items: start; margin-top: 48px; }
+.p-event__main .c-prose { max-width: none; }
+.p-event__flyers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.p-event__side { position: sticky; top: calc(var(--header-h) + 24px); padding-top: 8px; border-top: 1px solid var(--color-ink); }
+.p-event__side h2 { margin: 16px 0 4px; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); letter-spacing: var(--ls-heading); }
+.p-event__side .c-dl { grid-template-columns: 5.5em 1fr; gap: 0 16px; font-size: var(--fs-small); }
+.p-event__side .c-link-more { margin-top: 20px; }
+.p-event__back { margin: 96px 0 var(--space-section-sm); padding-top: 32px; border-top: 1px solid var(--color-ink); display: flex; flex-wrap: wrap; gap: 16px 40px; }
+
+@media (max-width: 1024px) {
+  .p-event__layout { grid-template-columns: 1fr; gap: 48px; }
+  .p-event__side { position: static; }
+}
+@media (max-width: 768px) {
+  .p-news__row { grid-template-columns: auto 1fr; gap: 8px 14px; padding: 20px 0; }
+  .p-news__title { grid-column: 1 / -1; font-size: var(--fs-base); }
+  .p-news__row > .c-arrow { display: none; }
+  .p-event__filters .c-field { width: calc(50% - 12px); }
+  .p-event__list .c-event-row { gap: 14px; }
+  .p-event__ph { display: none; }
+  .p-event__flyers { grid-template-columns: 1fr; }
+}
