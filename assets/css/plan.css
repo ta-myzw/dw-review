@@ -267,7 +267,7 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .p-rsv__body { padding-top: 40px; gap: 72px; }
 .p-rsv__errors { margin-bottom: 8px; }
 .p-rsv__errors a { color: var(--color-error); }
-.p-rsv__routes { margin: 0; }
+.c-field > * + .p-rsv__routes { margin: var(--field-gap) 0 0; }   /* c-route-pick の下の余白を消し、上は項目の間隔に合わせる */
 .p-rsv__inline-note { margin: 0; font-size: var(--fs-small); line-height: 1.8; color: var(--color-ink-sub); }
 .p-rsv__inline-note a { color: var(--color-primary); }
 /* フォームの区切り：番号＋明朝の見出しと墨の罫線。区切りの間は大きく、欄の間は中くらい */
@@ -276,9 +276,8 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .p-rsv__form .c-form__section-title { display: flex; align-items: baseline; gap: 14px; margin-bottom: 32px; padding: 18px 0 0; border-top: 1px solid var(--color-ink); border-bottom: 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h3); letter-spacing: var(--ls-heading); }
 .p-rsv__sec-no { font-family: var(--font-serif); font-weight: 500; font-size: 15px; letter-spacing: .1em; color: var(--color-primary); }
 .p-rsv__form .c-form__grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
-.p-rsv__form .c-field { gap: 10px; }
+.p-rsv__form .c-field { --field-gap: 10px; }
 .p-rsv__form .c-field__label { font-weight: 700; }
-.p-rsv__form .c-field__help { margin-top: -4px; }
 .p-rsv__form .c-input, .p-rsv__form .c-select:not(#rsv-plan) { max-width: 420px; }
 .p-rsv__form .c-choice-group { gap: 6px 28px; }
 .p-rsv__companies { flex-direction: column; align-items: flex-start; }

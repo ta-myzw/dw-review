@@ -1057,8 +1057,13 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-form__grid > .is-full { grid-column: 1 / -1; }
 .c-form__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; padding-top: 12px; }
 
-.c-field { display: flex; flex-direction: column; gap: 8px; min-width: 0; border: 0; padding: 0; margin: 0; }
-.c-field__label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0; font-size: var(--fs-base); font-weight: 500; letter-spacing: .04em; }
+/* 項目：中の間隔は gap を使わず、前の要素との間隔で決める。<fieldset> の <legend> には gap が効かないため、
+   label でも legend でも同じ間隔になるよう、項目名→補足は --field-gap-help、それ以外の並びは --field-gap */
+.c-field { --field-gap: 8px; --field-gap-help: 4px; display: flex; flex-direction: column; min-width: 0; border: 0; padding: 0; margin: 0; }
+.c-field > * { margin-top: 0; margin-bottom: 0; }
+.c-field > * + * { margin-top: var(--field-gap); }
+.c-field > .c-field__label + .c-field__help { margin-top: var(--field-gap-help); }
+.c-field__label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0; margin: 0; line-height: 1.6; font-size: var(--fs-base); font-weight: 500; letter-spacing: .04em; }
 .c-field__req, .c-field__opt { padding: 1px 7px; border-radius: 3px; font-size: 13px; font-weight: 500; letter-spacing: .06em; line-height: 1.6; }
 .c-field__req { background: var(--color-required); color: var(--color-white); }
 .c-field__opt { background: var(--color-sage); color: var(--color-ink-sub); }
