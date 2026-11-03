@@ -1,0 +1,48 @@
+/* =========================================================
+   アクセス（/access/）  p-access-
+   部品は c-page-head・c-table・c-tabs（ui.js）・c-notice・c-link-more を使い、ここでは並べ方だけ
+   ========================================================= */
+.p-access__sec { padding-top: 88px; }
+.p-access__sec--first { padding-top: 56px; }
+.p-access__sec .c-sec-head { margin-bottom: 32px; }
+.p-access__note { margin: 12px 0 0; font-size: var(--fs-note); line-height: 1.8; color: var(--color-gray); }
+
+/* 主な都市からの目安（一覧表） */
+.p-access__summary th[scope="row"] { font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-body); white-space: nowrap; }
+.p-access__summary td small { display: block; font-size: var(--fs-note); color: var(--color-gray); }
+
+/* 交通手段ごとのタブ */
+.p-access__tabs .c-tabs__panel { padding-top: 32px; }
+.p-access__panel-lead { max-width: 44em; margin: 0 0 24px; font-size: var(--fs-body); line-height: 1.9; color: var(--color-ink-sub); }
+.p-access__panel-sub { margin: 40px 0 12px; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); letter-spacing: var(--ls-heading); }
+.p-access__routes { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line); }
+.p-access__routes li { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--color-line); font-size: var(--fs-base); line-height: 1.8; }
+.p-access__routes b { font-family: var(--font-serif); font-weight: 600; }
+.p-access__links { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 24px; }
+
+/* 現地での移動：3つの方法を線で区切って並べる */
+.p-access__local { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; list-style: none; margin: 0; padding: 0; }
+.p-access__local li { padding-top: 22px; border-top: 1px solid var(--color-ink); }
+.p-access__local h3 { margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3); line-height: 1.5; letter-spacing: var(--ls-heading); }
+.p-access__local p { margin: 12px 0 18px; font-size: var(--fs-base); line-height: 1.9; color: var(--color-ink-sub); }
+
+/* 便利なサイト */
+.p-access__sites { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; list-style: none; margin: 0; padding: 0; }
+.p-access__sites a { display: block; padding: 18px 0; border-bottom: 1px solid var(--color-line); color: var(--color-ink); text-decoration: none; }
+.p-access__sites b { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; font-size: var(--fs-body); }
+.p-access__sites span { display: block; margin-top: 4px; font-size: var(--fs-note); color: var(--color-gray); }
+.p-access__sites a:hover b { color: var(--color-primary); }
+.p-access__end { padding-bottom: var(--space-section-sm); }
+
+@media (max-width: 768px) {
+  .p-access__sec { padding-top: 64px; }
+  .p-access__routes li { grid-template-columns: 1fr; }
+  .p-access__local { grid-template-columns: 1fr; gap: 32px; }
+  .p-access__sites { grid-template-columns: 1fr; }
+}
+
+/* SP：表は横にスクロール（時間を途中で折り返さない）。長いリンクは折り返す */
+@media (max-width: 768px) {
+  .p-access .c-table td { white-space: nowrap; }
+  .p-access__links .c-link-more { max-width: 100%; white-space: normal; }
+}

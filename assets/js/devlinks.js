@@ -27,7 +27,8 @@
     '/news/': 'news/index.html',
     '/news/sample/': 'news/sample/index.html',
     '/event/': 'event/index.html',
-    '/event/sample/': 'event/sample/index.html'
+    '/event/sample/': 'event/sample/index.html',
+    '/access/': 'access/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');
