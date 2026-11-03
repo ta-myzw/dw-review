@@ -1,0 +1,58 @@
+/* =========================================================
+   サイト情報：当サイトについて（/about-site/）・プライバシーポリシー（/policy/）  p-legal-
+   ページが見つかりません（404.html）  p-404-
+   部品は c-page-head・c-prose・c-dl・c-btn・c-link-card を使い、ここでは並べ方だけ
+   読み物は 左に目次（PCは追従）、右に本文。枠で囲まず、番号と罫線で区切る
+   ========================================================= */
+
+/* ---------- 当サイトについて・プライバシーポリシー ---------- */
+/* 2ページの切り替え：文字＋下線。いまのページは墨の太線 */
+.p-legal__switch { display: flex; flex-wrap: wrap; gap: 0 32px; list-style: none; margin: 32px 0 0; padding: 0; }
+.p-legal__switch a { display: block; padding: 6px 0 10px; border-bottom: 2px solid transparent; font-size: var(--fs-small); letter-spacing: .06em; color: var(--color-ink-sub); text-decoration: none; transition: color .3s ease, border-color .3s ease; }
+.p-legal__switch a:hover { color: var(--color-primary); }
+.p-legal__switch a[aria-current="page"] { border-bottom-color: var(--color-ink); color: var(--color-ink); font-weight: 700; }
+.p-legal__head { padding-bottom: 0; }
+
+.p-legal__body { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 80px; align-items: start; padding: 64px 0 var(--space-section-sm); }
+.p-legal__toc { position: sticky; top: calc(var(--header-h) + 32px); }
+.p-legal__toc-title { margin: 0 0 12px; font-size: var(--fs-tag); letter-spacing: .2em; color: var(--color-primary); }
+.p-legal__toc ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-ink); }
+.p-legal__toc a { display: flex; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--color-line); font-size: var(--fs-small); line-height: 1.6; color: var(--color-ink); text-decoration: none; transition: color .3s ease; }
+.p-legal__toc a:hover { color: var(--color-primary); }
+.p-legal__toc-no { font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; color: var(--color-primary); }
+
+.p-legal__prose { max-width: 44em; }
+.p-legal__sec + .p-legal__sec { margin-top: 64px; }
+.p-legal__sec > * + * { margin-top: 1.2em; }
+.p-legal__prose .p-legal__sec h2 { display: flex; align-items: baseline; gap: 16px; margin: 0 0 24px; padding-top: 20px; border-top: 1px solid var(--color-ink); font-size: var(--fs-h3); scroll-margin-top: calc(var(--header-h) + 24px); }
+.p-legal__no { font-size: 15px; font-weight: 500; letter-spacing: .1em; color: var(--color-primary); }
+.p-legal__dl { font-size: var(--fs-base); }
+.p-legal__dl dd { line-height: 1.9; }
+
+/* ---------- 404 ---------- */
+.p-404__head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px 64px; align-items: center; padding: 72px 0 80px; border-bottom: 1px solid var(--color-line); }
+.p-404__code { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: clamp(96px, 13vw, 200px); line-height: 1; letter-spacing: .04em; color: var(--color-primary); opacity: .3; }
+.p-404__title { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-page); line-height: 1.45; letter-spacing: var(--ls-heading); }
+.p-404__lead { max-width: 36em; margin: 18px 0 0; font-size: var(--fs-body); line-height: 1.9; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+.p-404__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; margin-top: 32px; }
+.p-404__next { padding: 64px 0 var(--space-section-sm); }
+.p-404__next .c-kicker { margin-bottom: 28px; }
+.p-404__cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (max-width: 1024px) {
+  .p-legal__body { grid-template-columns: 1fr; gap: 40px; }
+  .p-legal__toc { position: static; }
+  .p-404__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .p-legal__switch { margin-top: 24px; gap: 0 24px; }
+  .p-legal__body { padding-top: 40px; }
+  .p-legal__sec + .p-legal__sec { margin-top: 48px; }
+  .p-legal__dl { grid-template-columns: 1fr; }
+  .p-legal__dl dt { padding-bottom: 0; border-bottom: 0; }
+  .p-404__head { grid-template-columns: 1fr; padding: 40px 0 48px; }
+  .p-404__code { font-size: 88px; }
+  .p-404__actions .c-btn { width: 100%; justify-content: center; }
+  .p-404__cards { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+  .p-404__cards .c-link-card__title { font-size: 15px; }
+}
