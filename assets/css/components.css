@@ -1308,16 +1308,16 @@ button.c-btn--fill { background-color: var(--color-primary); }
    エリアのイラスト地図 c-area-map ＋ c-area-illust（parts/area-illust.svg・assets/js/map.js）
    トップのエリアマップとエリア紹介で共用。番号は一覧と同じ日野川の上流からの順
    ========================================================= */
-.c-area-map { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #DDE8EB; }
+.c-area-map { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #D5E4E9; }
 .c-area-illust { display: block; width: 100%; height: auto; }
-.c-area-illust .sea { fill: #DDE8EB; }
+.c-area-illust .sea { fill: #D5E4E9; }
 .c-area-illust .waves path { fill: none; stroke: #B9CDD3; stroke-width: .8; stroke-linecap: round; }
 .c-area-illust .land { fill: #F1EFE8; }
 .c-area-illust .near { fill: #EAE7DE; stroke: #F7F6F1; stroke-width: .8; }
 .c-area-illust .areas path { fill: #E1E7DA; stroke: #FAFAF6; stroke-width: 1.2; stroke-linejoin: round; cursor: pointer; transition: fill .3s ease; }
 .c-area-illust .areas path.is-hl { fill: #C9D9D6; }
-.c-area-illust .river-bank { fill: none; stroke: #F7F7F2; stroke-width: 4.6; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
-.c-area-illust .river { fill: none; stroke: #6E9DAB; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+/* 川：上流は細く河口に向けて太く、少し蛇行させた面（形は SVG に描き込み済み）。支流も同じ色 */
+.c-area-illust .river path { fill: #8FB6C3; stroke: #8FB6C3; stroke-width: .25; stroke-linejoin: round; pointer-events: none; }
 .c-area-illust .river-nm { font-family: var(--font-serif); font-size: 7.5px; letter-spacing: .2em; fill: #4F7F8D; }
 .c-area-illust .mt { pointer-events: none; }
 .c-area-illust .mt-body { fill: #7D978F; }
