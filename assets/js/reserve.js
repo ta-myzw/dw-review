@@ -60,7 +60,7 @@
         return;
       }
       var cur = ($('input[name="company"]:checked', form) || {}).value;
-      coBox.innerHTML = g.list.map(function (c, i) { return '<label class="c-choice"><input type="radio" name="company" value="' + c.name + '" data-tel="' + c.tel + '"' + (c.name === cur ? ' checked' : '') + (i === 0 ? ' required' : '') + '>' + c.name + '</label>'; }).join('');
+      coBox.innerHTML = g.list.map(function (c, i) { return '<label class="c-choice c-choice--plain"><input type="radio" name="company" value="' + c.name + '" data-tel="' + c.tel + '"' + (c.name === cur ? ' checked' : '') + (i === 0 ? ' required' : '') + '>' + c.name + '</label>'; }).join('');
     }
     function renderTimes() {
       var p = plan(), until = p.until || '14:45', cur = time.value;

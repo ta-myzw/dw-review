@@ -268,7 +268,19 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .p-rsv__routes { margin: 0; }
 .p-rsv__inline-note { margin: 0; font-size: var(--fs-small); line-height: 1.8; color: var(--color-ink-sub); }
 .p-rsv__inline-note a { color: var(--color-primary); }
-.p-rsv__companies .c-choice { flex: 1 1 calc(50% - 10px); }
+/* フォームの区切り：番号＋明朝の見出しと墨の罫線。区切りの間は大きく、欄の間は中くらい */
+.p-rsv__form { gap: 72px; }
+.p-rsv__form-note { margin: 0 0 -40px; font-size: var(--fs-note); color: var(--color-ink-sub); }
+.p-rsv__form .c-form__section-title { display: flex; align-items: baseline; gap: 14px; margin-bottom: 32px; padding: 18px 0 0; border-top: 1px solid var(--color-ink); border-bottom: 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h3); letter-spacing: var(--ls-heading); }
+.p-rsv__sec-no { font-family: var(--font-serif); font-weight: 500; font-size: 15px; letter-spacing: .1em; color: var(--color-primary); }
+.p-rsv__form .c-form__grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+.p-rsv__form .c-field { gap: 10px; }
+.p-rsv__form .c-field__label { font-weight: 700; }
+.p-rsv__form .c-field__help { margin-top: -4px; }
+.p-rsv__form .c-input, .p-rsv__form .c-select:not(#rsv-plan) { max-width: 420px; }
+.p-rsv__form .c-choice-group { gap: 6px 28px; }
+.p-rsv__companies { flex-direction: column; align-items: flex-start; }
+.p-rsv__agree { margin-top: -24px; padding-top: 28px; border-top: 1px solid var(--color-line); }
 .p-rsv__form .c-field__label a, .p-rsv__form .c-choice a { color: var(--color-primary); }
 .c-form__actions .c-btn--fill { min-width: 280px; justify-content: center; }
 /* 右の列：選んだプラン（PCは追従） */
@@ -322,7 +334,8 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
   .p-rsv__sum .c-dl, .p-rsv__sum-unit, .p-rsv__sum .c-link-more { grid-column: 1 / -1; }
   .p-rsv__sum-ph { grid-row: span 2; margin-top: 4px; }
   .p-rsv__sum-code { margin-top: 4px; }
-  .p-rsv__companies .c-choice { flex-basis: 100%; }
+  .p-rsv__form { gap: 56px; }
+  .p-rsv__form-note { margin-bottom: -28px; }
   .c-form__actions .c-btn--fill { min-width: 0; }
   .p-rsv__tel { margin-top: 64px; padding-top: 40px; }
   .p-rsv__h2 { font-size: 22px; }
