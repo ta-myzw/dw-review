@@ -129,6 +129,7 @@
 .p-access__local h3 { margin: 4px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); letter-spacing: var(--ls-heading); }
 .p-access__local p { margin: 6px 0 12px; font-size: var(--fs-small); line-height: 1.85; color: var(--color-ink-sub); }
 .p-access__local p:last-child { margin-bottom: 0; }
+.p-access__links2 { display: flex; flex-wrap: wrap; gap: 10px 28px; }
 
 /* ---------- 4. 冬の注意：アイコン＋3項目を横に ---------- */
 .p-access__winter { padding: 32px 36px; border-radius: var(--radius-lg); background: #EEF3F6; }
