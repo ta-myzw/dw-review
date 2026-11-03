@@ -1,0 +1,101 @@
+/* =========================================================
+   エリア紹介（/area/）・エリア詳細（/area/{市町村}/）  p-area- / p-town-
+   部品は c-page-head・c-area-map・c-area-svg・c-spot-card・c-plan-card・c-dl・c-prevnext を使い、ここでは並べ方だけ
+   並びはどこでも日野川の上流 → 下流（倉吉市は流域の外なので最後）
+   ========================================================= */
+
+/* ---------- 一覧：地図＋上流から下流への並び ---------- */
+.p-area__overview { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 64px; align-items: start; padding: 64px 0 0; }
+.p-area__map { position: sticky; top: calc(var(--header-h) + 24px); height: min(700px, calc(100vh - var(--header-h) - 48px)); }
+.p-area__flow-label { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-gray); }
+.p-area__flow-label .c-arrow { color: var(--color-primary); }
+
+/* 川の線：番号の列に縦の線を引き、番号の丸をその上に置く */
+.p-area__river { position: relative; list-style: none; margin: 0; padding: 0; }
+.p-area__river::before { content: ""; position: absolute; left: 17px; top: 46px; bottom: 46px; width: 1px; background: var(--color-primary); opacity: .35; }
+.p-area__town { display: grid; grid-template-columns: 36px 104px minmax(0, 1fr) auto; align-items: center; gap: 0 20px; padding: 14px 0; border-bottom: 1px solid var(--color-line); color: var(--color-ink); text-decoration: none; }
+.p-area__no { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--color-primary); border-radius: 50%; background: var(--color-paper); font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; letter-spacing: 0; color: var(--color-primary); transition: background .3s ease, color .3s ease; }
+.p-area__ph { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-xs); overflow: hidden; background: var(--color-ph); }
+.p-area__ph img { transition: transform .6s var(--ease-out); }
+.p-area__name { display: block; font-family: var(--font-serif); font-weight: 600; font-size: 20px; line-height: 1.5; letter-spacing: var(--ls-heading); transition: color .3s ease; }
+.p-area__sub { display: block; margin-top: 2px; font-size: var(--fs-small); line-height: 1.7; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+.p-area__town > .c-arrow { color: var(--color-primary); }
+.p-area__town:hover .p-area__name, .p-area__town.is-hl .p-area__name { color: var(--color-primary); }
+.p-area__town:hover .p-area__no, .p-area__town.is-hl .p-area__no { background: var(--color-primary); color: var(--color-paper); }
+.p-area__town:hover .p-area__ph img { transform: scale(1.05); }
+.p-area__town:hover > .c-arrow { transform: translateX(6px); }
+.p-area__river-end { margin: 14px 0 0 54px; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-gray); }
+/* 流域の外（倉吉市） */
+.p-area__outside { margin-top: 40px; }
+.p-area__outside .p-area__river::before { content: none; }
+.p-area__outside .p-area__no { border-style: dashed; }
+
+.p-area__after { display: flex; flex-wrap: wrap; gap: 16px 40px; margin-top: 88px; padding: 32px 0 var(--space-section-sm); border-top: 1px solid var(--color-ink); }
+
+/* ---------- 詳細 ---------- */
+.p-town__head { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 64px; align-items: center; padding: 40px 0 48px; }
+.p-town__pos { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 14px; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-primary); }
+.p-town__pos .c-kicker { margin: 0; }
+.p-town__title { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-page); line-height: 1.4; letter-spacing: var(--ls-heading); }
+.p-town__catch { margin: 10px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3); line-height: 1.6; letter-spacing: var(--ls-heading); color: var(--color-ink-sub); }
+.p-town__lead { max-width: 36em; margin: 24px 0 0; font-size: var(--fs-body); line-height: 2; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+.p-town__minimap { margin: 0; }
+.p-town__minimap figcaption { margin-top: 10px; font-size: var(--fs-note); line-height: 1.7; color: var(--color-gray); }
+
+
+.p-town__sec { padding-top: 112px; }
+.p-town__head + .p-town__sec { padding-top: 40px; border-top: 1px solid var(--color-line); }
+.p-town__sec .c-sec-head, .p-town__plans .c-sec-head { margin-bottom: 40px; }
+.p-town__spots .c-spot-card__area { margin-top: 14px; }
+.p-town__plans { margin-top: var(--space-section-sm); }
+/* 色付きの帯のすぐあとの白い面は、上の余白を帯と同じにそろえる */
+.p-town__plans + .p-town__sec { padding-top: var(--space-section-sm); }
+
+.p-town__rel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; list-style: none; margin: 0; padding: 0; }
+.p-town__rel a { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; align-items: center; color: var(--color-ink); text-decoration: none; }
+.p-town__rel-ph { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+.p-town__rel-type { margin: 0; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-primary); }
+.p-town__rel-title { margin: 6px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3-sm); line-height: 1.6; letter-spacing: var(--ls-heading); transition: color .3s ease; }
+.p-town__rel-text { margin: 8px 0 0; font-size: var(--fs-small); line-height: 1.8; color: var(--color-ink-sub); }
+.p-town__rel a:hover .p-town__rel-title { color: var(--color-primary); }
+
+.p-town__info { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
+.p-town__info-h { margin: 0 0 8px; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); letter-spacing: var(--ls-heading); }
+.p-town__tel { font-family: var(--font-serif); font-weight: 600; font-size: 20px; letter-spacing: .06em; color: var(--color-ink); text-decoration: none; }
+.p-town__info .c-link-more { margin-top: 20px; }
+
+.p-town__nav { padding: 96px 0 var(--space-section-sm); }
+.p-town__nav .c-prevnext { margin-bottom: 40px; }
+
+@media (max-width: 1024px) {
+  .p-area__overview { grid-template-columns: 1fr; gap: 40px; }
+  .p-area__map { position: relative; top: auto; height: 460px; }
+  .p-town__head { grid-template-columns: minmax(0, 1fr) 280px; gap: 40px; }
+  .p-town__rel a { grid-template-columns: 140px minmax(0, 1fr); gap: 18px; }
+  .p-town__rel-text { display: none; }
+}
+@media (max-width: 768px) {
+  .p-area__overview { padding-top: 32px; }
+  .p-area__map { height: 340px; }
+  .p-area__town { grid-template-columns: 32px 76px minmax(0, 1fr); gap: 0 14px; padding: 12px 0; }
+  .p-area__town > .c-arrow { display: none; }
+  .p-area__no { width: 32px; height: 32px; }
+  .p-area__river::before { left: 15px; }
+  .p-area__name { font-size: 18px; }
+  .p-area__sub { font-size: var(--fs-note); }
+  .p-area__river-end { margin-left: 46px; }
+  .p-area__after { margin-top: 56px; }
+  .p-town__head { grid-template-columns: 1fr; gap: 28px; padding: 24px 0 32px; }
+  .p-town__minimap { max-width: 320px; }
+  .p-town__sec { padding-top: 72px; }
+  .p-town__head + .p-town__sec { padding-top: 32px; }
+  /* スポットはSPで2列（スタイルガイドの c-grid--4 と同じく、説明は省く） */
+  .p-town__spots .c-grid { grid-template-columns: 1fr 1fr; gap: 28px 14px; }
+  .p-town__spots .c-spot-card__name { font-size: var(--fs-base); }
+  .p-town__spots .c-spot-card__sub { display: none; }
+  .p-town__rel { grid-template-columns: 1fr; gap: 24px; }
+  .p-town__rel a { grid-template-columns: 112px minmax(0, 1fr); gap: 16px; }
+  .p-town__rel-title { font-size: var(--fs-base); }
+  .p-town__info { grid-template-columns: 1fr; gap: 40px; }
+  .p-town__nav { padding-top: 64px; }
+}

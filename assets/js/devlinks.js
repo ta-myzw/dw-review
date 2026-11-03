@@ -16,7 +16,9 @@
     '/plan/reserve/confirm/': 'plan/reserve/confirm/index.html',
     '/plan/reserve/thanks/': 'plan/reserve/thanks/index.html',
     '/journal/': 'journal/index.html',
-    '/journal/katana/': 'journal/katana/index.html'
+    '/journal/katana/': 'journal/katana/index.html',
+    '/area/': 'area/index.html',
+    '/area/hino/': 'area/hino/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');

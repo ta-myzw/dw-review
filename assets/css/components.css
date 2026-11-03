@@ -1303,3 +1303,29 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-mega__towns a:hover .ar { transform: translateX(4px); }
 .c-mega__towns--sp { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; margin: 0; }
 .c-mega__towns--sp a { padding: 9px 2px; }
+
+/* =========================================================
+   エリアの地図 c-area-map（Leaflet＋地理院タイル。assets/js/map.js）
+   トップのエリアマップとエリア紹介で共用。高さは使う側（p-）で決める
+   ========================================================= */
+.c-area-map { position: relative; z-index: 0; isolation: isolate; /* 地図の中の重なり（Leaflet は z-index 400〜1000）を中に閉じこめ、固定ヘッダーより前に出さない */ width: 100%; border-radius: var(--radius-md); overflow: hidden; background: #E4EEF0; }
+.c-area-map .leaflet-control-attribution { font-size: 12px; background: rgba(247, 247, 247, .88); }
+.c-area-map .leaflet-control-attribution a { color: var(--color-primary-dk); }
+.c-map-marker { position: relative; width: 16px; height: 16px; }
+.c-map-marker .ring { position: absolute; left: 50%; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--color-primary); animation: mapPulse 2.4s ease-out infinite; }
+.c-map-marker .dot { position: absolute; left: 50%; top: 50%; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; border-radius: 50%; background: var(--color-primary); box-shadow: 0 0 0 3px rgba(247, 247, 247, .9), 0 0 12px 2px rgba(56, 106, 118, .6); transition: transform .25s ease; }
+.c-map-marker.is-hl .dot { transform: scale(1.5); background: var(--color-primary-dk); }
+.c-map-label {
+  margin-top: 2px; font-family: var(--font-sans); font-size: var(--fs-note); font-weight: 500; letter-spacing: .04em; white-space: nowrap; color: var(--color-ink);
+  text-shadow: 0 1px 3px rgba(247, 247, 247, .9), 0 0 8px rgba(247, 247, 247, .8);
+}
+.c-map-marker.is-hl + .c-map-label { color: var(--color-primary); font-weight: 700; }
+@keyframes mapPulse { 0% { transform: scale(.6); opacity: .85; } 70% { transform: scale(2.6); opacity: 0; } 100% { transform: scale(2.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .c-map-marker .ring { animation: none; opacity: 0; } }
+/* ピン：見た目は小さいまま、押せる範囲を44×44pxに広げる */
+.c-map-marker::before { content: ""; position: absolute; inset: -14px; border-radius: 50%; }
+/* 地図（Leaflet・地理院タイル）が読み込めないときは、メニューと同じSVGの地図を出す */
+.c-area-map.is-fallback { display: flex; justify-content: center; }
+.c-area-map.is-fallback .c-area-svg { width: auto; height: 100%; max-width: 100%; border-radius: 0; }
+/* SVGの地図で、いま見ているエリアを塗る（エリア詳細） */
+.c-area-svg a.is-current .m { fill: var(--color-primary); }
