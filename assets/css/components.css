@@ -1066,6 +1066,9 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-field__label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0; margin: 0; line-height: 1.6; font-size: var(--fs-base); font-weight: 500; letter-spacing: .04em; }
 .c-field__req, .c-field__opt { padding: 1px 7px; border-radius: 3px; font-size: 13px; font-weight: 500; letter-spacing: .06em; line-height: 1.6; }
 .c-field__req { background: var(--color-required); color: var(--color-white); }
+/* 必須の印：項目名のすぐ後ろに「*」。意味はフォームの頭に「* の項目は必ず入力」と書き、読み上げ用に（必須）を添える */
+.c-field__mark { margin-left: -4px; font-family: var(--font-sans); font-weight: 700; font-size: 1.05em; line-height: 1; color: var(--color-required); }
+.c-choice .c-field__mark, p .c-field__mark { margin-left: 2px; }
 .c-field__opt { background: var(--color-sage); color: var(--color-ink-sub); }
 /* 予約フォームの英語併記（外国の方向け。日本語の後ろに小さく） */
 .c-field__en { font-size: var(--fs-note); font-weight: 500; letter-spacing: .02em; color: var(--color-gray); }
