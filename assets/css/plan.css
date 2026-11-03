@@ -289,7 +289,7 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
 .p-rsv__sum { padding-top: 20px; border-top: 1px solid var(--color-ink); }
 .p-rsv__sum-ph { position: relative; aspect-ratio: 10 / 7; margin-top: 12px; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
 .p-rsv__sum-code { margin: 16px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: 15px; letter-spacing: .12em; color: var(--color-primary); }
-.p-rsv__sum-title { margin: 2px 0 14px; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3-sm); line-height: 1.6; letter-spacing: var(--ls-heading); }
+.p-rsv__sum-title { min-height: 3.2em; word-break: auto-phrase; margin: 2px 0 14px; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3-sm); line-height: 1.6; letter-spacing: var(--ls-heading); }
 .p-rsv__sum .c-dl { font-size: var(--fs-small); }
 .p-rsv__sum-price { margin-top: 16px; }
 .p-rsv__sum-unit { margin: 4px 0 14px; font-size: var(--fs-note); color: var(--color-gray); }
@@ -325,18 +325,19 @@ input[type="date"].p-plan-cond__select:not(.is-set):not(:focus) { color: transpa
   .p-rsv__steps { max-width: 420px; }
   .p-rsv__body { gap: 48px; }
   .p-rsv__side { position: static; order: -1; }
-  .p-rsv__sum { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 0 20px; align-items: start; }
-  .p-rsv__sum > .c-kicker { grid-column: 1 / -1; }
-  .p-rsv__sum-ph { grid-row: span 6; }
+  /* 写真とプラン名は高さを決めた1つのまとまり（プラン名は3行まで、越えたら「…」）。表はその下に固定の間隔で */
+  .p-rsv__sum-top { --sum-h: 120px; display: grid; grid-template-columns: 172px minmax(0, 1fr); gap: 0 20px; height: var(--sum-h); margin: 12px 0 18px; }
+  .p-rsv__sum-top .p-rsv__sum-ph { aspect-ratio: auto; height: var(--sum-h); margin: 0; }
+  .p-rsv__sum-head { min-width: 0; }
+  .p-rsv__sum-head .p-rsv__sum-code { margin: 0; }
+  .p-rsv__sum-head .p-rsv__sum-title { min-height: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin: 2px 0 0; }
   .p-rsv__tel-groups { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 768px) {
   .p-rsv__top { padding-bottom: 28px; }
   .p-rsv__body { padding-top: 28px; }
-  .p-rsv__sum { grid-template-columns: 110px minmax(0, 1fr); gap: 0 14px; }
-  .p-rsv__sum .c-dl, .p-rsv__sum-unit, .p-rsv__sum .c-link-more { grid-column: 1 / -1; }
-  .p-rsv__sum-ph { grid-row: span 2; margin-top: 4px; }
-  .p-rsv__sum-code { margin-top: 4px; }
+  .p-rsv__sum-top { --sum-h: 100px; grid-template-columns: 112px minmax(0, 1fr); gap: 0 14px; }
+  .p-rsv__sum-head .p-rsv__sum-title { font-size: 17px; line-height: 1.5; }
   .p-rsv__form { gap: 56px; }
   .p-rsv__form-note { margin-bottom: -28px; }
   .c-form__actions .c-btn--fill { min-width: 0; }
