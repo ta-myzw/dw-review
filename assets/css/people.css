@@ -1,0 +1,59 @@
+/* =========================================================
+   地域の人（/people/・/people/{職種}-{番号}/）  p-people- / p-person-
+   部品は c-page-head・c-prose・c-dl・c-plan-card・c-link-card・c-neighbor を使い、ここでは並べ方だけ
+   顔写真は本人の許可しだい。後ろ姿・手元・仕事の写真でも組める作りにする
+   ========================================================= */
+
+/* ---------- 一覧：写真＋本人の言葉＋職種・エリア ---------- */
+.p-people__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px 40px; list-style: none; margin: 0; padding: 64px 0 0; }
+.p-people__card { display: block; color: var(--color-ink); text-decoration: none; }
+.p-people__ph { position: relative; aspect-ratio: 3 / 2; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+.p-people__ph img { transition: transform .8s var(--ease-out); }
+.p-people__job { display: flex; align-items: center; gap: 12px; margin: 20px 0 0; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-primary); }
+.p-people__job span + span { padding-left: 12px; border-left: 1px solid var(--color-line); color: var(--color-gray); }
+.p-people__quote { margin: 12px 0 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h3); line-height: 1.7; letter-spacing: var(--ls-heading); transition: color .3s ease; }
+.p-people__name { margin: 10px 0 0; font-size: var(--fs-small); color: var(--color-ink-sub); }
+.p-people__card:hover .p-people__quote { color: var(--color-primary); }
+.p-people__card:hover .p-people__ph img { transform: scale(1.04); }
+.p-people__after { display: flex; flex-wrap: wrap; gap: 16px 40px; margin-top: 96px; padding: 32px 0 var(--space-section-sm); border-top: 1px solid var(--color-ink); }
+
+/* ---------- 詳細 ---------- */
+.p-person__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 64px; align-items: center; padding: 32px 0 0; }
+.p-person__job { display: flex; align-items: center; gap: 14px; margin: 0 0 20px; }
+.p-person__job .c-kicker { margin: 0; }
+.p-person__job span:last-child { font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-primary); }
+.p-person__quote { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: clamp(28px, 3vw, 40px); line-height: 1.6; letter-spacing: .08em; }
+.p-person__who { margin: 28px 0 0; padding-top: 20px; border-top: 1px solid var(--color-line); font-size: var(--fs-small); line-height: 1.8; color: var(--color-ink-sub); }
+.p-person__who b { display: block; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); color: var(--color-ink); }
+.p-person__ph { position: relative; margin: 0; aspect-ratio: 3 / 2; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+
+.p-person__body { margin-top: 88px; }
+.p-person__body h2 { font-size: var(--fs-h3); }
+.p-person__body h2::before { content: "— "; color: var(--color-primary); }
+
+/* この人に会える場所：本文の下に、区切り線＋2列で */
+.p-person__place { max-width: 880px; margin: 96px auto 0; padding-top: 40px; border-top: 1px solid var(--color-ink); }
+.p-person__place-head { margin: 0 0 24px; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3); letter-spacing: var(--ls-heading); }
+.p-person__place-body { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 40px; align-items: start; }
+.p-person__place-body .c-link-more { margin-top: 20px; }
+.p-person__place-ph { position: relative; margin: 0; aspect-ratio: 4 / 3; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+
+.p-person__related { margin-top: var(--space-section-sm); }
+.p-person__related .c-sec-head { margin-bottom: 40px; }
+.p-person__nav { padding: var(--space-section-sm) 0; }
+.p-person__back { margin: 32px 0 0; }
+
+@media (max-width: 1024px) {
+  .p-people__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-person__head { gap: 40px; }
+}
+@media (max-width: 768px) {
+  .p-people__grid { grid-template-columns: 1fr; gap: 48px; padding-top: 40px; }
+  .p-people__after { margin-top: 64px; }
+  .p-person__head { grid-template-columns: 1fr; gap: 28px; padding-top: 16px; }
+  .p-person__ph { order: -1; margin: 0 calc(var(--gutter) * -1); border-radius: 0; }
+  .p-person__quote { font-size: 26px; }
+  .p-person__body { margin-top: 56px; }
+  .p-person__place { margin-top: 64px; }
+  .p-person__place-body { grid-template-columns: 1fr; gap: 24px; }
+}

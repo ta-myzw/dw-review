@@ -1,6 +1,6 @@
 /* =========================================================
    物語（/stories/・/stories/{物語}/）  p-stories- / p-story-
-   部品は c-page-head・c-axis・c-prose・c-toc・c-spot-card・c-neighbor を使い、ここでは並べ方だけ
+   部品は c-page-head・c-axis・c-prose・c-toc・c-spot-card・c-link-card・c-neighbor を使い、ここでは並べ方だけ
    並びは水の流れの順（森 → 信仰 → 鉄 → 水 → 海）。番号の丸と縦の線はエリア紹介の一覧と同じ見た目
    ========================================================= */
 
@@ -55,14 +55,6 @@
 .p-story__places { padding-top: 112px; }
 .p-story__places .c-sec-head, .p-story__next .c-sec-head { margin-bottom: 40px; }
 .p-story__next { margin-top: var(--space-section-sm); }
-.p-story__next-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; list-style: none; margin: 0; padding: 0; }
-.p-story__next-card { display: block; color: var(--color-ink); text-decoration: none; }
-.p-story__next-ph { position: relative; aspect-ratio: 3 / 2; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
-.p-story__next-ph img { transition: transform .6s var(--ease-out); }
-.p-story__next-type { margin: 16px 0 0; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-primary); }
-.p-story__next-title { margin: 6px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3-sm); line-height: 1.6; letter-spacing: var(--ls-heading); transition: color .3s ease; }
-.p-story__next-card:hover .p-story__next-title { color: var(--color-primary); }
-.p-story__next-card:hover .p-story__next-ph img { transform: scale(1.04); }
 .p-story__nav { padding: var(--space-section-sm) 0; }
 .p-story__back { margin: 32px 0 0; }
 
@@ -88,5 +80,4 @@
   .p-story__step > div { grid-column: 2; }
   .p-story__saying b { font-size: 24px; letter-spacing: .12em; }
   .p-story__places { padding-top: 72px; }
-  .p-story__next-grid { grid-template-columns: 1fr; gap: 28px; }
-}
+  }

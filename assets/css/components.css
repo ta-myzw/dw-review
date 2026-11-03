@@ -1362,3 +1362,17 @@ button.c-btn--fill { background-color: var(--color-primary); }
   .c-neighbor__ph { width: 100%; }
   .c-neighbor__txt b { font-size: 18px; }
 }
+
+/* =========================================================
+   つながるカード c-link-card（写真3:2＋種類＋題名。物語・地域の人の「次に読む」などで共通）
+   並べるときは c-link-cards（3列。SPは1列）
+   ========================================================= */
+.c-link-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; list-style: none; margin: 0; padding: 0; }
+.c-link-card { display: block; color: var(--color-ink); text-decoration: none; }
+.c-link-card__ph { position: relative; aspect-ratio: 3 / 2; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+.c-link-card__ph img { transition: transform .6s var(--ease-out); }
+.c-link-card__type { margin: 16px 0 0; font-size: var(--fs-note); letter-spacing: .08em; color: var(--color-primary); }
+.c-link-card__title { margin: 6px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3-sm); line-height: 1.6; letter-spacing: var(--ls-heading); transition: color .3s ease; }
+.c-link-card:hover .c-link-card__title { color: var(--color-primary); }
+.c-link-card:hover .c-link-card__ph img { transform: scale(1.04); }
+@media (max-width: 768px) { .c-link-cards { grid-template-columns: 1fr; gap: 28px; } }
