@@ -98,8 +98,8 @@
   function sorted(arr) {
     var key = {
       recommend: function (el) { return [-Number(el.dataset.new), Number(el.dataset.order)]; },
-      price: function (el) { return [Number(el.dataset.price), Number(el.dataset.order)]; },
-      time: function (el) { return [Number(el.dataset.time.split(' ')[0]), Number(el.dataset.order)]; }
+      price: function (el) { return [Number(el.dataset.price) || 1e9, Number(el.dataset.order)]; },   // 料金が確認中のものは最後
+      time: function (el) { return [Number(el.dataset.time.split(' ')[0]) || 1e9, Number(el.dataset.order)]; }   // 時間が確認中のものは最後
     }[state.sort];
     return arr.slice().sort(function (a, b) { var ka = key(a), kb = key(b); return ka[0] - kb[0] || ka[1] - kb[1]; });
   }

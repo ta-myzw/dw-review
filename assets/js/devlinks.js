@@ -11,7 +11,10 @@
   var built = {
     '/': 'index.html',
     '/plan/': 'plan/index.html',
-    '/plan/a-2/': 'plan/a-2/index.html'
+    '/plan/a-2/': 'plan/a-2/index.html',
+    '/plan/reserve/': 'plan/reserve/index.html',
+    '/plan/reserve/confirm/': 'plan/reserve/confirm/index.html',
+    '/plan/reserve/thanks/': 'plan/reserve/thanks/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');
@@ -20,5 +23,11 @@
     var path = href.split(/[?#]/)[0];
     var rest = href.slice(path.length);
     if (built[path]) { e.preventDefault(); location.href = root + built[path] + rest; }
+  });
+  // GET のフォーム（プラン詳細の「この発着で予約する」）も同じように置き換える
+  document.addEventListener('submit', function (e) {
+    var f = e.target, act = f.getAttribute('action') || '';
+    if (e.defaultPrevented || (f.method || '').toLowerCase() !== 'get' || !built[act]) { return; }
+    e.preventDefault(); location.href = root + built[act] + '?' + new URLSearchParams(new FormData(f)).toString();
   });
 })();

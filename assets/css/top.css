@@ -352,3 +352,120 @@
 
 /* 10. 地図のピン：見た目は小さいまま、押せる範囲を44×44pxに広げる */
 .c-map-marker::before { content: ""; position: absolute; inset: -14px; border-radius: 50%; }
+
+
+/* === 2026-11-02 目的で探す・デジタルカタログ === */
+/* 目的で探す：写真＋名前の4列。箱にせず、写真と文字だけで組む */
+.p-top-enjoy .c-sec-head { margin-bottom: 44px; }
+.p-top-enjoy__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 28px; list-style: none; margin: 0; padding: 0; }
+.c-enjoy { display: block; color: var(--color-ink); text-decoration: none; }
+.c-enjoy__ph { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+.c-enjoy__en { margin: 18px 0 0; font-size: var(--fs-kicker); letter-spacing: .22em; color: var(--color-primary); }
+.c-enjoy__name { margin: 4px 0 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h3); letter-spacing: var(--ls-heading); line-height: 1.5; }
+.c-enjoy__sub { margin: 6px 0 0; font-size: var(--fs-note); letter-spacing: .03em; line-height: 1.7; color: var(--color-ink-sub); }
+.c-enjoy__more { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding-bottom: 4px; border-bottom: 1px solid currentColor; font-size: var(--fs-small); letter-spacing: .08em; color: var(--color-primary); }
+.c-enjoy:hover .c-enjoy__name { color: var(--color-primary); }
+.c-enjoy:hover .c-arrow { transform: translateX(6px); }
+
+/* デジタルカタログ：セージの帯に、表紙と案内 */
+
+/* 記事の種類：特集 */
+.c-type--feature { background: var(--color-primary); color: var(--color-paper); }
+
+@media (max-width: 1024px) {
+  .p-top-enjoy__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 20px; }
+}
+@media (max-width: 768px) {
+  .p-top-enjoy .c-sec-head { margin-bottom: 28px; }
+  .c-enjoy__en { margin-top: 12px; }
+  .c-enjoy__name { font-size: 18px; font-weight: 600; }
+}
+
+
+/* === 2026-11-02 テーマでめぐる：詰める === */
+/* PC：5つのテーマを横1列に。写真を上、番号・名前・一言・件数を下に */
+@media (min-width: 1025px) {
+  .p-top-themes .c-sec-head { margin-bottom: 44px; }
+  .p-top-themes__list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 24px; border-bottom: 0; }
+  .p-top-themes .c-theme-row { display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 0; border-top: 0; }
+  .p-top-themes .c-theme-row__ph { order: -1; width: 100%; height: auto; aspect-ratio: 4 / 3; }
+  .p-top-themes .c-theme-row__no { width: auto; margin-top: 16px; font-size: 15px; }
+  .p-top-themes .c-theme-row__title { margin: 2px 0 6px; font-size: var(--fs-h3); line-height: 1.5; }
+  .p-top-themes .c-theme-row__sub { margin-bottom: 10px; font-size: var(--fs-note); line-height: 1.7; }
+  .p-top-themes .c-theme-row__ar { display: none; }
+  .p-top-themes .c-theme-row:hover .c-theme-row__title { color: var(--color-primary); }
+}
+/* タブレット：行のまま、写真を小さく */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .p-top-themes .c-theme-row { gap: 24px; padding: 20px 0; }
+  .p-top-themes .c-theme-row__ph { width: 200px; height: 133px; }
+  .p-top-themes .c-theme-row__title { margin-bottom: 6px; font-size: var(--fs-h3); }
+  .p-top-themes .c-theme-row__sub { margin-bottom: 8px; }
+}
+
+/* 色付きの帯のすぐ後ろでは、特集・読みものの上にも余白を取る */
+.p-top-section--sage + .p-top-journal { padding-top: var(--space-section); }
+
+/* 同じ地色のタクシーの帯の直後は、上の余白を重ねない（間はタクシーの帯の下の余白だけ） */
+.p-top-taxi + .p-top-enjoy { padding-top: 0; }
+
+/* 季節でめぐる：写真をテーマと同じ 4:3 に（PC・タブレット。スマホは行の形のまま） */
+@media (min-width: 769px) {
+  .p-top-seasons .c-season-card__ph { height: auto; aspect-ratio: 4 / 3; }
+}
+
+
+/* === 2026-11-02 デジタルカタログ：小さく静かな帯に === */
+.p-top-catalog { padding-block: 72px; }
+.p-top-catalog__inner { display: grid; grid-template-columns: 104px minmax(0, 1fr) minmax(0, 340px); gap: 0 40px; align-items: center; }
+.p-top-catalog__book { display: block; border-radius: 2px; overflow: hidden; box-shadow: 0 10px 24px -14px rgba(var(--scrim-deep), .5); }
+.p-top-catalog__book img { display: block; width: 100%; height: auto; }
+.p-top-catalog__title { margin: 6px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3-sm); letter-spacing: var(--ls-heading); line-height: 1.6; }
+.p-top-catalog__lead { margin: 6px 0 0; font-size: var(--fs-note); line-height: 1.8; color: var(--color-ink-sub); }
+.p-top-catalog__actions { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 28px; margin-top: 14px; }
+.p-top-catalog__actions .c-link-more { font-size: var(--fs-small); }
+.p-top-catalog__langs { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+.p-top-catalog__langs li + li::before { content: ""; display: inline-block; width: 1px; height: 11px; margin: 0 12px; background: var(--color-line); vertical-align: -1px; }
+.p-top-catalog__langs a { font-size: var(--fs-tag); letter-spacing: .06em; color: var(--color-ink-sub); }
+.p-top-catalog__langs a:hover { color: var(--color-primary); }
+.p-top-catalog__media { align-self: stretch; display: flex; align-items: center; gap: 20px; padding-left: 40px; border-left: 1px solid var(--color-line); }
+.p-top-catalog__media-cover { flex: none; width: 72px; border-radius: 2px; overflow: hidden; box-shadow: 0 8px 18px -12px rgba(var(--scrim-deep), .5); }
+.p-top-catalog__media-cover img { display: block; width: 100%; height: auto; }
+.p-top-catalog__media-body { display: flex; flex-direction: column; min-width: 0; }
+.p-top-catalog__media p { margin: 0; }
+.p-top-catalog__media-label { font-size: var(--fs-tag); letter-spacing: .12em; color: var(--color-gray); }
+.p-top-catalog__media-name { margin-top: 4px !important; font-size: var(--fs-small); font-weight: 500; letter-spacing: .04em; }
+.p-top-catalog__media-text { margin-top: 2px !important; font-size: var(--fs-note); line-height: 1.8; color: var(--color-ink-sub); }
+.p-top-catalog__media-body .c-link-more { align-self: flex-start; margin-top: 10px; font-size: var(--fs-note); }
+@media (max-width: 1024px) {
+  .p-top-catalog__inner { grid-template-columns: 96px minmax(0, 1fr); gap: 28px 32px; }
+  .p-top-catalog__media { grid-column: 1 / -1; padding: 20px 0 0; border-left: 0; border-top: 1px solid var(--color-line); }
+}
+@media (max-width: 768px) {
+  .p-top-catalog { padding-block: 56px; }
+  .p-top-catalog__inner { grid-template-columns: 80px minmax(0, 1fr); gap: 24px 20px; align-items: start; }
+  .p-top-catalog__title { font-size: 17px; }
+}
+
+/* === 2026-11-03 デジタルカタログの帯：左右の釣り合い === */
+.p-top-catalog__inner { grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr); gap: 0 32px; }
+.p-top-catalog__book { width: auto; }
+.p-top-catalog__book img, .p-top-catalog__media-cover img { width: auto; height: 132px; }
+.p-top-catalog__media { gap: 32px; padding-left: 48px; }
+.p-top-catalog__media-cover { width: auto; }
+.p-top-catalog__media-name { font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3-sm); letter-spacing: var(--ls-heading); line-height: 1.6; }
+.p-top-catalog__media-text { margin-top: 6px !important; }
+.p-top-catalog__media-body .c-link-more { margin-top: 14px; font-size: var(--fs-small); }
+@media (max-width: 1024px) {
+  .p-top-catalog__inner { grid-template-columns: auto minmax(0, 1fr); gap: 32px; }
+  .p-top-catalog__media { padding: 32px 0 0; }
+  /* 上下に並ぶときは、表紙の幅をそろえて文字の頭を合わせる */
+  .p-top-catalog__book, .p-top-catalog__media-cover { width: 100px; }
+  .p-top-catalog__book img, .p-top-catalog__media-cover img { width: 100%; height: auto; }
+}
+@media (max-width: 768px) {
+  .p-top-catalog__inner { gap: 28px 20px; }
+  .p-top-catalog__book, .p-top-catalog__media-cover { width: 84px; }
+  .p-top-catalog__media { gap: 20px; padding-top: 28px; }
+  .p-top-catalog__media-name { font-size: 17px; }
+}

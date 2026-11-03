@@ -664,7 +664,7 @@ a:hover > .c-lift, a.c-lift:hover { transform: translateY(-3px); box-shadow: var
 @media (max-width: 768px) {
   .c-mood-card__title { font-size: 18px; }
   .c-mood-card--lg .c-mood-card__title { font-size: 24px; }
-  .c-mood-card__sub { display: none; }
+  .c-mood-card__sub { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; margin-top: 2px; font-size: var(--fs-tag); letter-spacing: .02em; }
   .c-plan-pill { top: 8px; right: 8px; font-size: 13px; padding: 3px 10px; }
 
   /* 季節：横長の行 */
@@ -955,7 +955,6 @@ button.c-btn--fill { background-color: var(--color-primary); }
 }
 .c-badge--code { background: var(--color-ink); color: var(--color-paper); letter-spacing: .1em; }
 .c-badge--new { background: var(--color-new); color: var(--color-paper); }
-.c-badge--perk { background: var(--color-caution-bg); color: #6B520C; box-shadow: inset 0 0 0 1px var(--color-caution-line); }
 .c-badge--closed { background: var(--color-white); color: var(--color-error); box-shadow: inset 0 0 0 1px rgba(168, 50, 38, .45); }
 .c-badge-row { display: flex; flex-wrap: wrap; gap: 6px; }
 
@@ -971,8 +970,7 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-plan-card__meta { margin-top: 8px; font-size: var(--fs-note); line-height: 1.7; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
 .c-plan-card__meta [aria-hidden] { color: var(--color-line); }
 .c-plan-card__flags { display: flex; flex-wrap: wrap; gap: 2px 14px; margin-top: 6px; font-size: var(--fs-note); letter-spacing: var(--ls-body); }
-.c-plan-card__flags .is-perk { color: #7A5C0E; }
-.c-plan-card__flags .is-perk::before, .c-plan-card__flags .is-closed::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 6px 2px 0; border-radius: 50%; background: currentColor; }
+.c-plan-card__flags .is-closed::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 6px 2px 0; border-radius: 50%; background: currentColor; }
 .c-plan-card__flags .is-closed { color: var(--color-error); }
 .c-plan-card__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; margin-top: auto; padding-top: 14px; }
 .c-plan-card__now { font-family: var(--font-serif); font-size: 24px; letter-spacing: .02em; color: var(--color-ink); font-variant-numeric: tabular-nums; }
@@ -1253,3 +1251,45 @@ button.c-btn--fill { background-color: var(--color-primary); }
 @media (max-width: 768px) {
   .c-sec-head { flex-direction: column; align-items: flex-start; flex-wrap: nowrap; gap: 14px; }
 }
+
+
+/* === 2026-11-02 めぐる・探す：メガメニューのテーマ行・楽しみ方 === */
+.c-mega__themes { padding-top: 0; }
+.c-mega__themelinks { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 20px; border-top: 1px solid var(--color-line); }
+.c-mega__themelinks a { display: flex; flex-direction: column; gap: 2px; padding: 12px 0 4px; color: var(--color-ink); text-decoration: none; }
+.c-mega__themelinks b { font-family: var(--font-serif); font-weight: 600; font-size: 16px; letter-spacing: .06em; }
+.c-mega__themelinks a:hover b { color: var(--color-primary); }
+.c-mega__cards--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.c-mega__themelinks .c { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-tag); color: var(--color-primary); white-space: nowrap; }
+.c-mega__themelinks .c svg { width: 13px; height: 13px; }
+.l-footer__inline { flex-wrap: wrap; row-gap: 6px; }
+.l-footer__inline a { white-space: nowrap; }
+
+
+/* === 2026-11-02 タクシーの帯：色面をやめて線で挟む === */
+.c-taxi-band { padding: 32px 0; border-radius: 0; background: none; color: var(--color-ink); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.c-taxi-band__kicker { color: var(--color-primary); }
+.c-taxi-band__note, .c-taxi-band__stats .s { color: var(--color-ink-sub); }
+.c-taxi-band__stats .k { color: var(--color-gray); }
+.c-taxi-band__stats .v { color: var(--color-primary-dk); }
+.c-taxi-band .c-btn-on-teal { border-color: var(--color-primary); color: var(--color-primary); }
+.c-taxi-band .c-btn-on-teal--fill { background: var(--color-primary); color: var(--color-paper); }
+.c-taxi-band .c-btn-on-teal:hover { background: var(--color-primary-dk); border-color: var(--color-primary-dk); color: var(--color-paper); }
+@media (max-width: 768px) {
+  .c-taxi-band { padding: 26px 0; }
+}
+
+/* 2026-11-02 時間・料金が確認中のプラン（F-4） */
+.c-plan-card__price--tbd { font-size: var(--fs-note); letter-spacing: .04em; color: var(--color-ink-sub); }
+
+
+/* === 2026-11-03 エリアのメニュー：上流→下流の一覧 === */
+.c-mega__towns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); grid-auto-flow: column; gap: 0 32px; list-style: none; margin: 4px 0 0; padding: 0; }
+.c-mega__towns a { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 12px; padding: 10px 2px; border-bottom: 1px solid rgba(56, 106, 118, .14); text-decoration: none; color: var(--color-ink); }
+.c-mega__towns .n { font-family: var(--font-serif); font-weight: 600; font-size: 17px; letter-spacing: .05em; line-height: 1.5; }
+.c-mega__towns .s { grid-column: 1; font-size: var(--fs-tag); letter-spacing: .03em; line-height: 1.6; color: var(--color-gray); }
+.c-mega__towns .ar { grid-column: 2; grid-row: 1 / span 2; font-size: var(--fs-note); color: var(--color-primary); transition: transform .3s ease; }
+.c-mega__towns a:hover .n { color: var(--color-primary); }
+.c-mega__towns a:hover .ar { transform: translateX(4px); }
+.c-mega__towns--sp { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; margin: 0; }
+.c-mega__towns--sp a { padding: 9px 2px; }

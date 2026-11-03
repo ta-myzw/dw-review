@@ -75,7 +75,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* 暗い面（写真・ティール）の上では、フォーカスの枠を明るい色に */
 .l-footer :focus-visible,
-.c-taxi-band :focus-visible,
 .c-taxi-card :focus-visible,
 .c-btn--light:focus-visible,
 .c-credit:focus-visible,

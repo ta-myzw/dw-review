@@ -83,7 +83,7 @@
   });
 
   // エリアの一覧 ↔ 地図の強調
-  Array.prototype.forEach.call(header.querySelectorAll('.c-mega__group a'), function (a) {
+  Array.prototype.forEach.call(header.querySelectorAll('.c-mega__towns a'), function (a) {
     var k = (a.getAttribute('href') || '').split('/')[2];
     function hl(on) { var m = header.querySelector('.c-area-svg a[data-area="' + k + '"]'); if (m) { m.classList.toggle('is-hl', on); } }
     a.addEventListener('mouseenter', function () { hl(true); });
