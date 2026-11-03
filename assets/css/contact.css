@@ -17,7 +17,7 @@
 .p-contact__kanko-text { grid-column: 1; margin: 0; font-size: var(--fs-small); line-height: 1.9; color: var(--color-ink-sub); }
 .p-contact__kanko .c-link-more { grid-column: 2; grid-row: 1 / 3; white-space: nowrap; }
 
-.p-contact__form { gap: 48px; margin-top: 56px; }
+.p-contact__form { gap: 48px; margin: 56px 0 var(--space-section-sm); }   /* フォームはページの最後。下に余白がないとボタンがフッターにくっつく */
 .p-contact__form-note { margin: 0; font-size: var(--fs-note); line-height: 1.8; color: var(--color-ink-sub); }
 .p-contact__form .c-form__grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
 .p-contact__form .c-field { --field-gap: 10px; }
