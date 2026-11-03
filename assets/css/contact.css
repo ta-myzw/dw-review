@@ -84,9 +84,13 @@
   .p-kanko__more { grid-column: 2; grid-row: 1; align-self: center; margin-top: 0; }
   .p-kanko__desks, .p-kanko__tbd { grid-column: 1 / -1; }
   .p-kanko__tbd { margin: 0; }
+  /* 町 ＞ 窓口 の親子が見えるように：町名は大きく、窓口は町名の文字の位置まで字下げ（番号の丸28px＋間12px） */
+  .p-kanko__town-h { font-size: 22px; }
+  .p-kanko__desks, .p-kanko__tbd { margin-left: 40px; }
+  .p-kanko__desk-name { font-size: var(--fs-small); font-weight: 700; }
   .p-kanko__desk { flex-direction: column; align-items: stretch; gap: 10px; }
   .p-kanko__desk + .p-kanko__desk { margin-top: 18px; padding-top: 18px; }
-  .p-kanko__tel { justify-content: center; gap: 10px; padding: 12px 16px; border-radius: var(--radius-pill); background: var(--color-sage); font-size: 21px; }
+  .p-kanko__tel { justify-content: center; gap: 10px; padding: 12px 16px; border-radius: var(--radius-pill); background: var(--color-sage); font-size: 19px; }
   .p-kanko__tel:hover { text-decoration: none; }
   .p-kanko__tel-ic { width: 16px; height: 16px; }
 }
