@@ -28,7 +28,11 @@
     '/news/sample/': 'news/sample/index.html',
     '/event/': 'event/index.html',
     '/event/sample/': 'event/sample/index.html',
-    '/access/': 'access/index.html'
+    '/access/': 'access/index.html',
+    '/contact/': 'contact/index.html',
+    '/contact/confirm/': 'contact/confirm/index.html',
+    '/contact/thanks/': 'contact/thanks/index.html',
+    '/contact_kanko/': 'contact_kanko/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');
