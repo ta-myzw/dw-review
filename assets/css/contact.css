@@ -45,7 +45,7 @@
 .p-kanko__town:first-child { border-top-color: var(--color-ink); }
 .p-kanko__town-h { display: flex; align-items: center; gap: 12px; margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); letter-spacing: var(--ls-heading); line-height: 1.4; align-self: start; padding-top: 4px; transition: color .3s ease; }
 .p-kanko__town-h small { display: block; margin-top: 2px; font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-tag); letter-spacing: .06em; color: var(--color-gray); }
-.p-kanko__no { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--color-primary); border-radius: 50%; font-family: var(--font-serif); font-size: 11px; font-weight: 600; color: var(--color-primary); transition: background .3s ease, color .3s ease; }
+.p-kanko__no { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--color-primary); border-radius: 50%; font-family: var(--font-sans); font-size: var(--fs-tag); font-weight: 700; color: var(--color-primary); transition: background .3s ease, color .3s ease; }
 .p-kanko__no--near { border-style: dashed; }
 .p-kanko__town.is-hl .p-kanko__town-h { color: var(--color-primary); }
 .p-kanko__town.is-hl .p-kanko__no { background: var(--color-primary); color: var(--color-paper); }
