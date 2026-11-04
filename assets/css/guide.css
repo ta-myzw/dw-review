@@ -1,0 +1,133 @@
+/* =========================================================
+   登山ガイド（/guide/tozan/）  p-guide-
+   部品は c-page-hero・c-dl・c-btn・c-link-more を使い、ここでは並べ方だけ
+   左に目次（PCは追従）、右に6つの章。枠で囲まず、番号と罫線で区切る。図にできるものは図に（ルートは縦の行程図）
+   ========================================================= */
+.p-guide__hero { min-height: clamp(380px, 44vw, 600px); }
+.p-guide__hero > img { object-position: 50% 30%; }
+
+/* 導入：本文＋要点3つ */
+.p-guide__intro { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px 72px; align-items: end; padding: 64px 0 56px; border-bottom: 1px solid var(--color-line); }
+.p-guide__intro-text { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-lead); line-height: 2.1; letter-spacing: .08em; }
+.p-guide__keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--color-ink); }
+.p-guide__keys > div { padding: 14px 12px 0 0; }
+.p-guide__keys > div + div { padding-left: 14px; border-left: 1px solid var(--color-line); }
+.p-guide__keys dt { font-size: var(--fs-tag); letter-spacing: .06em; color: var(--color-gray); }
+.p-guide__keys dd { margin: 6px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); line-height: 1.4; color: var(--color-primary); }
+
+/* 目次と本文 */
+.p-guide__body { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 72px; align-items: start; padding: 64px 0 var(--space-section-sm); }
+.p-guide__toc { position: sticky; top: calc(var(--header-h) + 32px); }
+.p-guide__toc-title { margin: 0 0 12px; font-size: var(--fs-tag); letter-spacing: .2em; color: var(--color-primary); }
+.p-guide__toc ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-ink); }
+.p-guide__toc a { display: flex; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--color-line); font-size: var(--fs-small); color: var(--color-ink); text-decoration: none; transition: color .3s ease; }
+.p-guide__toc a:hover { color: var(--color-primary); }
+.p-guide__toc-no { font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; color: var(--color-primary); }
+
+.p-guide__sec + .p-guide__sec { margin-top: 96px; }
+.p-guide__h2 { display: flex; align-items: baseline; gap: 16px; margin: 0; padding-top: 20px; border-top: 1px solid var(--color-ink); font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h2); line-height: 1.4; letter-spacing: var(--ls-heading); scroll-margin-top: calc(var(--header-h) + 24px); }
+.p-guide__no { font-size: 15px; letter-spacing: .1em; color: var(--color-primary); }
+.p-guide__lead { max-width: 44em; margin: 16px 0 0; font-size: var(--fs-base); line-height: 1.95; color: var(--color-ink-sub); }
+.p-guide__sec > .p-guide__h2 + *:not(.p-guide__lead), .p-guide__sec > .p-guide__lead + * { margin-top: 36px; }
+.p-guide__h3 { margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); line-height: 1.5; letter-spacing: var(--ls-heading); }
+.p-guide__h3 small { display: block; margin-top: 4px; font-family: var(--font-sans); font-weight: 500; font-size: var(--fs-note); letter-spacing: .04em; color: var(--color-gray); }
+.p-guide__sec p { font-size: var(--fs-base); line-height: 1.95; letter-spacing: var(--ls-body); }
+
+/* 01 気候：夏と冬を2列、写真つき */
+.p-guide__seasons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.p-guide__ph { position: relative; margin: 0 0 20px; aspect-ratio: 3 / 2; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-ph); }
+.p-guide__season .p-guide__h3 { font-size: var(--fs-h3); }
+.p-guide__season p { margin: 10px 0 0; color: var(--color-ink-sub); }
+
+/* 02 心得：3つの決まり＋届出の場所 */
+.p-guide__rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; list-style: none; margin: 0; padding: 0; counter-reset: rule; }
+.p-guide__rules li { padding-top: 16px; border-top: 1px solid var(--color-line); counter-increment: rule; }
+.p-guide__rules li::before { content: counter(rule, decimal-leading-zero); display: block; margin-bottom: 8px; font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; color: var(--color-primary); }
+.p-guide__rules p { margin: 10px 0 0; font-size: var(--fs-small); color: var(--color-ink-sub); }
+.p-guide__sub { margin-top: 56px; }
+.p-guide__places { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--color-ink); counter-reset: pl; }
+.p-guide__places li { display: grid; grid-template-columns: 2em minmax(0, 1fr); gap: 2px 8px; padding: 14px 0; border-bottom: 1px solid var(--color-line); counter-increment: pl; }
+.p-guide__places li::before { content: counter(pl); grid-row: span 2; font-family: var(--font-serif); font-size: var(--fs-small); font-weight: 600; color: var(--color-primary); }
+.p-guide__places b { font-size: var(--fs-base); font-weight: 700; }
+.p-guide__places span { font-size: var(--fs-note); line-height: 1.7; color: var(--color-ink-sub); }
+
+/* 03 服装・装備：チェックリスト2列 */
+.p-guide__gear { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 56px; }
+.p-guide__list { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--color-ink); }
+.p-guide__list li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 0 12px; padding: 12px 0; border-bottom: 1px solid var(--color-line); }
+.p-guide__chk { grid-row: span 2; width: 18px; height: 18px; margin-top: 3px; border-radius: 50%; background: var(--color-sage); position: relative; }
+.p-guide__chk::after { content: ""; position: absolute; left: 6px; top: 3px; width: 5px; height: 9px; border: solid var(--color-primary); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.p-guide__list b { font-size: var(--fs-base); font-weight: 700; }
+.p-guide__list span:not(.p-guide__chk) { font-size: var(--fs-note); line-height: 1.7; color: var(--color-ink-sub); }
+
+/* 04 ルート：左に説明、右に縦の行程図（下が登山口、上が頂上） */
+.p-guide__route { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 64px; align-items: start; }
+.p-guide__badge { display: inline-block; margin: 0 !important; padding: 2px 12px; border-radius: var(--radius-pill); background: var(--color-sage); font-size: var(--fs-tag) !important; letter-spacing: .06em; color: var(--color-primary); }
+.p-guide__route-h { margin: 12px 0 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h2); line-height: 1.4; letter-spacing: var(--ls-heading); }
+.p-guide__facts { display: flex; gap: 32px; margin: 16px 0 8px; }
+.p-guide__facts dt { font-size: var(--fs-tag); color: var(--color-gray); }
+.p-guide__facts dd { margin: 2px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3); color: var(--color-primary); }
+.p-guide__route-text p:not(.p-guide__badge) { margin: 14px 0 0; color: var(--color-ink-sub); }
+.p-guide__stops { display: flex; flex-direction: column-reverse; list-style: none; margin: 0; padding: 0 0 0 88px; }
+.p-guide__stop { position: relative; display: flex; flex-direction: column; justify-content: center; min-height: 64px; padding-left: 32px; }
+.p-guide__stop::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--color-primary); opacity: .3; }
+.p-guide__stop:first-child::before { top: 50%; }
+.p-guide__stop.is-top::before { bottom: 50%; }
+.p-guide__dot { position: absolute; left: 0; top: 50%; width: 16px; height: 16px; margin-top: -8px; border: 2px solid var(--color-primary); border-radius: 50%; background: var(--color-paper); }
+.p-guide__stop.is-top .p-guide__dot { background: var(--color-primary); }
+.p-guide__stop:first-child .p-guide__dot { background: var(--color-sage); }
+.p-guide__stop b { font-size: var(--fs-base); font-weight: 700; line-height: 1.5; }
+.p-guide__stop.is-top b { font-family: var(--font-serif); font-size: var(--fs-h3); color: var(--color-primary); }
+.p-guide__stop small { font-size: var(--fs-note); line-height: 1.6; color: var(--color-gray); }
+.p-guide__leg { position: absolute; right: 100%; bottom: -32px; width: 72px; margin-right: 8px; padding-right: 10px; font-family: var(--font-serif); font-size: var(--fs-small); font-weight: 600; text-align: right; color: var(--color-primary); line-height: 64px; }   /* 下の地点からこの地点までの時間を、線の左に */
+
+/* 05 危険 */
+.p-guide__warn { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 16px 0; border-top: 2px solid var(--color-error); border-bottom: 1px solid var(--color-line); }
+.p-guide__warn b { color: var(--color-error); }
+.p-guide__danger { margin: 0; }
+.p-guide__danger > div { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 8px 32px; padding: 18px 0; border-bottom: 1px solid var(--color-line); }
+.p-guide__danger dt { font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); line-height: 1.6; }
+.p-guide__danger dd { margin: 0; }
+.p-guide__danger ul { margin: 0; padding-left: 1.2em; list-style: disc; }
+.p-guide__danger li { font-size: var(--fs-base); line-height: 1.8; }
+.p-guide__danger li::marker { color: var(--color-error); }
+.p-guide__danger li + li { margin-top: 4px; }
+
+/* 06 山小屋 */
+.p-guide__huts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; list-style: none; margin: 0; padding: 0; }
+.p-guide__huts > li { padding-top: 16px; border-top: 1px solid var(--color-ink); }
+.p-guide__hut-where { margin: 4px 0 12px !important; font-size: var(--fs-note) !important; color: var(--color-gray); }
+.p-guide__huts .c-dl { font-size: var(--fs-small); }
+.p-guide__hut-note { margin: 12px 0 0 !important; font-size: var(--fs-small) !important; color: var(--color-ink-sub); }
+
+.p-guide__more { margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--color-line); }
+.p-guide__more-h { margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); }
+.p-guide__links { display: flex; flex-wrap: wrap; gap: 12px 32px; list-style: none; margin: 16px 0 0; padding: 0; }
+.p-guide__checked { margin: 28px 0 0 !important; font-size: var(--fs-note) !important; color: var(--color-gray); }
+
+.p-guide__plan-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 48px; }
+.p-guide__plan-h { margin: 8px 0 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h2); line-height: 1.5; letter-spacing: var(--ls-heading); }
+.p-guide__plan-in p { margin: 10px 0 0; font-size: var(--fs-base); line-height: 1.9; color: var(--color-ink-sub); }
+
+@media (max-width: 1024px) {
+  .p-guide__intro { grid-template-columns: minmax(0, 1fr); }
+  .p-guide__body { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .p-guide__toc { position: static; }
+  .p-guide__huts { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+@media (max-width: 768px) {
+  .p-guide__intro { padding: 40px 0; }
+  .p-guide__intro-text { font-size: var(--fs-body); line-height: 2; letter-spacing: .05em; }
+  .p-guide__keys { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr) minmax(0, .9fr); }
+  .p-guide__keys > div + div { padding-left: 10px; }
+  .p-guide__keys dd { font-size: 15px; }
+  .p-guide__body { padding-top: 40px; }
+  .p-guide__sec + .p-guide__sec { margin-top: 72px; }
+  .p-guide__h2 { font-size: 24px; }
+  .p-guide__seasons, .p-guide__rules, .p-guide__places, .p-guide__gear, .p-guide__route { grid-template-columns: minmax(0, 1fr); }
+  .p-guide__rules { gap: 24px; }
+  .p-guide__danger > div { grid-template-columns: minmax(0, 1fr); }
+  .p-guide__stops { padding-left: 76px; }
+  .p-guide__leg { width: 60px; }
+  .p-guide__plan-in .c-btn { width: 100%; justify-content: center; }
+}

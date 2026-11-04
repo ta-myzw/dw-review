@@ -35,7 +35,8 @@
     '/contact_kanko/': 'contact_kanko/index.html',
     '/about-site/': 'about-site/index.html',
     '/policy/': 'policy/index.html',
-    '/photo/': 'photo/index.html'
+    '/photo/': 'photo/index.html',
+    '/guide/tozan/': 'guide/tozan/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');
