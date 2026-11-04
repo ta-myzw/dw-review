@@ -38,7 +38,8 @@
     '/photo/': 'photo/index.html',
     '/guide/tozan/': 'guide/tozan/index.html',
     '/digitalcatalog/': 'digitalcatalog/index.html',
-    '/other-languages/': 'other-languages/index.html'
+    '/other-languages/': 'other-languages/index.html',
+    '/links/': 'links/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');
