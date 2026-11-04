@@ -17,6 +17,10 @@
   /* ---------- 入力画面 ---------- */
   var form = $('.js-ct-form');
   if (form) {
+    // 他のページから種類を選んだ状態で来る（例：/contact/?type=photo は「写真の貸し出し」）
+    var TYPE_Q = { site: '当サイトについて', media: '取材・メディア掲載', photo: '写真の貸し出し', other: 'その他' };
+    var qType = TYPE_Q[new URLSearchParams(location.search).get('type')];
+    if (qType) { $$('input[name="type"]', form).forEach(function (r) { r.checked = r.value === qType; }); }
     var prev = load();
     if (prev) {   // 確認画面から戻ったときは、入力を戻す
       ['name', 'mail', 'tel', 'pref', 'body'].forEach(function (k) { if (prev[k] && prev[k] !== '—') { form.elements[k].value = prev[k]; } });

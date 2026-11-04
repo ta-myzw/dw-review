@@ -1,0 +1,68 @@
+/* =========================================================
+   写真データ・レンタル（/photo/）  p-photo-
+   部品は c-page-head・c-sec-head・c-btn を使い、ここでは並べ方だけ
+   写真を先に見せて「どんな写真を借りられるか」を伝え、料金・流れ・問い合わせの順に。枠で囲まず罫線で区切る
+   ========================================================= */
+
+/* 写真の例：大きい1枚＋小さい7枚のモザイク */
+.p-photo__gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: clamp(120px, 13vw, 200px); gap: 10px; list-style: none; margin: 48px 0 0; padding: 0; }
+.p-photo__gallery li { position: relative; overflow: hidden; border-radius: var(--radius-sm); background: var(--color-ph); }
+.p-photo__gallery { grid-template-areas: "a a b c" "a a e d" "f g h d"; }   /* 4列×3段をすき間なく：大1・縦長1・小6 */
+.p-photo__g0 { grid-area: a; } .p-photo__g1 { grid-area: b; } .p-photo__g2 { grid-area: c; } .p-photo__g3 { grid-area: d; }
+.p-photo__g4 { grid-area: e; } .p-photo__g5 { grid-area: f; } .p-photo__g6 { grid-area: g; } .p-photo__g7 { grid-area: h; }
+
+.p-photo__sec { margin-top: var(--space-section-sm); }
+.p-photo__sec .c-sec-head { margin-bottom: 36px; }
+
+/* 料金：2列を罫線で区切る。数字は明朝で大きく */
+.p-photo__prices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-ink); border-bottom: 1px solid var(--color-line); }
+.p-photo__price { padding: 28px 40px 28px 0; }
+.p-photo__price + .p-photo__price { padding-left: 40px; border-left: 1px solid var(--color-line); }
+.p-photo__price-who { margin: 0; font-size: var(--fs-small); line-height: 1.7; color: var(--color-ink-sub); }
+.p-photo__price-num { margin: 10px 0 0; font-family: var(--font-serif); font-weight: 500; font-size: clamp(40px, 4.4vw, 56px); line-height: 1.1; letter-spacing: .02em; color: var(--color-primary); }
+.p-photo__price-num small { margin-left: 4px; font-size: 18px; letter-spacing: .06em; color: var(--color-ink); }
+.p-photo__price-unit { margin: 8px 0 0; font-size: var(--fs-note); color: var(--color-gray); }
+.p-photo__note { max-width: 46em; margin: 20px 0 0; font-size: var(--fs-small); line-height: 1.9; color: var(--color-ink-sub); }
+
+/* 流れ：4段を横に。番号の丸を線でつなぐ（SPは縦） */
+.p-photo__steps { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 32px; list-style: none; margin: 0; padding: 0; }
+.p-photo__steps::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; height: 1px; background: var(--color-primary); opacity: .35; }
+.p-photo__step-no { position: relative; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--color-primary); border-radius: 50%; background: var(--color-paper); font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; color: var(--color-primary); }
+.p-photo__step-h { margin: 20px 0 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h4); line-height: 1.5; letter-spacing: var(--ls-heading); }
+.p-photo__step p { margin: 10px 0 0; font-size: var(--fs-small); line-height: 1.9; letter-spacing: var(--ls-body); color: var(--color-ink-sub); }
+
+/* 問い合わせ：左に見出しとボタン、右に書いてほしい項目 */
+.p-photo__ask { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 32px 72px; align-items: start; margin-bottom: var(--space-section-sm); padding-top: 40px; border-top: 1px solid var(--color-ink); }
+.p-photo__ask .c-kicker { margin-bottom: 10px; }
+.p-photo__ask-h { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-h2); line-height: 1.5; letter-spacing: var(--ls-heading); }
+.p-photo__ask-text { margin: 14px 0 28px; font-size: var(--fs-base); line-height: 1.9; color: var(--color-ink-sub); }
+.p-photo__needs { list-style: none; margin: 0; padding: 0; counter-reset: need; }
+.p-photo__needs li { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--color-line); font-size: var(--fs-base); line-height: 1.7; counter-increment: need; }
+.p-photo__needs li:first-child { padding-top: 0; }
+.p-photo__needs li::before { content: counter(need, decimal-leading-zero); flex: none; padding-top: 3px; font-family: var(--font-serif); font-size: var(--fs-tag); font-weight: 600; color: var(--color-primary); }
+
+@media (max-width: 1024px) {
+  .p-photo__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
+  .p-photo__steps::before { display: none; }
+  .p-photo__ask { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 768px) {
+  .p-photo__gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 120px; gap: 6px; margin: 32px calc(var(--gutter) * -1) 0; }
+  .p-photo__gallery li { border-radius: 0; }
+  .p-photo__gallery { grid-template-areas: "a a" "a a" "b c" "d e" "g g" "f h"; }   /* 2列×6段：大1・横長1・小6 */
+  .p-photo__prices { grid-template-columns: 1fr; }
+  .p-photo__price, .p-photo__price + .p-photo__price { padding: 22px 0; border-left: 0; }
+  .p-photo__price + .p-photo__price { border-top: 1px solid var(--color-line); }
+  .p-photo__price-num { font-size: 40px; }
+  /* 流れ：縦に。番号の丸を縦の線でつなぐ */
+  .p-photo__steps { grid-template-columns: 1fr; gap: 0; }
+  .p-photo__step { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 0 16px; padding-bottom: 28px; }
+  .p-photo__step-no { width: 36px; height: 36px; grid-row: span 2; }
+  .p-photo__step-h { margin-top: 5px; }
+  .p-photo__step:last-child { padding-bottom: 0; }
+  .p-photo__step { position: relative; }
+  .p-photo__step:not(:last-child)::after { content: ""; position: absolute; left: 17px; top: 36px; bottom: 0; width: 1px; background: var(--color-primary); opacity: .35; }   /* 丸から次の丸まで */
+  .p-photo__step p { grid-column: 2; margin-top: 4px; }
+  .p-photo__ask-h { font-size: 24px; }
+  .p-photo__ask .c-btn { width: 100%; justify-content: center; }
+}
