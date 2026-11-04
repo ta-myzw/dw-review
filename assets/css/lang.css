@@ -41,8 +41,8 @@
 .p-lang__lead { max-width: 44em; margin: 12px 0 0; font-size: var(--fs-base); line-height: 1.85; color: var(--color-ink-sub); }
 .p-lang__items { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; list-style: none; margin: 32px 0 0; padding: 0; }
 .p-lang__item { padding-top: 20px; border-top: 1px solid var(--color-line); }
-.p-lang__ic { width: 30px; height: 30px; fill: none; stroke: var(--color-primary); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.p-lang__item:nth-child(3) .p-lang__ic { fill: var(--color-primary); stroke: none; }
+.p-lang__ic { display: block; width: 28px; height: 28px; fill: none;   /* 4つとも同じ線の太さ・角の丸みの線画でそろえる */
+  stroke: var(--color-primary); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .p-lang__h3 { margin: 12px 0 0; font-size: var(--fs-h4); font-weight: 700; line-height: 1.5; }
 .p-lang__item p { margin: 8px 0 14px; font-size: var(--fs-small); line-height: 1.85; color: var(--color-ink-sub); }
 /* 英語など、単語の途中で折り返さない */
