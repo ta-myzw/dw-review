@@ -23,6 +23,7 @@
   color: var(--color-ink); text-decoration: none; white-space: nowrap; cursor: pointer;
   transition: color .35s ease;
 }
+@media (max-width: 768px) { .c-link-more { max-width: 100%; white-space: normal; } .c-link-more .c-arrow { flex: none; } }   /* 長いリンク名は折り返す（はみ出し防止） */
 .c-link-more::after {
   content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: currentColor;
 }
@@ -575,7 +576,7 @@ a:hover > .c-lift, a.c-lift:hover { transform: translateY(-3px); box-shadow: var
   border-top: 1px solid var(--color-line-soft); text-decoration: none; color: inherit;
 }
 .c-article-row__ph { position: relative; flex: none; width: 130px; height: 90px; border-radius: var(--radius-xs); overflow: hidden; background: var(--color-ph); }
-.c-article-row__body { flex: 1; }
+.c-article-row__body { flex: 1; min-width: 0; }
 .c-article-row__meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: var(--fs-small); letter-spacing: .08em; color: var(--color-primary); }
 .c-article-row__title { font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h3-sm); line-height: 1.5; letter-spacing: var(--ls-body); }
 .c-article-row > .c-arrow { flex: none; font-family: var(--font-serif); color: var(--color-primary); }
@@ -1097,6 +1098,9 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-input[aria-invalid="true"], .c-select[aria-invalid="true"], .c-textarea[aria-invalid="true"] { border-color: var(--color-error); background: var(--color-error-bg); }
 .c-input:disabled, .c-select:disabled { background: var(--color-mist); color: var(--color-gray); }
 .c-textarea { min-height: 140px; line-height: 1.7; resize: vertical; }
+/* iOS Safari の日付・時刻欄は、中身の幅で広がって画面からはみ出すことがある。見た目の初期化と最小幅0で枠に収める */
+.c-input[type="date"], .c-input[type="time"] { -webkit-appearance: none; appearance: none; display: block; min-width: 0; max-width: 100%; text-align: left; }
+.c-input[type="date"]::-webkit-date-and-time-value, .c-input[type="time"]::-webkit-date-and-time-value { text-align: left; }
 .c-select {
   appearance: none; -webkit-appearance: none; padding-right: 44px; cursor: pointer;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23386A76' stroke-width='1.6'/%3E%3C/svg%3E");
@@ -1204,8 +1208,10 @@ button.c-btn--fill { background-color: var(--color-primary); }
   .c-route__text { font-size: var(--fs-note); }
 
   .c-steps li { font-size: var(--fs-tag); }
-  .c-steps--row li { gap: 6px; }
-  .c-steps--row li::before { width: 28px; height: 28px; font-size: 13px; }
+  /* スマホ：幅は名前の長さから取り、縮めるのは線が先。375px未満の狭い画面では、いまの段以外の名前を隠す（読み上げは残る） */
+  .c-steps--row li { flex: 1 1 auto; gap: 6px; min-width: 0; letter-spacing: .02em; }
+  .c-steps--row li:last-child { flex: 0 1 auto; }
+  .c-steps--row li::before { flex: none; width: 28px; height: 28px; font-size: 13px; }
   .c-steps--row li:not(:last-child)::after { min-width: 10px; margin: 0 8px 0 2px; }
   .c-form__grid { grid-template-columns: 1fr; }
   .c-form__actions .c-btn { width: 100%; justify-content: center; }
@@ -1215,6 +1221,7 @@ button.c-btn--fill { background-color: var(--color-primary); }
   .c-reserve-box { box-shadow: none; }
   .c-price--lg .c-price__now { font-size: 28px; }
 }
+@media (max-width: 374px) { .c-steps--row li:not([aria-current="step"]) { gap: 0; font-size: 0; } }   /* 狭い画面：いまの段以外は番号だけ（名前は読み上げ用に残る） */
 
 /* ---------- 7-19. 改行のルール（下層の読ませる文章） ----------
    見出しやキャッチは base.css の keep-all（文節の区切りにゼロ幅スペースを入れて改行位置を決める）。

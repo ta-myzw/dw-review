@@ -204,7 +204,7 @@
 
 /* ---------- 読みもの・イベント ---------- */
 .p-top-journal { padding-bottom: var(--space-section); }
-.p-top-journal__cols { display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; }
+.p-top-journal__cols { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 64px; }
 .p-top-journal .c-sec-head { flex-wrap: nowrap; margin-bottom: 36px; }
 .p-top-journal__list { border-bottom: 1px solid var(--color-line-soft); }
 .p-top-journal__events { display: flex; flex-direction: column; border-bottom: 1px solid var(--color-line-soft); }
@@ -322,7 +322,7 @@
   .p-top-area__body { grid-template-columns: 1fr; gap: 28px; }
   .p-top-area__grid { gap: 0 20px; }
 
-  .p-top-journal__cols { grid-template-columns: 1fr; gap: 56px; }
+  .p-top-journal__cols { grid-template-columns: minmax(0, 1fr); gap: 56px; }   /* 1fr だと中身の最小幅で列が広がり、画面からはみ出す */
 
   .p-top-reveal__label { left: 50%; transform: translateX(-50%); width: 86vw; text-align: center; }
 

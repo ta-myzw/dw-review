@@ -5,6 +5,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;   /* 念のための受け止め。はみ出しの元は各部品で直す（clip はスクロール領域を作らないので sticky は効く） */
   scroll-padding-top: calc(var(--header-h) + 13px);
 }
 
