@@ -36,7 +36,9 @@
     '/about-site/': 'about-site/index.html',
     '/policy/': 'policy/index.html',
     '/photo/': 'photo/index.html',
-    '/guide/tozan/': 'guide/tozan/index.html'
+    '/guide/tozan/': 'guide/tozan/index.html',
+    '/digitalcatalog/': 'digitalcatalog/index.html',
+    '/other-languages/': 'other-languages/index.html'
   };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="/"]');
