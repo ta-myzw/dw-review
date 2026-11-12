@@ -1395,3 +1395,45 @@ button.c-btn--fill { background-color: var(--color-primary); }
 .c-link-card:hover .c-link-card__title { color: var(--color-primary); }
 .c-link-card:hover .c-link-card__ph img { transform: scale(1.04); }
 @media (max-width: 768px) { .c-link-cards { grid-template-columns: 1fr; gap: 28px; } }
+
+/* =========================================================
+   言語の切り替え c-lang（2026-11-12）
+   多言語は「シュッと翻訳」を共通ヘッダーに入れて全ページ4言語にする（代理店打ち合わせ 11/9）。
+   ボタンと選択肢はサイト側で持ち、切り替えの処理は header.js の setLang() でシュッと翻訳につなぐ（仕様は確認中）。
+   PC：ヘッダー右のSNSの左（地球のアイコン）。1180px以下：予約ボタンの左。340px未満はSPメニューの中だけ
+   ========================================================= */
+.c-lang { position: relative; }
+.c-lang__btn { padding: 0; background: transparent; cursor: pointer; color: inherit; }
+.c-lang__btn svg { width: 18px; height: 18px; }
+.c-lang__btn[aria-expanded="true"] { background: var(--color-primary); color: var(--color-paper); border-color: var(--color-primary); }
+.c-lang__menu { position: absolute; top: calc(100% + 12px); right: 0; z-index: 40; min-width: 200px; margin: 0; padding: 8px 0; list-style: none; background: var(--color-white); border-radius: var(--radius-sm); box-shadow: var(--shadow-panel); }
+.c-lang__menu[hidden] { display: none; }
+.c-lang__menu button, .c-lang__menu a { display: block; width: 100%; padding: 10px 20px; border: 0; background: none; font: inherit; font-size: var(--fs-small); letter-spacing: .04em; color: var(--color-ink); text-align: left; text-decoration: none; cursor: pointer; }
+.c-lang__menu button:hover, .c-lang__menu a:hover { background: var(--color-mist); color: var(--color-primary); }
+.c-lang__menu button[aria-current="true"] { color: var(--color-primary); font-weight: 700; }
+.c-lang__menu button[aria-current="true"]::after { content: "✓"; float: right; }
+.c-lang__guide { margin-top: 6px; border-top: 1px solid var(--color-line); padding-top: 6px; }
+.c-lang__guide a { font-size: var(--fs-note); color: var(--color-primary); }
+.c-lang--sp { display: none; }
+@media (max-width: 1180px) {
+  .c-lang--sp { display: block; margin-left: auto; color: var(--color-ink-sub); }
+  .c-lang--sp + .l-header__reserve { margin-left: 8px; }
+}
+@media (max-width: 400px) {
+  .l-header__reserve { padding: 0 11px; font-size: var(--fs-tag); }
+  .l-header__reserve svg { display: none; }
+}
+@media (max-width: 339px) {
+  .c-lang--sp { display: none; }
+  .c-lang--sp + .l-header__reserve { margin-left: auto; }
+}
+/* SPメニューの言語 */
+.c-spmenu__lang { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-line); }
+.c-spmenu__lang-h { margin: 0 0 8px; font-size: var(--fs-tag); letter-spacing: .2em; color: var(--color-gray); }
+.c-spmenu__lang ul { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; padding: 0; list-style: none; }
+.c-spmenu__lang button { padding: 8px 0; border: 0; background: none; font: inherit; font-size: var(--fs-base); color: var(--color-ink-sub); cursor: pointer; }
+.c-spmenu__lang button[aria-current="true"] { color: var(--color-primary); font-weight: 700; }
+@media (max-width: 1320px) { .l-header__actions .c-social.c-lang__btn { display: inline-flex; } }
+/* SPのヘッダー：選択肢は地球のアイコンの左端から開く（右寄せだと画面の左にはみ出す） */
+.c-lang--sp .c-lang__menu { right: auto; left: 0; }
+.c-spmenu__lang button[aria-current="true"] { font-weight: inherit; text-decoration: underline; text-underline-offset: 6px; }

@@ -139,3 +139,37 @@
   // 画面幅が広がったら閉じる
   window.addEventListener('resize', function () { if (window.innerWidth > 1180 && menu.classList.contains('is-open')) { setMenu(false); } });
 })();
+
+/**
+ * 言語の切り替え（.js-lang のボタンと [data-lang] の選択肢）
+ * 多言語は「シュッと翻訳」で行う（11/9 代理店打ち合わせ）。切り替えの処理は setLang() の中でシュッと翻訳につなぐ（タグ・仕様は確認中）
+ */
+(function () {
+  'use strict';
+  var roots = Array.prototype.slice.call(document.querySelectorAll('.js-lang'));
+  function close(root) {
+    var b = root.querySelector('.c-lang__btn'), m = root.querySelector('.c-lang__menu');
+    if (b && m) { b.setAttribute('aria-expanded', 'false'); m.hidden = true; }
+  }
+  roots.forEach(function (root) {
+    var btn = root.querySelector('.c-lang__btn'), menu = root.querySelector('.c-lang__menu');
+    if (!btn || !menu) { return; }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      roots.forEach(close);
+      if (!open) { btn.setAttribute('aria-expanded', 'true'); menu.hidden = false; var c = menu.querySelector('[aria-current="true"]') || menu.querySelector('button'); if (c) { c.focus(); } }
+    });
+    root.addEventListener('keydown', function (e) { if (e.key === 'Escape') { close(root); btn.focus(); } });
+  });
+  document.addEventListener('click', function (e) { roots.forEach(function (r) { if (!r.contains(e.target)) { close(r); } }); });
+  function setLang(code) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (el) {
+      if (el.getAttribute('data-lang') === code) { el.setAttribute('aria-current', 'true'); } else { el.removeAttribute('aria-current'); }
+    });
+    // TODO：ここでシュッと翻訳の切り替えを呼ぶ（code：ja / en / zh-TW / zh-CN / ko）
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (el) {
+    el.addEventListener('click', function () { setLang(el.getAttribute('data-lang')); roots.forEach(close); });
+  });
+})();

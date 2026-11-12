@@ -178,3 +178,4 @@
   .p-access__sites { grid-template-columns: 1fr; }
 }
 @media (min-width: 769px) { .p-access__map-hint { display: none; } }
+.p-access__overseas-note { margin-top: 16px; }

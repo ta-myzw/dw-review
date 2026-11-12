@@ -451,3 +451,26 @@
   .p-top-catalog__media { gap: 20px; padding-top: 28px; }
   .p-top-catalog__media-name { font-size: 17px; }
 }
+
+/* === 2026-11-12 デジタルカタログの帯：縦組み（表紙を大きく、文字は下に）。代理店打ち合わせ 11/9 === */
+.p-top-catalog__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "book media" "body media"; gap: 0 64px; align-items: start; }
+.p-top-catalog__book { grid-area: book; justify-self: start; width: auto; }
+.p-top-catalog__book img, .p-top-catalog__media-cover img { width: auto; height: 300px; }
+.p-top-catalog__body { grid-area: body; margin-top: 28px; }
+.p-top-catalog__title { font-size: var(--fs-h3); }
+.p-top-catalog__lead { font-size: var(--fs-small); }
+.p-top-catalog__media { grid-area: media; flex-direction: column; align-items: flex-start; gap: 28px; padding: 0 0 0 64px; border-left: 1px solid var(--color-line); border-top: 0; }
+.p-top-catalog__media-cover { width: auto; }
+@media (max-width: 1024px) {
+  .p-top-catalog__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+  .p-top-catalog__book, .p-top-catalog__media-cover { width: auto; }
+  .p-top-catalog__book img, .p-top-catalog__media-cover img { width: auto; height: 240px; }
+  .p-top-catalog__media { padding: 0 0 0 40px; }
+}
+@media (max-width: 768px) {
+  .p-top-catalog__inner { grid-template-columns: minmax(0, 1fr); grid-template-areas: "book" "body" "media"; gap: 0; }
+  .p-top-catalog__book img, .p-top-catalog__media-cover img { height: 220px; }
+  .p-top-catalog__body { margin-top: 20px; }
+  .p-top-catalog__media { gap: 20px; margin-top: 40px; padding: 40px 0 0; border-left: 0; border-top: 1px solid var(--color-line); }
+  .p-top-catalog__title { font-size: 19px; }
+}

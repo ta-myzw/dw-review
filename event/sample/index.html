@@ -37,6 +37,7 @@
   <symbol id="i-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.5h5.5V10M19.5 4.5 11 13"/><path d="M17 14v4.5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1H10"/></g></symbol>
   <symbol id="i-link" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></g></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M17.6 3.5h3l-6.6 7.6 7.8 9.4h-6.1l-4.8-5.9-5.5 5.9H2.4l7.1-8.1L2 3.5h6.2l4.3 5.4 5.1-5.4zm-1 15.3h1.7L7.5 5.1H5.7z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.3 2.4 3.5 5.3 3.5 8.6s-1.2 6.2-3.5 8.6c-2.3-2.4-3.5-5.3-3.5-8.6S9.7 5.8 12 3.4z"/></g></symbol>
   <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M13.4 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3a21 21 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.2H7.7v3h2.6V21z"/></symbol>
   <symbol id="i-line" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3.6c-5 0-9 3.3-9 7.3 0 3.6 3.1 6.6 7.4 7.2.3.1.7.2.8.5.1.2.1.6 0 .9l-.1.8c0 .2-.2.9.8.5s5.4-3.2 7.4-5.5c1.4-1.5 2-3 2-4.4 0-4-4-7.3-9.3-7.3zm-3.6 9.5H6.6a.5.5 0 0 1-.5-.5V9a.5.5 0 0 1 1 0v3.1h1.3a.5.5 0 0 1 0 1zm1.8-.5a.5.5 0 0 1-1 0V9a.5.5 0 0 1 1 0zm4.3 0a.5.5 0 0 1-.9.3l-1.8-2.5v2.2a.5.5 0 0 1-1 0V9a.5.5 0 0 1 .9-.3l1.8 2.5V9a.5.5 0 0 1 1 0zm2.9-2.3a.5.5 0 0 1 0 1h-1.3v.8h1.3a.5.5 0 0 1 0 1h-1.8a.5.5 0 0 1-.5-.5V9a.5.5 0 0 1 .5-.5h1.8a.5.5 0 0 1 0 1h-1.3v.8z"/></symbol>
 </svg>
@@ -55,10 +56,12 @@
     <button type="button" class="c-gnav__trigger" data-mega="journal" aria-expanded="false" aria-controls="mega-journal"><span class="c-flip"><span class="c-flip__inner"><span class="c-flip__front">特集・読みもの</span><span class="c-flip__back" lang="en" aria-hidden="true">Journal</span></span></span></button>
   </nav>
   <div class="l-header__actions">
+    <div class="c-lang js-lang"><button type="button" class="c-social c-lang__btn" aria-expanded="false" aria-controls="lang-menu" aria-label="Language／言語"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-globe"/></svg></button><ul class="c-lang__menu" id="lang-menu" hidden><li><button type="button" data-lang="ja" lang="ja" aria-current="true">日本語</button></li><li><button type="button" data-lang="en" lang="en">English</button></li><li><button type="button" data-lang="zh-TW" lang="zh-Hant">繁體中文</button></li><li><button type="button" data-lang="zh-CN" lang="zh-Hans">简体中文</button></li><li><button type="button" data-lang="ko" lang="ko">한국어</button></li><li class="c-lang__guide"><a href="/other-languages/" lang="en">Guide for visitors<span aria-hidden="true"> →</span></a></li></ul></div>
     <a class="c-social" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram（新しいタブで開きます）"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram"/></svg></a>
 <a class="c-social" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube（新しいタブで開きます）"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-youtube"/></svg></a>
     <a class="c-cta-pill" href="/plan/" aria-current="page"><svg class="c-cta-pill__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-car"/></svg>プランを​選ぶ<span class="c-arrow" aria-hidden="true">→</span></a>
   </div>
+  <div class="c-lang js-lang c-lang--sp"><button type="button" class="c-social c-lang__btn" aria-expanded="false" aria-controls="lang-menu-sp" aria-label="Language／言語"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-globe"/></svg></button><ul class="c-lang__menu" id="lang-menu-sp" hidden><li><button type="button" data-lang="ja" lang="ja" aria-current="true">日本語</button></li><li><button type="button" data-lang="en" lang="en">English</button></li><li><button type="button" data-lang="zh-TW" lang="zh-Hant">繁體中文</button></li><li><button type="button" data-lang="zh-CN" lang="zh-Hans">简体中文</button></li><li><button type="button" data-lang="ko" lang="ko">한국어</button></li><li class="c-lang__guide"><a href="/other-languages/" lang="en">Guide for visitors<span aria-hidden="true"> →</span></a></li></ul></div>
   <a class="l-header__reserve" href="/plan/" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-car"/></svg><span>プランを選ぶ</span></a>
   <button class="l-header__burger js-spmenu-open" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="spmenu"><span></span><span></span><span></span></button>
 
@@ -111,6 +114,7 @@
     <a class="c-social" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram（新しいタブで開きます）"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram"/></svg></a>
 <a class="c-social" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube（新しいタブで開きます）"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-youtube"/></svg></a>
   </div>
+  <div class="c-spmenu__lang"><p class="c-spmenu__lang-h" lang="en">Language</p><ul><li><button type="button" data-lang="ja" lang="ja" aria-current="true">日本語</button></li><li><button type="button" data-lang="en" lang="en">English</button></li><li><button type="button" data-lang="zh-TW" lang="zh-Hant">繁體中文</button></li><li><button type="button" data-lang="zh-CN" lang="zh-Hans">简体中文</button></li><li><button type="button" data-lang="ko" lang="ko">한국어</button></li></ul></div>
 </div>
 
 
